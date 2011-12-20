@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{purple}{rgb}{0.73,0.33,0.83}
+\lstset{language=Matlab,
+   keywords={break,case,catch,continue,else,elseif,end,for,function,
+      global,if,otherwise,persistent,return,switch,try,while,ones,
+      squeeze,warning,waitbar,circshift},
+   basicstyle=\ttfamily,
+   keywordstyle=\color{blue},
+   commentstyle=\color{dkgreen},
+   stringstyle=\color{purple},
+   numbers=left,
+   numberstyle=\tiny\color{gray},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false,
+   breaklines=true}
+
+% \includeonly{}
+
+
+
+\newenvironment{code}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\begin{document}
+\title{Test Title}
+\author{Greggory H. Rothmeier}
+\maketitle{}
+
+\include{copyright}
+\include{approval}
+% \include{dedication}
+% \include{acknowledgments}
+% \tableofcontents
+\listoftables
+\listoffigures
+
+\include{ch1}
+\include{ch2}
+
+\bibliographystyle{plain}
+\bibliography{thesis}
+
+\appendix
+\include{appendix}
+% \include{code/calc_temp}
+  
+\end{document}
