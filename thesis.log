@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  20 DEC 2011 12:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  2 JAN 2012 11:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -323,7 +323,7 @@ r17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
 .pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
 pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on thesis.pdf (14 pages, 116100 bytes).
+Output written on thesis.pdf (14 pages, 116350 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
