@@ -1,9 +1,15 @@
 \begin{thebibliography}{1}
 
-\bibitem{pennes}
-H~H Pennes.
-\newblock Analysis of tissue and arterial blood temperatures in the resting
-  human forearm.
-\newblock {\em Journal of Applied Physiology}, 1(2):93--122, 1948.
+\bibitem{galiana}
+Gigi Galiana, Rosa~T. Branca, Elizabeth~R. Jenista, and Warren~S. Warren.
+\newblock Accurate temperature imaging based on intermolecular coherences in
+  magnetic resonance.
+\newblock {\em Science}, 322(5900):421--424, 2008.
+
+\bibitem{sotero2011}
+Roberto~C. Sotero and Yasser Iturria-Medina.
+\newblock From blood oxygen level dependent (bold) signals to brain temperature
+  maps.
+\newblock {\em Bulletin of Mathematical Biology}, 73(11):2731--2747, 2011.
 
 \end{thebibliography}
