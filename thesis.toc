@@ -3,9 +3,9 @@
 \contentsline {chapter}{List of Figures}{vii}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {chapter}{\numberline {2}Functional Near-Infrared Spectroscopy (fNIRS)}{2}
-\contentsline {chapter}{\numberline {3}Calculating Temperature Changes using fMRI BOLD Response}{3}
-\contentsline {section}{\numberline {3.1}What is BOLD}{3}
-\contentsline {section}{\numberline {3.2}What does BOLD have to do with Temperature?}{4}
-\contentsline {chapter}{\numberline {4}Conclusion}{5}
-\contentsline {chapter}{References}{6}
-\contentsline {chapter}{Appendices}{7}
+\contentsline {chapter}{\numberline {3}Calculating Temperature Changes using fMRI BOLD Response}{4}
+\contentsline {section}{\numberline {3.1}What is BOLD}{4}
+\contentsline {section}{\numberline {3.2}What does BOLD have to do with Temperature?}{5}
+\contentsline {chapter}{\numberline {4}Conclusion}{6}
+\contentsline {chapter}{References}{7}
+\contentsline {chapter}{Appendices}{8}
