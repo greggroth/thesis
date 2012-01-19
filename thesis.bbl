@@ -1,28 +1,21 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{cope_1991}
+\bibitem[Cope(1991)]{cope}
 M~Cope.
 \newblock The development of a near infrared spectroscopy system and its
   application for non invasive monitoring of cerebral blood and tissue
   oxygenation in the newborn infants.
-\newblock {\em London University}, 1991.
+\newblock \emph{London University}, 1991.
 
-\bibitem{galiana}
-Gigi Galiana, Rosa~T. Branca, Elizabeth~R. Jenista, and Warren~S. Warren.
-\newblock Accurate temperature imaging based on intermolecular coherences in
-  magnetic resonance.
-\newblock {\em Science}, 322(5900):421--424, 2008.
-
-\bibitem{horecker}
-B.~L. Horecker.
+\bibitem[Horecker(1942)]{horecker}
+B~L Horecker.
 \newblock The absorption spectra of hemoglobin and its derivatives in the
   visible and near infra-red regions.
-\newblock {\em The Journal of Biological Chemistry}, 1942.
-
-\bibitem{sotero2011}
-Roberto~C. Sotero and Yasser Iturria-Medina.
-\newblock From blood oxygen level dependent (bold) signals to brain temperature
-  maps.
-\newblock {\em Bulletin of Mathematical Biology}, 73(11):2731--2747, 2011.
+\newblock \emph{The Journal of Biological Chemistry}, 1942.
 
 \end{thebibliography}

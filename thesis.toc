@@ -1,11 +1,26 @@
 \contentsline {chapter}{Acknowledgments}{iv}
-\contentsline {chapter}{List of Tables}{vi}
-\contentsline {chapter}{List of Figures}{vii}
+\contentsline {chapter}{List of Tables}{vii}
+\contentsline {chapter}{List of Figures}{viii}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Functional Near-Infrared Spectroscopy (fNIRS)}{2}
-\contentsline {chapter}{\numberline {3}Calculating Temperature Changes using fMRI BOLD Response}{4}
-\contentsline {section}{\numberline {3.1}What is BOLD}{4}
-\contentsline {section}{\numberline {3.2}What does BOLD have to do with Temperature?}{5}
+\contentsline {chapter}{\numberline {2}Calculating Temperature Changes using the fMRI BOLD Response}{2}
+\contentsline {section}{\numberline {2.1}Background}{3}
+\contentsline {subsection}{\numberline {2.1.1}Generation of the {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) Response}{3}
+\contentsline {subsection}{\numberline {2.1.2}Previously Proposed Temperature Models}{3}
+\contentsline {subsubsection}{Single-Voxel Approach}{3}
+\contentsline {subsubsection}{Multi-Voxel Approach}{3}
+\contentsline {section}{\numberline {2.2}Modeling the BOLD Response}{3}
+\contentsline {section}{\numberline {2.3}Modeling Temperature}{3}
+\contentsline {subsection}{\numberline {2.3.1}The Approach}{3}
+\contentsline {subsubsection}{How the temperature is calculated}{3}
+\contentsline {subsubsection}{Calculating the equilibrium temperature}{3}
+\contentsline {subsubsection}{Calculating Metabolism and Blood Flow Changes}{3}
+\contentsline {subsubsection}{Calculating the change in temperature in the active brain}{3}
+\contentsline {subsection}{\numberline {2.3.2}Results}{3}
+\contentsline {subsubsection}{Using Theoretical BOLD Data}{3}
+\contentsline {subsubsection}{Using Experimental BOLD Data}{3}
+\contentsline {chapter}{\numberline {3}Detector Applications to measuring the active brain}{4}
+\contentsline {section}{\numberline {3.1}{F}unctional {N}ear-{I}nfrared {fNIR} Imaging}{4}
+\contentsline {section}{\numberline {3.2}Temperature Measurements}{4}
 \contentsline {chapter}{\numberline {4}Conclusion}{6}
 \contentsline {chapter}{References}{7}
 \contentsline {chapter}{Appendices}{8}

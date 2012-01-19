@@ -1,11 +1,12 @@
 \documentclass{report}[11pt]
 \usepackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{setspace}
-\usepackage{tocloft}
-\usepackage{cleveref}
+\usepackage[numbers]{natbib}
+\usepackage[pdftex]{graphicx}
+\setkeys{Gin}{width=\textwidth}
+\usepackage{epstopdf, listings, color, setspace, tocloft, cleveref}
+\epstopdfsetup{update,prepend}
+\graphicspath{{./figures/}}
+\epstopdfsetup{suffix=}
 \doublespacing
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -28,14 +29,15 @@
    showstringspaces=false,
    breaklines=true}
 \renewcommand{\cftchapdotsep}{\cftdotsep}
-\graphicspath{{./figures/}}
 \newenvironment{code}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
 {\end{list}}
-
-
-\begin{document}
 \newcommand{\signhere}{\vspace{0.4in}\rule{\linewidth}{0.5mm}\\}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\setcounter{tocdepth}{3}
+
+% \includeonly{chapters/fnir}
+\begin{document}
 % Everything is kept in seperate files.  Use this file to change the orders.
 \pagenumbering{roman}
 \input{title}
@@ -55,11 +57,11 @@
 \setcounter{page}{1}
 % List of Chapters in the order they need to appear
 \include{chapters/introduction}
-\include{chapters/fnir}
-\include{chapters/BOLDtoTemp}
+\include{chapters/BOLDandTemp}
+\include{chapters/detectors}
 \include{chapters/conclusion}
 % Bibliography
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \addcontentsline{toc}{chapter}{References}
 \bibliography{thesis}
 \appendix
