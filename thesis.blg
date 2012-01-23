@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2011)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: title.aux
 A level-1 auxiliary file: copyright.aux
 A level-1 auxiliary file: approval.aux
 A level-1 auxiliary file: dedication.aux
@@ -15,7 +16,7 @@ A level-1 auxiliary file: appendix.aux
 Database file #1: thesis.bib
 You've used 2 entries,
             2773 wiz_defined-function locations,
-            611 strings with 5360 characters,
+            612 strings with 5369 characters,
 and the built_in function-call counts, 629 in all, are:
 = -- 52
 > -- 20
