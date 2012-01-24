@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  23 JAN 2012 14:47
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  24 JAN 2012 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,18 +243,18 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (./chapters/detectors.aux) (./chapters/conclusion.aux) (./appendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -389,15 +389,19 @@ File: ./figures/flowchart.png Graphic file (type png)
 <use ./figures/flowchart.png>
 Package pdftex.def Info: ./figures/flowchart.png used on input line 9.
 (pdftex.def)             Requested size: 469.75502pt x 253.67104pt.
-) [2
+ [2
 
 
 
 ]
-Overfull \vbox (367.4371pt too high) has occurred while \output is active []
+Overfull \hbox (1.3492pt too wide) detected at line 24
+\OML/cmm/m/it/10 change []in []temperature [] \OT1/cmr/m/n/10 =  []\OML/cmm/m/i
+t/10 heat []generated []by []metabolism [] \OMS/cmsy/m/n/10 ^^@  []\OML/cmm/m/i
+t/10 heat []lost []to []convection [] \OMS/cmsy/m/n/10 ^^@  []\OML/cmm/m/it/10 
+heat []lost []to []conduction
+ []
 
-
-[3 <./figures/flowchart.png>]
+) [3 <./figures/flowchart.png>] [4]
 \openout2 = `chapters/detectors.aux'.
 
  (./chapters/detectors.tex
@@ -411,48 +415,48 @@ Package epstopdf Info: Source file: <./figures/AbsorptionData.eps>
 (epstopdf)             Command: <repstopdf ./figures/AbsorptionData.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/AbsorptionData.pdf, id=52, 1127.21124pt x 504.88625pt>
+<./figures/AbsorptionData.pdf, id=60, 1127.21124pt x 504.88625pt>
 File: ./figures/AbsorptionData.pdf Graphic file (type pdf)
 
 <use ./figures/AbsorptionData.pdf>
 Package pdftex.def Info: ./figures/AbsorptionData.pdf used on input line 7.
 (pdftex.def)             Requested size: 469.75502pt x 210.40982pt.
-) [4
+) [5
 
 
 
-] [5 <./figures/AbsorptionData.pdf>]
+] [6 <./figures/AbsorptionData.pdf>]
 \openout2 = `chapters/conclusion.aux'.
 
 
 (./chapters/conclusion.tex
 Chapter 4.
-) [6
+) [7
 
 
 
-] (./thesis.bbl) [7
+] (./thesis.bbl) [8
 
 
 ]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex (./code/calc_temp.m [8
+ (./appendix.tex (./code/calc_temp.m [9
 
-] [9] [10]
-[11] [12] [13])) [14] (./thesis.aux (./title.aux) (./copyright.aux)
+] [10] [11]
+[12] [13] [14])) [15] (./thesis.aux (./title.aux) (./copyright.aux)
 (./approval.aux) (./dedication.aux) (./acknowledgments.aux)
 (./signature_page.aux) (./chapters/introduction.aux)
 (./chapters/BOLDandTemp.aux) (./chapters/detectors.aux)
 (./chapters/conclusion.aux) (./appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 5964 strings out of 493629
- 94770 string characters out of 3143323
+ 5977 strings out of 493629
+ 94996 string characters out of 3143323
  336684 words of memory out of 3000000
- 9138 multiletter control sequences out of 15000+200000
+ 9151 multiletter control sequences out of 15000+200000
  7486 words of font info for 27 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 42i,6n,40p,346b,2037s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,40p,740b,2037s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dis
@@ -463,13 +467,14 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb>
-Output written on thesis.pdf (24 pages, 254392 bytes).
+/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt10.pfb>
+Output written on thesis.pdf (25 pages, 274621 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

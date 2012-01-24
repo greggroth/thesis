@@ -14,44 +14,44 @@ A level-1 auxiliary file: chapters/conclusion.aux
 The style file: plainnat.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: thesis.bib
-You've used 2 entries,
+You've used 5 entries,
             2773 wiz_defined-function locations,
-            612 strings with 5369 characters,
-and the built_in function-call counts, 629 in all, are:
-= -- 52
-> -- 20
-< -- 2
-+ -- 8
-- -- 6
-* -- 32
-:= -- 108
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 8
-chr.to.int$ -- 2
-cite$ -- 4
-duplicate$ -- 38
-empty$ -- 61
-format.name$ -- 8
-if$ -- 125
+            633 strings with 5875 characters,
+and the built_in function-call counts, 1936 in all, are:
+= -- 179
+> -- 72
+< -- 5
++ -- 26
+- -- 21
+* -- 133
+:= -- 304
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 22
+chr.to.int$ -- 5
+cite$ -- 10
+duplicate$ -- 98
+empty$ -- 181
+format.name$ -- 30
+if$ -- 400
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 18
-num.names$ -- 8
-pop$ -- 18
+missing$ -- 5
+newline$ -- 33
+num.names$ -- 20
+pop$ -- 41
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 17
 quote$ -- 0
-skip$ -- 27
+skip$ -- 72
 stack$ -- 0
-substring$ -- 4
-swap$ -- 2
+substring$ -- 88
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
+type$ -- 55
 warning$ -- 0
-while$ -- 6
+while$ -- 21
 width$ -- 0
-write$ -- 31
+write$ -- 70

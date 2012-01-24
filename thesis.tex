@@ -34,12 +34,13 @@
 {\end{list}}
 \newcommand{\signhere}{\vspace{0.4in}\rule{\linewidth}{0.5mm}\\}
 \newcommand{\degree}{\ensuremath{^\circ}}
+%%%%%  Put in your title here: %%%%%%
 \newcommand{\thesisTitle}{Brain tissue temperature dynamics during functional activity \& possibilities for Imaging}
 \setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{2}
 
-% \includeonly{chapters/fnir}
 \begin{document}
-% Everything is kept in seperate files.  Use this file to change the orders.
+% Everything is kept in seperate *.tex files.  Use this file to change the orders.
 \pagenumbering{roman}
 \include{title}
 \include{copyright}
@@ -56,6 +57,7 @@
 \include{signature_page}
 \pagenumbering{arabic}
 \setcounter{page}{1}
+%%%%%  Chapters  %%%%%%%%%%%%%%
 % List of Chapters in the order they need to appear
 \include{chapters/introduction}
 \include{chapters/BOLDandTemp}
