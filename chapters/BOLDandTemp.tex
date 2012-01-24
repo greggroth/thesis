@@ -4,7 +4,9 @@
   % What does the BOLD response tell us?
   % What gives rise to the fMRI BOLD response?
   \subsection{Generation of the {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) Response}
-    \begin{figure}
+  
+  Since its invention in the 1950's~\citep{carr1954} and later development in the 1970's~\citep{lauterbur1973}, {M}agnetic {R}esonance {I}maging ({MRI}) has allowed physicians and scientists a detailed view within the human body.  
+    \begin{figure}[bt]
       \begin{center}
         \includegraphics{flowchart}
         \caption[Generation of the fMRI BOLD Response]{\label{fig:flowchart} Generation of the fMRI BOLD response from changes in neuronal activity.  Black arrows indicate a causal relationship while red arrows indicate existing models for the relationship.  Modified from~\citet{sotero2007}}
@@ -15,17 +17,75 @@
   Current efforts to model temperature changes be can categorized into two classes.  The first class approaches the problem by considering a single voxel deep within the brain (single-voxel approach) while the second approach considers the brain and head as an entire system (multi-voxel approach).  Each of these methods has their own pros and cons which will be discussed below.
     \subsubsection{\label{sss:singlevoxel}Single-Voxel Approach}
     A single-voxel model of temperature was first proposed by SOMEONE, but has been refined over the past HOWLONG years CITEABUNCH to include more terms.  Although different approaches consider different contributions to the temperature change, they all narrow the problem down to a single voxel which is usually 2mm x 2mm x 2mm.  By simplifying the model, the heat equation can be simplified and the calculation is much easier to undertake.  However, since the brain is not homogenous, the values used for parameters such as heat production and thermal conductivity are taken from an average of the tissues.  As a result, this reduces the possible accuracy of such a model when applied to a subject.
-    The most recently published iteration of a single-voxel model was published by~\citet{sotero2011}.  The basis of this model is a modification of the Penne's Bioheat Equation~\citep{pennes}.
+    The most recently published iteration of a single-voxel model was published by~\citet{sotero2011}.  The basis of this model is a modification of the Penne's Bioheat Equation~\citep{pennes, sotero2011}.
     %%%%%%%  Bio-heat Equation %%%%%%%%%%%%
     \begin{equation}
+      \label{eq:bioheat}
       C_t \frac{dT(t)}{dt} = (\Delta H^{\circ}-\Delta H_{b}) CMRO_{2}\mid_{0} m(t) - \rho_{b} C_{b} CBF\mid_{0} f(t) (T(t) - T_{a}) - \frac{C_{t}}{\tau} (T(t)-T_{0})
     \end{equation}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    where BLA BLA BLA.  While complicated in symbol, conceptually the equation can be easily understood.
-    %%%%%%%  Explanation %%%%%%%%%%%%%%%%%%%
-    \begin{equation}    change~in~temperature~=~heat~generated~by~metabolism~-~heat~lost~to~convection~-~heat~lost~to~conduction
+    where BLA BLA BLA.  
+    One advantage of using~\cref{eq:bioheat} is that the resting state temperature can be analytically determined by substituting $\frac{dT(t)}{dt} = 0$~\citep{sotero2011}.
+    %%%%%%%  Resting state temperature %%%%%
+    \begin{equation}
+      \label{eq:restingtemperature}
+      T_{0} = T_{a} + \frac{(\Delta H \mid^{\circ} - \Delta H_{b}) CMRO_{2}\mid_{0}}{\rho_{B} C_{B} CBF\mid_{0}}
     \end{equation}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    If the values provided in~\cref{tbl:soteroparams} are substitued into~\cref{eq:restingtemperature}, a resting temperature of 37.3057\degree C is found.  Since the resting temperature is always greater than the arterial blood temperature, it limits the ability of the model to account for all experimental results. 
+    
+    While~\cref{eq:bioheat} is appears complicated, conceptually the equation can be easily understood.
+    %%%%%%%  Explanation %%%%%%%%%%%%%%%%%%%
+    \begin{equation}    
+      \label{eq:soteroexplaiend}
+      change\ in\ temperature\ =\ heat\ generated\ by\ metabolism\ -\ heat\ lost\ to\ convection\ -\ heat\ lost\ to\ conduction
+    \end{equation}
+    The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature ($T(t) - T_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue ($T(t) - T_0$).  Since $T_a$ is less than $T(0)$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
+    
+    \begin{equation}
+      \label{eq:f}
+      f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
+    \end{equation}
+    \begin{equation}
+      \label{eq:m} 
+      m(t)=af^{c+1}(t)e^{-bf(t)}
+    \end{equation}
+    
+    \begin{equation}
+    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} \label{eq:y} 
+    \end{equation}
+    
+    %%%%  Table of values used in Sotero, 2011  %%%%%
+    \begin{table*}[bt]
+      \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
+        \begin{tabular*}{\linewidth}{lp{10cm}p{4cm}}
+          \toprule
+          Parameter & Meaning & Value \\
+          \midrule
+          T$_{a}$ & Arterial blood temperature & 37\degree C \\
+          $C_{tissue}$ & Tissue Heat Capacity & 3.664 J/(gK) \\
+          $\Delta H^{\circ}$ & Enthalpy released by oxidation of glucose & $4.7 10^{5}$ J \\
+          $\Delta H_{b}$ & Enthalpy used to release O$_{2}$ from hemoglobin & $2.8 10^{4}$ J \\
+          CMRO$_{2}\mid_{0}$ & Cerebral metabolic rate of O$_{2}$ consumption at rest & $0.0263 10^{-6}$ mol/(gs) \\
+          CBF$\mid_{0}$ & Cerebral blood flow at rest & 0.0093 cm\textsuperscript{3}/(gs) \\
+          $\rho_{b}$ & Blood density & 1.05 g/cm\textsuperscript{3} \\
+          C$_{B}$ & Blood heat capacity & 3.894 J/(gK) \\
+          $\tau$ & Time constant for conductive heat loss from the ROI to the surrounding tissue & 190.52 s \\
+          a, b, c & Parameters of the gamma function fitted from E(f) vs. f & 0.4492, 0.2216, -0.9872 \\
+          A & Maximum BOLD signal change & 0.22 \\
+          $\alpha$ & Steady state flow-volume relation & 0.4 \\
+          $\beta$ & Field-strength dependent parameter & 1.5 \\
+          \midrule
+          Variable & Meaning & \\
+          \midrule
+          m(t) & CMRO$_2$ normalized to baseline & \\
+          f(t) & CBF normalized to baseline & \\
+          T(t) & Temperature & \\
+          W(t) & Lambert W Function & \\
+          $frac{\Delta S(t)}{S_0}$ & Change in BOLD signal normalized to rest & \\
+          \bottomrule
+        \end{tabular*}
+    \end{table*}
+    
+    
     \subsubsection{\label{sss:multivoxel}Multi-Voxel Approach}
   
 

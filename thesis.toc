@@ -7,20 +7,20 @@
 \contentsline {subsection}{\numberline {2.1.1}Generation of the {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) Response}{2}
 \contentsline {subsection}{\numberline {2.1.2}Previously Proposed Temperature Models}{2}
 \contentsline {subsubsection}{Single-Voxel Approach}{2}
-\contentsline {subsubsection}{Multi-Voxel Approach}{4}
-\contentsline {section}{\numberline {2.2}Modeling the BOLD Response}{4}
-\contentsline {section}{\numberline {2.3}Modeling Temperature}{4}
-\contentsline {subsection}{\numberline {2.3.1}The Approach}{4}
-\contentsline {subsubsection}{How the temperature is calculated}{4}
-\contentsline {subsubsection}{Calculating the equilibrium temperature}{4}
-\contentsline {subsubsection}{Calculating Metabolism and Blood Flow Changes}{4}
-\contentsline {subsubsection}{Calculating the change in temperature in the active brain}{4}
-\contentsline {subsection}{\numberline {2.3.2}Results}{4}
-\contentsline {subsubsection}{Using Theoretical BOLD Data}{4}
-\contentsline {subsubsection}{Using Experimental BOLD Data}{4}
-\contentsline {chapter}{\numberline {3}Detector Applications to measuring the active brain}{5}
-\contentsline {section}{\numberline {3.1}{F}unctional {N}ear-{I}nfrared {fNIR} Imaging}{5}
-\contentsline {section}{\numberline {3.2}Temperature Measurements}{5}
-\contentsline {chapter}{\numberline {4}Conclusion}{7}
-\contentsline {chapter}{References}{8}
-\contentsline {chapter}{Appendices}{9}
+\contentsline {subsubsection}{Multi-Voxel Approach}{5}
+\contentsline {section}{\numberline {2.2}Modeling the BOLD Response}{5}
+\contentsline {section}{\numberline {2.3}Modeling Temperature}{5}
+\contentsline {subsection}{\numberline {2.3.1}The Approach}{5}
+\contentsline {subsubsection}{How the temperature is calculated}{5}
+\contentsline {subsubsection}{Calculating the equilibrium temperature}{5}
+\contentsline {subsubsection}{Calculating Metabolism and Blood Flow Changes}{5}
+\contentsline {subsubsection}{Calculating the change in temperature in the active brain}{5}
+\contentsline {subsection}{\numberline {2.3.2}Results}{5}
+\contentsline {subsubsection}{Using Theoretical BOLD Data}{5}
+\contentsline {subsubsection}{Using Experimental BOLD Data}{5}
+\contentsline {chapter}{\numberline {3}Detector Applications to measuring the active brain}{6}
+\contentsline {section}{\numberline {3.1}{F}unctional {N}ear-{I}nfrared {fNIR} Imaging}{6}
+\contentsline {section}{\numberline {3.2}Temperature Measurements}{6}
+\contentsline {chapter}{\numberline {4}Conclusion}{8}
+\contentsline {chapter}{References}{9}
+\contentsline {chapter}{Appendices}{10}

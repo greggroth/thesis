@@ -1,22 +1,34 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Cope(1991)]{cope}
-M~Cope.
-\newblock The development of a near infrared spectroscopy system and its
-  application for non invasive monitoring of cerebral blood and tissue
-  oxygenation in the newborn infants.
-\newblock \emph{London University}, 1991.
+\bibitem[Carr and Purcell(1954)]{carr1954}
+Herman~Y Carr and E~M Purcell.
+\newblock Effects of diffusion on free precession in nuclear magnetic resonance
+  experiments.
+\newblock \emph{Physical Review}, 94:\penalty0 630--638, 1954.
 
-\bibitem[Horecker(1942)]{horecker}
-B~L Horecker.
-\newblock The absorption spectra of hemoglobin and its derivatives in the
-  visible and near infra-red regions.
-\newblock \emph{The Journal of Biological Chemistry}, 1942.
+\bibitem[Lauterbur(1973)]{lauterbur1973}
+Paul Lauterbur.
+\newblock Image formation by induced local interactions: Examples employing
+  nuclear magnetic resonance.
+\newblock \emph{Nature}, 242:\penalty0 190--191, 1973.
+
+\bibitem[Sotero and Trujillo-Barreto(2007)]{sotero2007}
+Roberto~C Sotero and Nelson~J Trujillo-Barreto.
+\newblock Modeling the role of excitatory and inhibitory neuronal activity in
+  the generation of the bold signal.
+\newblock \emph{NeuroImage}, 35:\penalty0 149--165, 2007.
+
+\bibitem[Sotero and Iturria-Medina(2011)]{sotero2011}
+Roberto~C Sotero and Yasser Iturria-Medina.
+\newblock From {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) signals to brain
+  temperature maps.
+\newblock \emph{Bulletin of Mathematical Biology}, 73\penalty0 (11):\penalty0
+  2731--2747, 2011.
 
 \bibitem[Pennes(1948)]{pennes}
 H~H Pennes.
@@ -25,17 +37,17 @@ H~H Pennes.
 \newblock \emph{Journal of Applied Physiology}, 1\penalty0 (2):\penalty0
   93--122, 1948.
 
-\bibitem[Sotero and Iturria-Medina(2011)]{sotero2011}
-Roberto~C. Sotero and Yasser Iturria-Medina.
-\newblock From {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) signals to brain
-  temperature maps.
-\newblock \emph{Bulletin of Mathematical Biology}, 73\penalty0 (11):\penalty0
-  2731--2747, 2011.
+\bibitem[Cope(1991)]{cope}
+M~Cope.
+\newblock \emph{The development of a near infrared spectroscopy system and its
+  application for non invasive monitoring of cerebral blood and tissue
+  oxygenation in the newborn infants}.
+\newblock PhD thesis, 1991.
 
-\bibitem[Sotero and Trujillo-Barreto(2007)]{sotero2007}
-Roberto~C. Sotero and Nelson~J. Trujillo-Barreto.
-\newblock Modelling the role of excitatory and inhibitory neuronal activity in
-  the generation of the bold signal.
-\newblock \emph{NeuroImage}, 35:\penalty0 149--165, 2007.
+\bibitem[Horecker(1942)]{horecker}
+B~L Horecker.
+\newblock The absorption spectra of hemoglobin and its derivatives in the
+  visible and near infra-red regions.
+\newblock \emph{The Journal of Biological Chemistry}, 1942.
 
 \end{thebibliography}

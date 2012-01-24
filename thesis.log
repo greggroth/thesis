@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  24 JAN 2012 11:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.12.5)  24 JAN 2012 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -100,6 +100,26 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen111
 \Gin@req@width=\dimen112
 )
+(/usr/local/texlive/2011/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen113
+\lightrulewidth=\dimen114
+\cmidrulewidth=\dimen115
+\belowrulesep=\dimen116
+\belowbottomsep=\dimen117
+\aboverulesep=\dimen118
+\abovetopsep=\dimen119
+\cmidrulesep=\dimen120
+\cmidrulekern=\dimen121
+\defaultaddspace=\dimen122
+\@cmidla=\count93
+\@cmidlb=\count94
+\@aboverulesep=\dimen123
+\@belowrulesep=\dimen124
+\@thisruleclass=\count95
+\@lastruleclass=\count96
+\@thisrulewidth=\dimen125
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
@@ -147,23 +167,23 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count93
+\lst@mode=\count97
 \lst@gtempboxa=\box26
 \lst@token=\toks16
-\lst@length=\count94
-\lst@currlwidth=\dimen113
-\lst@column=\count95
-\lst@pos=\count96
-\lst@lostspace=\dimen114
-\lst@width=\dimen115
-\lst@newlines=\count97
-\lst@lineno=\count98
-\lst@maxwidth=\dimen116
+\lst@length=\count98
+\lst@currlwidth=\dimen126
+\lst@column=\count99
+\lst@pos=\count100
+\lst@lostspace=\dimen127
+\lst@width=\dimen128
+\lst@newlines=\count101
+\lst@lineno=\count102
+\lst@maxwidth=\dimen129
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count99
-\lst@skipnumbers=\count100
+\c@lstnumber=\count103
+\lst@skipnumbers=\count104
 \lst@framebox=\box27
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.cfg
@@ -215,8 +235,8 @@ Package tocloft Info: The document has chapter divisions on input line 43.
 \cftbeforefigskip=\skip71
 \cftfigindent=\skip72
 \cftfignumwidth=\skip73
-\c@lofdepth=\count101
-\c@lotdepth=\count102
+\c@lofdepth=\count105
+\c@lotdepth=\count106
 \cftbeforelottitleskip=\skip74
 \cftafterlottitleskip=\skip75
 \cftbeforetabskip=\skip76
@@ -232,7 +252,7 @@ Package cleveref Info: loaded `english' language definitions on input line 5499
 Package grfext Info: Graphics extension search list:
 (grfext)             [.eps,.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG
 ,.JPEG,.JBIG2,.JB2]
-(grfext)             \PrependGraphicsExtensions on input line 7.
+(grfext)             \PrependGraphicsExtensions on input line 8.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
@@ -243,18 +263,18 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (./chapters/detectors.aux) (./chapters/conclusion.aux) (./appendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -292,19 +312,19 @@ LaTeX Font Info:    ... okay on input line 42.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen117
+\scratchcounter=\count107
+\scratchdimen=\dimen130
 \scratchbox=\box28
-\nofMPsegments=\count104
-\nofMParguments=\count105
+\nofMPsegments=\count108
+\nofMParguments=\count109
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen118
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen131
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
 \everyMPtoPDFconversion=\toks18
 )
-\c@lstlisting=\count109
+\c@lstlisting=\count113
 \openout2 = `title.aux'.
 
  (./title.tex [1
@@ -387,21 +407,25 @@ Chapter 2.
 File: ./figures/flowchart.png Graphic file (type png)
 
 <use ./figures/flowchart.png>
-Package pdftex.def Info: ./figures/flowchart.png used on input line 9.
+Package pdftex.def Info: ./figures/flowchart.png used on input line 11.
 (pdftex.def)             Requested size: 469.75502pt x 253.67104pt.
  [2
 
 
 
 ]
-Overfull \hbox (1.3492pt too wide) detected at line 24
-\OML/cmm/m/it/10 change []in []temperature [] \OT1/cmr/m/n/10 =  []\OML/cmm/m/i
-t/10 heat []generated []by []metabolism [] \OMS/cmsy/m/n/10 ^^@  []\OML/cmm/m/i
-t/10 heat []lost []to []convection [] \OMS/cmsy/m/n/10 ^^@  []\OML/cmm/m/it/10 
-heat []lost []to []conduction
+Overfull \hbox (1.3492pt too wide) detected at line 40
+[][]\OML/cmm/m/it/10 change in temperature  \OT1/cmr/m/n/10 =  \OML/cmm/m/it/10
+ heat generated by metabolism  \OMS/cmsy/m/n/10 ^^@  \OML/cmm/m/it/10 heat lost
+ to convection  \OMS/cmsy/m/n/10 ^^@  \OML/cmm/m/it/10 heat lost to conduction
  []
 
-) [3 <./figures/flowchart.png>] [4]
+[3 <./figures/flowchart.png>]
+Overfull \hbox (22.00731pt too wide) in alignment at lines 59--85
+[][][]
+ []
+
+) [4] [5]
 \openout2 = `chapters/detectors.aux'.
 
  (./chapters/detectors.tex
@@ -415,66 +439,68 @@ Package epstopdf Info: Source file: <./figures/AbsorptionData.eps>
 (epstopdf)             Command: <repstopdf ./figures/AbsorptionData.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/AbsorptionData.pdf, id=60, 1127.21124pt x 504.88625pt>
+<./figures/AbsorptionData.pdf, id=66, 1127.21124pt x 504.88625pt>
 File: ./figures/AbsorptionData.pdf Graphic file (type pdf)
 
 <use ./figures/AbsorptionData.pdf>
 Package pdftex.def Info: ./figures/AbsorptionData.pdf used on input line 7.
 (pdftex.def)             Requested size: 469.75502pt x 210.40982pt.
-) [5
+) [6
 
 
 
-] [6 <./figures/AbsorptionData.pdf>]
+] [7 <./figures/AbsorptionData.pdf>]
 \openout2 = `chapters/conclusion.aux'.
 
 
 (./chapters/conclusion.tex
 Chapter 4.
-) [7
+) [8
 
 
 
-] (./thesis.bbl) [8
+] (./thesis.bbl) [9
 
 
 ]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex (./code/calc_temp.m [9
+ (./appendix.tex (./code/calc_temp.m [10
 
-] [10] [11]
-[12] [13] [14])) [15] (./thesis.aux (./title.aux) (./copyright.aux)
+] [11] [12]
+[13] [14] [15])) [16] (./thesis.aux (./title.aux) (./copyright.aux)
 (./approval.aux) (./dedication.aux) (./acknowledgments.aux)
 (./signature_page.aux) (./chapters/introduction.aux)
 (./chapters/BOLDandTemp.aux) (./chapters/detectors.aux)
 (./chapters/conclusion.aux) (./appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 5977 strings out of 493629
- 94996 string characters out of 3143323
- 336684 words of memory out of 3000000
- 9151 multiletter control sequences out of 15000+200000
+ 6055 strings out of 493629
+ 96113 string characters out of 3143323
+ 337433 words of memory out of 3000000
+ 9225 multiletter control sequences out of 15000+200000
  7486 words of font info for 27 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 42i,6n,40p,740b,2037s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,14n,40p,755b,2037s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2011/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmtt10.pfb>
-Output written on thesis.pdf (25 pages, 274621 bytes).
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2011/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2011/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb>
+Output written on thesis.pdf (26 pages, 299564 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 159 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
