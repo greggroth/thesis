@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,12 +42,19 @@ M~Cope.
 \newblock \emph{The development of a near infrared spectroscopy system and its
   application for non invasive monitoring of cerebral blood and tissue
   oxygenation in the newborn infants}.
-\newblock PhD thesis, 1991.
+\newblock PhD thesis, London University, 1991.
 
 \bibitem[Horecker(1942)]{horecker}
 B~L Horecker.
 \newblock The absorption spectra of hemoglobin and its derivatives in the
   visible and near infra-red regions.
 \newblock \emph{The Journal of Biological Chemistry}, 1942.
+
+\bibitem[Dhamala et~al.(2003)Dhamala, Pagnoni, Wiesenfeld, Zink, Martin, and
+  Berns]{dhamala}
+Mukeshwar Dhamala, Giuseppe Pagnoni, Kurt Wiesenfeld, Caroline Zink, Megan
+  Martin, and Gregory Berns.
+\newblock Neural correlates of the complexity of rhythmic finger tapping.
+\newblock \emph{NeuroImage}, 20:\penalty0 918--926, 2003.
 
 \end{thebibliography}

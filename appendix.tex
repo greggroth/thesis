@@ -1,5 +1,48 @@
 \appendix
-\addcontentsline{toc}{chapter}{Appendices}
-\section*{Calculating the Temperature Change}
-\lstinputlisting[language=Matlab]{code/calc_temp.m}
-\section*{Calculating The Equilibrium Temperature}
+\addappheadtotoc
+\chapter{Code}
+The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/tempcalc})
+% Load T1/create head data
+\section{Creating the Head Matrix}
+Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run BulkImportNII() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}) and fillholes() (\ref{ass:fillholes}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
+\subsection{BulkImportNII()}
+\lstinputlisting[language=Matlab]{code/BulkImportNII.m}
+\subsection{fillAir()}
+\label{ass:fillair}
+\lstinputlisting[language=Matlab]{code/fillAir.m}
+\subsection{fillholes()}
+\label{ass:fillholes}
+\lstinputlisting[language=Matlab]{code/fillholes.m}
+\subsection{build\_skin()}
+\lstinputlisting[language=Matlab]{"code/build_skin.m"}
+% Load fMRI Data
+\clearpage
+\section{Loading the fMRI Data}
+The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
+\lstinputlisting[language=Matlab]{"code/Process_Files_For_Temp.m"}
+\subsection{avg\_NII\_normalize()}
+\lstinputlisting[language=Matlab]{"code/avg_NII_normalize.m"}
+\subsection{avg\_NII\_rest()}
+\lstinputlisting[language=Matlab]{"code/avg_NII_rest.m"}
+\subsection{BOLDtoMF()}
+\lstinputlisting[language=Matlab]{"code/BOLDtoMF.m"}
+\subsection{lambw() and lambw\_mex()}
+The lambw() function is a wrapper for the wapr() function available on Matlab FileExchange (\url{http://www.mathworks.com/matlabcentral/fileexchange/3644-real-values-of-the-lambert-w-function/content/Lambert/wapr.m}).  A compiled version of this function (lambw\_mex()) runs much faster and is recommended.  This function is used over Matlab's built-in Lambert-W function for the sake of performance.
+\lstinputlisting[language=Matlab]{"code/lambw.m"}
+% Find Equilibrium
+\clearpage
+\section{Calculating the Equilibrium Temperature}
+In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:theapproach}.
+\lstinputlisting[language=Matlab]{code/tempCalcEquilibrium.m}
+% Find Temperature Change
+\clearpage
+\section{Calculating the Temperature Change}
+More details about this algorithm can be found in~\cref{sec:theapproach}.
+\lstinputlisting[language=Matlab]{code/tempCalcDynMF.m}
+\chapter{Visualization Tools}
+\label{ch:visualize}
+% tsliceplot?
+\section{Visualizing the data}
+Requires SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}).
+% Needs some screenshots
+\lstinputlisting[language=Matlab]{code/TempPlot.m}

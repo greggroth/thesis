@@ -50,7 +50,8 @@
     \end{equation}
     
     \begin{equation}
-    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} \label{eq:y} 
+      \label{eq:y} 
+    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
     \end{equation}
     
     %%%%  Table of values used in Sotero, 2011  %%%%%
@@ -91,16 +92,24 @@
 
 
 \section{Modeling the BOLD Response}
+\label{sec:modelingBOLD}
 % Start with Buxton and Friston and build up to how I am calculating the metabolism and blood flow.
 
 \section{Modeling Temperature}
   % go through the other approaches
   \subsection{The Approach}
+  \label{sec:theapproach}
     \subsubsection{How the temperature is calculated}
+    
+    \begin{equation} \label{eq:3dbioheat} 
+    	\rho c \frac{dT}{dt} = k \nabla^{2}T-\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} 
+    \end{equation}
+    
     \subsubsection{Calculating the equilibrium temperature}
     \subsubsection{Calculating Metabolism and Blood Flow Changes}
     \subsubsection{Calculating the change in temperature in the active brain}
   \subsection{Results}
+  \label{sec:results}
     \subsubsection{Using Theoretical BOLD Data}
     \subsubsection{Using Experimental BOLD Data}
   % talk about my approach

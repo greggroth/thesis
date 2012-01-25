@@ -1,5 +1,7 @@
 function temperatureOut = tempCalcChangingMetabolismFlow(tissue,bloodT,airT,nt,tmax,pastCalc,start,stop,amplitudeMet,amplitudeFlow,region,savesteps)
-% tempCalcChaning Metabolism  How does changin metabolism affect things?
+% tempCalcChangingMetabolsimFlow 
+%  This one uses a masked region, time limits and scaling factors to create m(t) and f(t)
+% How does changing metabolism and blood flow affect things?
 %   tissue: holds all of the strucual information
 %   bloodT: Temperature of the blood
 %   airT:   Temperature of the surrounding ait
@@ -13,7 +15,6 @@ function temperatureOut = tempCalcChangingMetabolismFlow(tissue,bloodT,airT,nt,t
 %   Writen by Greggory Rothmeier (greggroth@gmail.com)
 %   Georgia State University Dept. Physics and Astronomy
 %   May, 2011
-%#codegen
 
 %%   Default Values
 if nargin<2,  bloodT = 37;          end
@@ -27,7 +28,7 @@ if nargin<9,  amplitudeMet = 1.2;   end   %  normalized
 if nargin<10, amplitudeFlow = 1.2;  end   %  normalized
 if nargin<11, savesteps = 1;        end
 
-
+% Voxel size
 dx = 2*10^-3;
 if nt<(2*tmax),
    warning('Time step size is not large enough.  Results will be unreliable.  Consider increasing the number of steps or reducing tmax.')
@@ -55,16 +56,17 @@ if pastCalc == 0
     temperature(1,squeeze(tissue(:,:,:,1))~=1) = bloodT;
 else
     temperature(1,:,:,:) = pastCalc(end,:,:,:);
-    % temperature(1,:,:,:) = pastCalc;
 end
 temperatureOut(1,:,:,:) = temperature(1,:,:,:);
 metabMultiplier = ones([xmax ymax zmax],'single');
 flowMultiplier = ones([xmax ymax zmax],'single');
 
-%%  Do Work.
-%   This is a vectorized version of the next section.  For the love of god
+% ===========
+% = Do Work =
+% ===========
+%   This is a vectorized version of the next section (Labeled 'Old Code').  For the love of god
 %   don't make any changes to this without first looking below to make sure
-%   you know what you're changing.  This is [nearly] impossible to
+%   you know what you're changing.  This is (nearly) impossible to
 %   understand, so take your time and don't break it.
 %   data is stored in 'tissue' as such :
 %   [tissuetype 0 Qm c rho k w];  <--  second element is blank for all.
@@ -86,9 +88,12 @@ tic
 for t2 = 1:nt-1
    waitbar(t2/(nt-1),statusbar,sprintf('%d%%',round(t2/(nt-1)*100)));
    if (start<t2) && (t2<stop)   %  for __ steps
-       metabMultiplier(region) = amplitudeMet;   %  region is hardcoded here
+     %  Create arrays for  m and f for this step if
+     %  we're in a period of activity
+       metabMultiplier(region) = amplitudeMet;  
        flowMultiplier(region) = amplitudeFlow;
-   elseif t2==stop %  once the period is over, reset it back to ones
+   elseif t2==stop 
+     %  once the period is over, reset it back to ones
        metabMultiplier(region) = 1;
        flowMultiplier(region) = 1;
    end
@@ -108,37 +113,10 @@ for t2 = 1:nt-1
 end
 close(statusbar);
 toc
-%%  Keeps all of the data
-%   Note: Make sure that temperature() has enough preallocated space
-%{
-tic
-for t2 = 1:nt-1
-   %tic
-   waitbar(t2/(nt-1),statusbar,sprintf('%d%%',round(t2/(nt-1)*100)));
-   if (start<t2) && (t2<stop)   %  for 10 steps
-       metabMultiplier(region) = amplitudeMet;   %  region is hardcoded here
-       flowMultiplier(region) = amplitudeFlow;
-   elseif t2==stop %  once the period is over, reset it back to ones
-       metabMultiplier(region) = 1;
-       flowMultiplier(region) = 1;
-   end
-   temperature(t2+1,:,:,:) = squeeze(temperature(t2,:,:,:)) + ...
-        dt/(tissue(:,:,:,5).*tissue(:,:,:,4)).* ...
-        ((averagedk/dx^2).*...
-        (circshift(squeeze(temperature(t2,:,:,:)),[1 0 0])-2*squeeze(temperature(t2,:,:,:))+circshift(squeeze(temperature(t2,:,:,:)),[-1 0 0])+...  % shift along x
-         circshift(squeeze(temperature(t2,:,:,:)),[0 1 0])-2*squeeze(temperature(t2,:,:,:))+circshift(squeeze(temperature(t2,:,:,:)),[0 -1 0])+...  % shift along y
-         circshift(squeeze(temperature(t2,:,:,:)),[0 0 1])-2*squeeze(temperature(t2,:,:,:))+circshift(squeeze(temperature(t2,:,:,:)),[0 0 -1]))...  % shift along z
-            -(1/6000)*rhoblood*flowMultiplier.*tissue(:,:,:,7)*cblood.*(squeeze(temperature(t2,:,:,:))-bloodT)+metabMultiplier.*tissue(:,:,:,3));
-    %   resets the air temperature back since it's also modified above, but
-    %   it needs to be kept constant throughout the calculations
-    temperature(t2+1,squeeze(tissue(:,:,:,1))==1) = airT; 
-    %dispTimeLeft(1,1,nt-1,t2)
-end
-close(statusbar);
-toc
-%}
 
-%% Old Code
+% ==============
+% = Old Method =
+% ==============
 %  This is what used to be used.  It's much slower (~60 times slower), but
 %  it's much easier to understand compared to the above code.  If any
 %  changes need to be made above, first look through this code to ensure
@@ -147,24 +125,21 @@ toc
 
 %  good luck.
 
-
-%{
-for t2 = 1:nt-1
-    for x2 = 2:xmax-1
-        for y2 = 2:ymax-1
-            for z2 = 2:zmax-1
-                if tissue(x2,y2,z2,1) ~= 1,
-                    temperature(t2+1,x2,y2,z2) = temperature(t2,x2,y2,z2) + (dt/(tissue(x2,y2,z2,5)*tissue(x2,y2,z2,4)))*((tissue(x2,y2,z2,6)/dx^2)*...
-                      (temperature(t2,x2+1,y2,z2)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2-1,y2,z2)+...
-                      temperature(t2,x2,y2+1,z2)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2,y2-1,z2)+...
-                      temperature(t2,x2,y2,z2+1)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2,y2,z2-1))...
-                      -(1/6000)*rhoBlood*wBlood*cBlood*(temperature(t2,x2,y2,z2)-bloodT)+tissue(x2,y2,z2,3));
-                end
-            end
-        end
-    end
-end
-%}
+% for t2 = 1:nt-1
+%     for x2 = 2:xmax-1
+%         for y2 = 2:ymax-1
+%             for z2 = 2:zmax-1
+%                 if tissue(x2,y2,z2,1) ~= 1,
+%                     temperature(t2+1,x2,y2,z2) = temperature(t2,x2,y2,z2) + (dt/(tissue(x2,y2,z2,5)*tissue(x2,y2,z2,4)))*((tissue(x2,y2,z2,6)/dx^2)*...
+%                       (temperature(t2,x2+1,y2,z2)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2-1,y2,z2)+...
+%                       temperature(t2,x2,y2+1,z2)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2,y2-1,z2)+...
+%                       temperature(t2,x2,y2,z2+1)-2*temperature(t2,x2,y2,z2)+temperature(t2,x2,y2,z2-1))...
+%                       -(1/6000)*rhoBlood*wBlood*cBlood*(temperature(t2,x2,y2,z2)-bloodT)+tissue(x2,y2,z2,3));
+%                 end
+%             end
+%         end
+%     end
+% end
 
 
 end
