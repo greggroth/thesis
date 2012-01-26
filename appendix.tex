@@ -6,29 +6,29 @@ The following sections include the code used.  It was written for Matlab 2011(b)
 \section{Creating the Head Matrix}
 Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run BulkImportNII() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}) and fillholes() (\ref{ass:fillholes}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
 \subsection{BulkImportNII()}
-\lstinputlisting[language=Matlab]{code/BulkImportNII.m}
+\lstinputlisting[style=codeblock]{code/BulkImportNII.m}
 \subsection{fillAir()}
 \label{ass:fillair}
-\lstinputlisting[language=Matlab]{code/fillAir.m}
+\lstinputlisting[style=codeblock]{code/fillAir.m}
 \subsection{fillholes()}
 \label{ass:fillholes}
-\lstinputlisting[language=Matlab]{code/fillholes.m}
+\lstinputlisting[style=codeblock]{code/fillholes.m}
 \subsection{build\_skin()}
-\lstinputlisting[language=Matlab]{"code/build_skin.m"}
+\lstinputlisting[style=codeblock]{"code/build_skin.m"}
 % Load fMRI Data
 \clearpage
 \section{Loading the fMRI Data}
 The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
-\lstinputlisting[language=Matlab]{"code/Process_Files_For_Temp.m"}
+\lstinputlisting[style=codeblock]{"code/Process_Files_For_Temp.m"}
 \subsection{avg\_NII\_normalize()}
-\lstinputlisting[language=Matlab]{"code/avg_NII_normalize.m"}
+\lstinputlisting[style=codeblock]{"code/avg_NII_normalize.m"}
 \subsection{avg\_NII\_rest()}
-\lstinputlisting[language=Matlab]{"code/avg_NII_rest.m"}
+\lstinputlisting[style=codeblock]{"code/avg_NII_rest.m"}
 \subsection{BOLDtoMF()}
-\lstinputlisting[language=Matlab]{"code/BOLDtoMF.m"}
+\lstinputlisting[style=codeblock]{"code/BOLDtoMF.m"}
 \subsection{lambw() and lambw\_mex()}
 The lambw() function is a wrapper for the wapr() function available on Matlab FileExchange (\url{http://www.mathworks.com/matlabcentral/fileexchange/3644-real-values-of-the-lambert-w-function/content/Lambert/wapr.m}).  A compiled version of this function (lambw\_mex()) runs much faster and is recommended.  This function is used over Matlab's built-in Lambert-W function for the sake of performance.
-\lstinputlisting[language=Matlab]{"code/lambw.m"}
+\lstinputlisting[style=codeblock]{"code/lambw.m"}
 % Find Equilibrium
 \clearpage
 \section{Calculating the Equilibrium Temperature}
@@ -38,11 +38,37 @@ In order to determine the temperature fluctuations due to changes in activity, t
 \clearpage
 \section{Calculating the Temperature Change}
 More details about this algorithm can be found in~\cref{sec:theapproach}.
-\lstinputlisting[language=Matlab]{code/tempCalcDynMF.m}
+\lstinputlisting[style=codeblock]{code/tempCalcDynMF.m}
 \chapter{Visualization Tools}
 \label{ch:visualize}
 % tsliceplot?
 \section{Visualizing the data}
 Requires SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}).
 % Needs some screenshots
-\lstinputlisting[language=Matlab]{code/TempPlot.m}
+% \lstinputlisting[style=codeblock]{code/TempPlot.m}
+\clearpage
+\subsection{tsliceplot}
+This is a visualization tool I wrote that allows you to view the change in temperature versus time for a line passing through the head.  Screenshots of the tool can be seen in~\cref{fig:tsliceplot,fig:tsliceplotz}.
+
+Usage:
+\begin{lstlisting}[style=snippet,label=invoke-tsliceplot]
+  tsliceplot(temperature_data, equilibrium_temperature_data)
+\end{lstlisting}
+
+The script is available as part of temptools (\url{https://github.com/greggroth/tempcalc/tree/master/tt/supportfcts/tsliceplot}).
+
+\FloatBarrier
+\begin{figure}[t]
+  \centering
+    \caption[Visualization using tsliceplot]{Experimental data for activity in the motor cortex visualized with tsliceplot. \label{fig:tsliceplot}}
+    \includegraphics{tsliceplot/default-view}
+  \centering
+\end{figure}
+
+\begin{figure}[b]
+  \centering
+    \caption[Visualization using tsliceplot (z v. t plane)]{The same data as is presented in~\cref{fig:tsliceplot}, but viewed flat-on along the z vs. time plane.\label{fig:tsliceplotz}}
+    \includegraphics{tsliceplot/z-plane-view}
+  \centering
+\end{figure}
+\FloatBarrier

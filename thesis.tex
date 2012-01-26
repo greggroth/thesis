@@ -5,6 +5,7 @@
 \usepackage{booktabs}
 \setkeys{Gin}{width=\textwidth}
 \usepackage{epstopdf, listings, color, setspace, tocloft, hyperref, cleveref, appendix}
+\usepackage[section]{placeins}
 \epstopdfsetup{update,prepend}
 \graphicspath{{./figures/}}
 \epstopdfsetup{suffix=}
@@ -12,9 +13,30 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{purple}{rgb}{0.73,0.33,0.83}
-\lstset{
+% \lstset{
+%    language=Matlab,
+%   morekeywords={break,case,catch,continue,else,elseif,end,for,function,
+%       global,if,otherwise,persistent,return,switch,try,while,ones,
+%       squeeze,warning,waitbar,circshift},
+%    basicstyle=\small\ttfamily,
+%    keywordstyle=\color{blue},
+%    commentstyle=\color{dkgreen},
+%    stringstyle=\color{purple},
+%    frame=leftline,
+%    rulecolor=\color{black},
+%    numbers=left,
+%    numberstyle=\footnotesize,
+%    stepnumber=1,
+%    numbersep=13pt,
+%    backgroundcolor=\color{white},
+%    tabsize=2,
+%    showspaces=false,
+%    showstringspaces=false,
+%    breaklines=true
+%    }
+\lstdefinestyle{codeblock}{
    language=Matlab,
-   morekeywords={break,case,catch,continue,else,elseif,end,for,function,
+  morekeywords={break,case,catch,continue,else,elseif,end,for,function,
       global,if,otherwise,persistent,return,switch,try,while,ones,
       squeeze,warning,waitbar,circshift},
    basicstyle=\small\ttfamily,
@@ -33,6 +55,29 @@
    showstringspaces=false,
    breaklines=true
    }
+\lstdefinestyle{snippet}{
+   language=Matlab,
+  morekeywords={break,case,catch,continue,else,elseif,end,for,function,
+      global,if,otherwise,persistent,return,switch,try,while,ones,
+      squeeze,warning,waitbar,circshift},
+   basicstyle=\small\ttfamily,
+   keywordstyle=\color{blue},
+   commentstyle=\color{dkgreen},
+   stringstyle=\color{purple},
+   rulecolor=\color{black},
+   stepnumber=1,
+   numbersep=5pt,
+   backgroundcolor=\color{white},
+   tabsize=2,
+   showspaces=false,
+   showstringspaces=false,
+   breaklines=true,
+   xleftmargin=17pt,
+   framexleftmargin=17pt,
+   framexrightmargin=5pt,
+   framexbottommargin=4pt,
+   % frame=bottomline
+}
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 \newenvironment{code}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
