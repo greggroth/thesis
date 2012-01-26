@@ -3,7 +3,7 @@
 \section{Background}
   % What does the BOLD response tell us?
   % What gives rise to the fMRI BOLD response?
-  \subsection{Generation of the {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) Response}
+  % \subsection{Generation of the {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) Response}
   
   Since its invention in the 1950's~\citep{carr1954} and later development in the 1970's~\citep{lauterbur1973}, {M}agnetic {R}esonance {I}maging ({MRI}) has allowed physicians and scientists a detailed view within the human body.  
     \begin{figure}[bt]
@@ -99,6 +99,12 @@
   % go through the other approaches
   \subsection{The Approach}
   \label{sec:theapproach}
+  \begin{figure}[bht] 
+    \centering \hspace*{20px} 
+  	\includegraphics{segmented_head} 
+  	\caption{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
+  \end{figure}
+  
     \subsubsection{How the temperature is calculated}
     
     \begin{equation} \label{eq:3dbioheat} 
@@ -111,5 +117,29 @@
   \subsection{Results}
   \label{sec:results}
     \subsubsection{Using Theoretical BOLD Data}
+    \FloatBarrier
+    \begin{figure}[tbh] 
+    	\begin{center}
+    		\begin{tabularx}{\textwidth}{cc}
+    			\raisebox{20px}{\includegraphics[width=0.36\textwidth]{head_reference}} & 
+    			\includegraphics[width=0.5\textwidth]{equilibrium_temperature_0_55_52} \\
+    			\multicolumn{2}{c}{\includegraphics{sim_bold_(48_58_76)}} \\
+    			\multicolumn{2}{c}{\includegraphics{sim_bold_(48_58_56)}}
+    		\end{tabularx}
+    	\end{center}
+    	\caption{\label{fig:simulateddata} Temperature changes using simulated BOLD signals. (a) Slice of the head (y = -12) with indicators of the locations for parts (b)-(d). (b) Equilibrium temperature along a line through the head. Red lines indicate the brain boundary and the gold line indicates the blood temperature (37\degree C) used for calculations. Inside the brain, a 4-6 mm thick shell is created where the equilibrium temperature is less than the blood temperature. Within this shell, (c) the temperature rises with increased brain activity while (d) tissue deeper in the brain experiences the opposite effect.} 
+    \end{figure}
     \subsubsection{Using Experimental BOLD Data}
+    \FloatBarrier
+    \begin{figure}[tbh] 
+    	\begin{center}
+    		$ 
+    		\begin{array}{c}
+    			\includegraphics{slice_x_24} \\
+    			\includegraphics{avg_data_24_52_67} 
+    		\end{array}
+    		$ 
+    	\end{center}
+    	\caption{\label{fig:realdata} Temperature calculated from a voxel within the motor cortex. (a) A slice (x = -44) showing the motor cortex warming during a finger-tapping task. (b) Temperature at a voxel within the motor cortex (-44, -24, 60) with standard error indicated by blue error bars (Arrows indicate task onset and conclusion, N=24).} 
+    \end{figure}
   % talk about my approach

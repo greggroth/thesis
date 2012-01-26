@@ -1,10 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Generation of the fMRI BOLD Response}}{3}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Slice of the segmented head. Each color represents a different tissue type.}}{5}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Temperature changes using simulated BOLD signals. (a) Slice of the head (y = -12) with indicators of the locations for parts (b)-(d). (b) Equilibrium temperature along a line through the head. Red lines indicate the brain boundary and the gold line indicates the blood temperature (37\ensuremath {^\circ }C) used for calculations. Inside the brain, a 4-6 mm thick shell is created where the equilibrium temperature is less than the blood temperature. Within this shell, (c) the temperature rises with increased brain activity while (d) tissue deeper in the brain experiences the opposite effect.}}{6}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Temperature calculated from a voxel within the motor cortex. (a) A slice (x = -44) showing the motor cortex warming during a finger-tapping task. (b) Temperature at a voxel within the motor cortex (-44, -24, 60) with standard error indicated by blue error bars (Arrows indicate task onset and conclusion, N=24).}}{7}{figure.2.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Absorption spectra of water, deoxyhemoglobin and oxyhemoblogin}}{7}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Absorption spectra of water, deoxyhemoglobin and oxyhemoblogin}}{9}{figure.3.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Visualization using tsliceplot}}{49}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization using tsliceplot (z v. t plane)}}{50}{figure.B.2}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Visualization using tsliceplot}}{51}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization using tsliceplot (z v. t plane)}}{52}{figure.B.2}
