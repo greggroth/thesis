@@ -32,12 +32,15 @@
 \BOOKMARK [2][-]{subsection.A.1.4}{build\137skin\(\)}{section.A.1}% 32
 \BOOKMARK [2][-]{subsection.A.1.5}{repair\137headdata\(\)}{section.A.1}% 33
 \BOOKMARK [1][-]{section.A.2}{Loading the fMRI Data}{appendix.A}% 34
-\BOOKMARK [2][-]{subsection.A.2.1}{avg\137NII\137normalize\(\)}{section.A.2}% 35
-\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137rest\(\)}{section.A.2}% 36
-\BOOKMARK [2][-]{subsection.A.2.3}{BOLDtoMF\(\)}{section.A.2}% 37
-\BOOKMARK [2][-]{subsection.A.2.4}{lambw\(\) and lambw\137mex\(\)}{section.A.2}% 38
-\BOOKMARK [1][-]{section.A.3}{Calculating the Equilibrium Temperature}{appendix.A}% 39
-\BOOKMARK [1][-]{section.A.4}{Calculating the Temperature Change}{appendix.A}% 40
-\BOOKMARK [0][-]{appendix.B}{Visualization Tools}{}% 41
-\BOOKMARK [1][-]{section.B.1}{Visualizing the data}{appendix.B}% 42
-\BOOKMARK [2][-]{subsection.B.1.1}{tsliceplot}{section.B.1}% 43
+\BOOKMARK [2][-]{subsection.A.2.1}{Process\137File\137For\137Temp\(\)}{section.A.2}% 35
+\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137normalize\(\)}{section.A.2}% 36
+\BOOKMARK [2][-]{subsection.A.2.3}{avg\137NII\137rest\(\)}{section.A.2}% 37
+\BOOKMARK [2][-]{subsection.A.2.4}{BOLDtoMF\(\)}{section.A.2}% 38
+\BOOKMARK [2][-]{subsection.A.2.5}{lambw\(\) and lambw\137mex\(\)}{section.A.2}% 39
+\BOOKMARK [1][-]{section.A.3}{Calculating the Equilibrium Temperature}{appendix.A}% 40
+\BOOKMARK [2][-]{subsection.A.3.1}{tempCalcEquilibrium\(\)}{section.A.3}% 41
+\BOOKMARK [1][-]{section.A.4}{Calculating the Temperature Change}{appendix.A}% 42
+\BOOKMARK [2][-]{subsection.A.4.1}{tempCalcDynMF}{section.A.4}% 43
+\BOOKMARK [0][-]{appendix.B}{Visualization Tools}{}% 44
+\BOOKMARK [1][-]{subsection.B.0.2}{TempPlot\(\)}{appendix.B}% 45
+\BOOKMARK [2][-]{subsection.B.0.3}{tsliceplot}{subsection.B.0.2}% 46

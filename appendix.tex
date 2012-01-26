@@ -4,6 +4,7 @@
 The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/tempcalc})
 % Load T1/create head data
 \section{Creating the Head Matrix}
+\label{sec:headmatrix}
 Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run BulkImportNII() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}) and fillholes() (\ref{ass:fillholes}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
 \subsection{BulkImportNII()}
 \lstinputlisting[style=codeblock]{code/BulkImportNII.m}
@@ -21,7 +22,10 @@ This function will go through the dataset and make sure the tissue-specific para
 % Load fMRI Data
 \clearpage
 \section{Loading the fMRI Data}
-The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
+\label{sec:fmriprocessing}
+The following sections details the processing required to convert the BOLD data (in NIFTI format) to metabolism and blood flow time-courses that can then be used to calculate temperature.
+\subsection{Process\_File\_For\_Temp()}
+The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It's is written for my data on my machine, but it can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
 \lstinputlisting[style=codeblock]{"code/Process_Files_For_Temp.m"}
 \subsection{avg\_NII\_normalize()}
 \lstinputlisting[style=codeblock]{"code/avg_NII_normalize.m"}
@@ -35,21 +39,21 @@ The lambw() function is a wrapper for the wapr() function available on Matlab Fi
 % Find Equilibrium
 \clearpage
 \section{Calculating the Equilibrium Temperature}
+\label{sec:findequil}
 In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:theapproach}.
+\subsection{tempCalcEquilibrium()}
 \lstinputlisting[style=codeblock]{code/tempCalcEquilibrium.m}
 % Find Temperature Change
 \clearpage
 \section{Calculating the Temperature Change}
-More details about this algorithm can be found in~\cref{sec:theapproach}.
+The following function inputs the head data matrix (\cref{sec:headmatrix}), the metabolism and blood flow time courses (cref{sec:fmriprocessing}) and the equilibrium temperatures (\cref{sec:findequil}) and calculates the temperature time-course.   More details about this algorithm can be found in~\cref{sec:theapproach}.
+\subsection{tempCalcDynMF}
 \lstinputlisting[style=codeblock]{code/tempCalcDynMF.m}
 \chapter{Visualization Tools}
 \label{ch:visualize}
-% tsliceplot?
-\section{Visualizing the data}
-Requires SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}).
-% Needs some screenshots
-% \lstinputlisting[style=codeblock]{code/TempPlot.m}
-\clearpage
+The temperature data is a four dimensional dataset (time, x, y and z), so good visualizations tools are necessary to analyzing the results.  The primary tool I use is a modification of SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}) and is provided as part of temptools (\url{https://github.com/greggroth/tempcalc/tree/master/tt/supportfcts/SliceBrowser}).  In working with this, I also created a function (TempPlot()) to act as a wrapper and handle possible plotting situations depending on the number of inputs.
+\subsection{TempPlot()}
+\lstinputlisting[style=codeblock]{code/TempPlot.m}
 \subsection{tsliceplot}
 This is a visualization tool I wrote that allows you to view the change in temperature versus time for a line passing through the head.  Screenshots of the tool can be seen in~\cref{fig:tsliceplot,fig:tsliceplotz}.
 
@@ -60,18 +64,16 @@ Usage:
 
 The script is available as part of temptools (\url{https://github.com/greggroth/tempcalc/tree/master/tt/supportfcts/tsliceplot}).
 
-\FloatBarrier
-\begin{figure}[t]
+\begin{figure}[hbt]
   \centering
     \caption[Visualization using tsliceplot]{Experimental data for activity in the motor cortex visualized with tsliceplot. \label{fig:tsliceplot}}
     \includegraphics{tsliceplot/default-view}
   \centering
 \end{figure}
 
-\begin{figure}[b]
+\begin{figure}[hbt]
   \centering
     \caption[Visualization using tsliceplot (z v. t plane)]{The same data as is presented in~\cref{fig:tsliceplot}, but viewed flat-on along the z vs. time plane.\label{fig:tsliceplotz}}
     \includegraphics{tsliceplot/z-plane-view}
   \centering
 \end{figure}
-\FloatBarrier

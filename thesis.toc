@@ -32,12 +32,15 @@
 \contentsline {subsection}{\numberline {A.1.4}build\_skin()}{17}{subsection.A.1.4}
 \contentsline {subsection}{\numberline {A.1.5}repair\_headdata()}{18}{subsection.A.1.5}
 \contentsline {section}{\numberline {A.2}Loading the fMRI Data}{20}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}avg\_NII\_normalize()}{23}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}avg\_NII\_rest()}{27}{subsection.A.2.2}
-\contentsline {subsection}{\numberline {A.2.3}BOLDtoMF()}{29}{subsection.A.2.3}
-\contentsline {subsection}{\numberline {A.2.4}lambw() and lambw\_mex()}{32}{subsection.A.2.4}
+\contentsline {subsection}{\numberline {A.2.1}Process\_File\_For\_Temp()}{20}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}avg\_NII\_normalize()}{23}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}avg\_NII\_rest()}{27}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}BOLDtoMF()}{29}{subsection.A.2.4}
+\contentsline {subsection}{\numberline {A.2.5}lambw() and lambw\_mex()}{32}{subsection.A.2.5}
 \contentsline {section}{\numberline {A.3}Calculating the Equilibrium Temperature}{34}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}tempCalcEquilibrium()}{34}{subsection.A.3.1}
 \contentsline {section}{\numberline {A.4}Calculating the Temperature Change}{40}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}tempCalcDynMF}{40}{subsection.A.4.1}
 \contentsline {chapter}{\numberline {B}Visualization Tools}{46}{appendix.B}
-\contentsline {section}{\numberline {B.1}Visualizing the data}{46}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}tsliceplot}{47}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.0.2}TempPlot()}{46}{subsection.B.0.2}
+\contentsline {subsection}{\numberline {B.0.3}tsliceplot}{49}{subsection.B.0.3}
