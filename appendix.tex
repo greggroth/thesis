@@ -15,6 +15,9 @@ Before any calculations can be done, a matrix containing tissue-specific paramet
 \lstinputlisting[style=codeblock]{code/fillholes.m}
 \subsection{build\_skin()}
 \lstinputlisting[style=codeblock]{"code/build_skin.m"}
+\subsection{repair\_headdata()}
+This function will go through the dataset and make sure the tissue-specific parameters are correct for the tissue type assigned for that voxel.  fillAir(), fillholes() and build\_skin() all correct mislabeled voxels, but they only correct the tissue assignment.  After using any of these functions, the data must be passed through repair\_headdata to update the stored parameters.
+\lstinputlisting[style=codeblock]{"code/repair_headdata.m"}
 % Load fMRI Data
 \clearpage
 \section{Loading the fMRI Data}
@@ -33,7 +36,7 @@ The lambw() function is a wrapper for the wapr() function available on Matlab Fi
 \clearpage
 \section{Calculating the Equilibrium Temperature}
 In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:theapproach}.
-\lstinputlisting[language=Matlab]{code/tempCalcEquilibrium.m}
+\lstinputlisting[style=codeblock]{code/tempCalcEquilibrium.m}
 % Find Temperature Change
 \clearpage
 \section{Calculating the Temperature Change}

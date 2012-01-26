@@ -37,9 +37,11 @@ wSTORE = [0 1000 3 45.2 0 1.35 40 0 0 2.8 67.1 3.8 3.8 12 23.7];
 % =====================================
 % The T1 contrast image sould be segmented using SPM8.
 %   This loop needs to complete before the next one can begin
+%  Import all of the datat and store as 'cdat1','cdat2', etc.
 for i = 1:5
-    eval(strcat('dat',num2str(i),' = loadNII(''rc',num2str(i),'single_subj_T1.nii'');'))  %  Import all of the datat and store as 'cdat1','cdat2', etc.
-    eval(strcat('out',num2str(i),' = zeros(cat(2,size(dat',num2str(i),'),7));'))   %  Preallocate 
+    eval(strcat('dat',num2str(i),' = loadNII(''rc', num2str(i), 'single_subj_T1.nii'');'))  
+    %  Preallocate 
+    eval(strcat('out', num2str(i),' = zeros(cat(2,size(dat', num2str(i),'),7));'))
 end
 
 % ============================
@@ -67,11 +69,13 @@ for i = 1:5
     a = find(holder(:,:,:,1) == 1);              %  get indicies of tissues
     [x y z t] = ind2sub(size(holder),a);         %  gets coordinates from index
    
-    for j = 1:length(a)                        %  go to each tissue point and store the info
+    %  go to each tissue point and store the info
+    for j = 1:length(a)                        
         final(x(j),y(j),z(j),:) = [tisorder(i) 0 QmSTORE(tisorder(i)) cSTORE(tisorder(i)) rhoSTORE(tisorder(i)) kSTORE(tisorder(i)) wSTORE(tisorder(i))];
     end
     
-    eval(strcat('out',num2str(i),'= final;'))  %  Saves the result to a unique output variable (out1, out2, etc)
+    %  Saves the result to a unique output variable (out1, out2, etc)
+    eval(strcat('out',num2str(i),'= final;'))  
     
     clearvars a x y z t holder final;
     waitbar(i/6,statusbar,sprintf(['File ',num2str(i),' Import Compete']));
@@ -79,8 +83,9 @@ end
 
 % The filleAir() function checks for any voxels which were not assigned a 
 % tissue type and fills them in with air
-almostthere = fillAir(out1+out2+out3+out4+out5);     %  Combines data for the head model
-% The fillholes() function corrects for a voxel having two equally-probable tissue types
+almostthere = fillAir(out1+out2+out3+out4+out5);
+% The fillholes() function corrects for a voxel having two equally-probable 
+% tissue types
 total = single(fillholes(dat1,dat2,dat3,dat4,dat5,almostthere));
 waitbar(1,statusbar,'Saving Data')
 

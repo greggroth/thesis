@@ -30,13 +30,14 @@
 \BOOKMARK [2][-]{subsection.A.1.2}{fillAir\(\)}{section.A.1}% 30
 \BOOKMARK [2][-]{subsection.A.1.3}{fillholes\(\)}{section.A.1}% 31
 \BOOKMARK [2][-]{subsection.A.1.4}{build\137skin\(\)}{section.A.1}% 32
-\BOOKMARK [1][-]{section.A.2}{Loading the fMRI Data}{appendix.A}% 33
-\BOOKMARK [2][-]{subsection.A.2.1}{avg\137NII\137normalize\(\)}{section.A.2}% 34
-\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137rest\(\)}{section.A.2}% 35
-\BOOKMARK [2][-]{subsection.A.2.3}{BOLDtoMF\(\)}{section.A.2}% 36
-\BOOKMARK [2][-]{subsection.A.2.4}{lambw\(\) and lambw\137mex\(\)}{section.A.2}% 37
-\BOOKMARK [1][-]{section.A.3}{Calculating the Equilibrium Temperature}{appendix.A}% 38
-\BOOKMARK [1][-]{section.A.4}{Calculating the Temperature Change}{appendix.A}% 39
-\BOOKMARK [0][-]{appendix.B}{Visualization Tools}{}% 40
-\BOOKMARK [1][-]{section.B.1}{Visualizing the data}{appendix.B}% 41
-\BOOKMARK [2][-]{subsection.B.1.1}{tsliceplot}{section.B.1}% 42
+\BOOKMARK [2][-]{subsection.A.1.5}{repair\137headdata\(\)}{section.A.1}% 33
+\BOOKMARK [1][-]{section.A.2}{Loading the fMRI Data}{appendix.A}% 34
+\BOOKMARK [2][-]{subsection.A.2.1}{avg\137NII\137normalize\(\)}{section.A.2}% 35
+\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137rest\(\)}{section.A.2}% 36
+\BOOKMARK [2][-]{subsection.A.2.3}{BOLDtoMF\(\)}{section.A.2}% 37
+\BOOKMARK [2][-]{subsection.A.2.4}{lambw\(\) and lambw\137mex\(\)}{section.A.2}% 38
+\BOOKMARK [1][-]{section.A.3}{Calculating the Equilibrium Temperature}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.4}{Calculating the Temperature Change}{appendix.A}% 40
+\BOOKMARK [0][-]{appendix.B}{Visualization Tools}{}% 41
+\BOOKMARK [1][-]{section.B.1}{Visualizing the data}{appendix.B}% 42
+\BOOKMARK [2][-]{subsection.B.1.1}{tsliceplot}{section.B.1}% 43
