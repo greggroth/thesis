@@ -1,36 +1,39 @@
 \appendix
 \addappheadtotoc
 \chapter{Code}
+\label{appendix:code}
 The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/tempcalc})
 % Load T1/create head data
 \section{Creating the Head Matrix}
 \label{sec:headmatrix}
-Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run BulkImportNII() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}) and fillholes() (\ref{ass:fillholes}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
-\subsection{BulkImportNII()}
-\lstinputlisting[style=codeblock]{code/BulkImportNII.m}
+Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run ImportSegmentedT1() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}), fillHoles() (\ref{ass:fillHoles}), build\_skin() (\ref{ass:buildskin}) and repair\_headdata() (\ref{ass:repairheaddata}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
+\subsection{ImportSegmentedT1()}
+\lstinputlisting[style=codeblock]{code/ImportSegmentedT1.m}
 \subsection{fillAir()}
 \label{ass:fillair}
 \lstinputlisting[style=codeblock]{code/fillAir.m}
-\subsection{fillholes()}
-\label{ass:fillholes}
-\lstinputlisting[style=codeblock]{code/fillholes.m}
+\subsection{fillHoles()}
+\label{ass:fillHoles}
+\lstinputlisting[style=codeblock]{code/fillHoles.m}
 \subsection{build\_skin()}
+\label{ass:buildskin}
 \lstinputlisting[style=codeblock]{"code/build_skin.m"}
 \subsection{repair\_headdata()}
-This function will go through the dataset and make sure the tissue-specific parameters are correct for the tissue type assigned for that voxel.  fillAir(), fillholes() and build\_skin() all correct mislabeled voxels, but they only correct the tissue assignment.  After using any of these functions, the data must be passed through repair\_headdata to update the stored parameters.
+\label{ass:repairheaddata}
+This function will go through the dataset and make sure the tissue-specific parameters are correct for the tissue type assigned for that voxel.  fillAir(), fillHoles() and build\_skin() all correct mislabeled voxels, but they only correct the tissue assignment.  After using any of these functions, the data must be passed through repair\_headdata to update the stored parameters.
 \lstinputlisting[style=codeblock]{"code/repair_headdata.m"}
 % Load fMRI Data
 \clearpage
 \section{Loading the fMRI Data}
 \label{sec:fmriprocessing}
 The following sections details the processing required to convert the BOLD data (in NIFTI format) to metabolism and blood flow time-courses that can then be used to calculate temperature.
-\subsection{Process\_File\_For\_Temp()}
+\subsection{sample\_bold\_import()}
 The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It's is written for my data on my machine, but it can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
-\lstinputlisting[style=codeblock]{"code/Process_Files_For_Temp.m"}
-\subsection{avg\_NII\_normalize()}
-\lstinputlisting[style=codeblock]{"code/avg_NII_normalize.m"}
+\lstinputlisting[style=codeblock]{"code/sample_bold_import.m"}
 \subsection{avg\_NII\_rest()}
 \lstinputlisting[style=codeblock]{"code/avg_NII_rest.m"}
+\subsection{avg\_NII\_normalize()}
+\lstinputlisting[style=codeblock]{"code/avg_NII_normalize.m"}
 \subsection{BOLDtoMF()}
 \lstinputlisting[style=codeblock]{"code/BOLDtoMF.m"}
 \subsection{lambw() and lambw\_mex()}

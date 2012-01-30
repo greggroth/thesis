@@ -1,5 +1,5 @@
-function [ total ] = BulkImportNII(varargin)
-%  BulkImportNII Import NII files from a directory
+function [ total ] = ImportSegmentedT1(varargin)
+%  ImportSegmentedT1 Import NII files from a directory
 %   Must be run within the directory containing the files
 %
 %   Output: head data as single with variables stored in the 4th dimension.
@@ -53,7 +53,7 @@ end
 
 %   PROBLEM:  It returns 0 (later filled with air) if there is equal
 %   probability of a voxel being two or more different types of tissue.  
-%   SOLVED BY fillholes()
+%   SOLVED BY fillHoles()
 
 
 for i = 1:5
@@ -84,9 +84,9 @@ end
 % The filleAir() function checks for any voxels which were not assigned a 
 % tissue type and fills them in with air
 almostthere = fillAir(out1+out2+out3+out4+out5);
-% The fillholes() function corrects for a voxel having two equally-probable 
+% The fillHoles() function corrects for a voxel having two equally-probable 
 % tissue types
-total = single(fillholes(dat1,dat2,dat3,dat4,dat5,almostthere));
+total = single(buildskin(fillHoles(dat1,dat2,dat3,dat4,dat5,almostthere)));
 waitbar(1,statusbar,'Saving Data')
 
 cd(oldFolder);

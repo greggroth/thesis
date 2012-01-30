@@ -6,17 +6,12 @@ A level-1 auxiliary file: copyright.aux
 A level-1 auxiliary file: approval.aux
 A level-1 auxiliary file: dedication.aux
 A level-1 auxiliary file: acknowledgments.aux
-A level-1 auxiliary file: signature_page.aux
-A level-1 auxiliary file: chapters/introduction.aux
-A level-1 auxiliary file: chapters/BOLDandTemp.aux
-A level-1 auxiliary file: chapters/detectors.aux
-A level-1 auxiliary file: chapters/conclusion.aux
 The style file: unsrtnat.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: thesis.bib
 You've used 8 entries,
             2481 wiz_defined-function locations,
-            612 strings with 5944 characters,
+            607 strings with 5832 characters,
 and the built_in function-call counts, 2886 in all, are:
 = -- 261
 > -- 112

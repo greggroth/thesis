@@ -94,6 +94,13 @@
 \section{Modeling the BOLD Response}
 \label{sec:modelingBOLD}
 % Start with Buxton and Friston and build up to how I am calculating the metabolism and blood flow.
+\begin{figure}
+  \caption[Procedure used to calculate temperature change]{The procedure used to calculate temperature from BOLD data.  Orange blocks ($\color{goldfish}\bullet$) represent data, the sandy-colored block ($\color{beachstorm}\bullet$) is a step done using SPM8 and the teal blocks ($\color{aoi}\bullet$) are steps done using a function provided within temptools (\cref{appendix:code}).}
+  \vspace{10pt}
+  \centering
+  \input{figures/calculationsFlowChart}
+\end{figure}
+
 
 \section{Modeling Temperature}
   % go through the other approaches
@@ -127,7 +134,7 @@
     			\multicolumn{2}{c}{\includegraphics{sim_bold_(48_58_56)}}
     		\end{tabularx}
     	\end{center}
-    	\caption{\label{fig:simulateddata} Temperature changes using simulated BOLD signals. (a) Slice of the head (y = -12) with indicators of the locations for parts (b)-(d). (b) Equilibrium temperature along a line through the head. Red lines indicate the brain boundary and the gold line indicates the blood temperature (37\degree C) used for calculations. Inside the brain, a 4-6 mm thick shell is created where the equilibrium temperature is less than the blood temperature. Within this shell, (c) the temperature rises with increased brain activity while (d) tissue deeper in the brain experiences the opposite effect.} 
+    	\caption[Temperature changes: simulated BOLD data]{\label{fig:simulateddata} Temperature changes using simulated BOLD signals. (a) Slice of the head (y = -12) with indicators of the locations for parts (b)-(d). (b) Equilibrium temperature along a line through the head. Red lines indicate the brain boundary and the gold line indicates the blood temperature (37\degree C) used for calculations. Inside the brain, a 4-6 mm thick shell is created where the equilibrium temperature is less than the blood temperature. Within this shell, (c) the temperature rises with increased brain activity while (d) tissue deeper in the brain experiences the opposite effect.} 
     \end{figure}
     \subsubsection{Using Experimental BOLD Data}
     \FloatBarrier
@@ -140,6 +147,6 @@
     		\end{array}
     		$ 
     	\end{center}
-    	\caption{\label{fig:realdata} Temperature calculated from a voxel within the motor cortex. (a) A slice (x = -44) showing the motor cortex warming during a finger-tapping task. (b) Temperature at a voxel within the motor cortex (-44, -24, 60) with standard error indicated by blue error bars (Arrows indicate task onset and conclusion, N=24).} 
+    	\caption[Temperature changes: experimental BOLD data]{\label{fig:realdata} Temperature calculated from a voxel within the motor cortex. (a) A slice (x = -44) showing the motor cortex warming during a finger-tapping task. (b) Temperature at a voxel within the motor cortex (-44, -24, 60) with standard error indicated by blue error bars (Arrows indicate task onset and conclusion, N=24).} 
     \end{figure}
   % talk about my approach

@@ -25,15 +25,15 @@
 \BOOKMARK [0][-]{section*.10}{Appendices}{}% 25
 \BOOKMARK [0][-]{appendix.A}{Code}{}% 26
 \BOOKMARK [1][-]{section.A.1}{Creating the Head Matrix}{appendix.A}% 27
-\BOOKMARK [2][-]{subsection.A.1.1}{BulkImportNII\(\)}{section.A.1}% 28
+\BOOKMARK [2][-]{subsection.A.1.1}{ImportSegmentedT1\(\)}{section.A.1}% 28
 \BOOKMARK [2][-]{subsection.A.1.2}{fillAir\(\)}{section.A.1}% 29
-\BOOKMARK [2][-]{subsection.A.1.3}{fillholes\(\)}{section.A.1}% 30
+\BOOKMARK [2][-]{subsection.A.1.3}{fillHoles\(\)}{section.A.1}% 30
 \BOOKMARK [2][-]{subsection.A.1.4}{build\137skin\(\)}{section.A.1}% 31
 \BOOKMARK [2][-]{subsection.A.1.5}{repair\137headdata\(\)}{section.A.1}% 32
 \BOOKMARK [1][-]{section.A.2}{Loading the fMRI Data}{appendix.A}% 33
-\BOOKMARK [2][-]{subsection.A.2.1}{Process\137File\137For\137Temp\(\)}{section.A.2}% 34
-\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137normalize\(\)}{section.A.2}% 35
-\BOOKMARK [2][-]{subsection.A.2.3}{avg\137NII\137rest\(\)}{section.A.2}% 36
+\BOOKMARK [2][-]{subsection.A.2.1}{sample\137bold\137import\(\)}{section.A.2}% 34
+\BOOKMARK [2][-]{subsection.A.2.2}{avg\137NII\137rest\(\)}{section.A.2}% 35
+\BOOKMARK [2][-]{subsection.A.2.3}{avg\137NII\137normalize\(\)}{section.A.2}% 36
 \BOOKMARK [2][-]{subsection.A.2.4}{BOLDtoMF\(\)}{section.A.2}% 37
 \BOOKMARK [2][-]{subsection.A.2.5}{lambw\(\) and lambw\137mex\(\)}{section.A.2}% 38
 \BOOKMARK [1][-]{section.A.3}{Calculating the Equilibrium Temperature}{appendix.A}% 39

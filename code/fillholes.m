@@ -1,5 +1,5 @@
-function [ out_head ] = fillholes( in1,in2,in3,in4,in5,headin)
-% fillholes() checks for misassigned voxels
+function [ out_head ] = fillHoles( in1,in2,in3,in4,in5,headin)
+% fillHoles() checks for misassigned voxels
 % 
 % Solves an issue where a voxel with two equally probable tissue
 % types resulted in being assigned as air.  This checks for air 

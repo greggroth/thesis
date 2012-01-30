@@ -1,0 +1,33 @@
+\tikzstyle{data} = [draw=none, fill=goldfish]
+\tikzstyle{temptools} = [draw=none, fill=aoi]
+\tikzstyle{spm} = [draw=none, fill=beachstorm]
+\tikzstyle{params} = [draw=none, fill=pondwater]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+
+\begin{tikzpicture}[node distance=0.7cm, rectangle, text width=4.5cm, text badly centered, rounded corners, minimum height=1cm, anchor=north]     
+  % Left column
+    \node[data](fmridata){fMRI BOLD Data};
+    \node[temptools, below=of fmridata](calcrest){Calculate resting state (avg\_NII\_rest)};
+    \node[temptools, below=of calcrest](normalize){Normalize the data to resting state (avg\_NII\_normalize)};
+    \node[temptools, below=of normalize](boldtomf){Calculate the change in metabolism and blood flow (BOLDtoMF)};
+    % middle column
+    \node[data, right=of fmridata](t1contrast){T1 contrast image};
+    \node[spm, below=of t1contrast](segment){Segment image (SPM8)};
+    \node[temptools, right=of boldtomf](buildhead){Build head matrix (ImportSegmentedT1)};
+    % right column
+    \node[temptools, right=of buildhead](calcequil){Calculate equilibrium temperature (tempCalcEquilibrium)};
+    \node[params, above=of calcequil, xshift=-2cm](tissueparams){Tissue-specific parameters};
+    % bottom
+    \node[temptools, below=of buildhead, text width=8cm](calctemp){Find temperature change during activity (tempCalcDynMF)};
+  
+  \path[line](fmridata) -- (calcrest);
+  \path[line](calcrest) -- (normalize);
+  \path[line](normalize) -- (boldtomf);
+  \path[line](t1contrast) -- (segment);
+  \path[line](segment) -- (buildhead);
+  \path[line](buildhead) -- (calcequil);
+  \path[line](boldtomf) |- (calctemp);
+  \path[line](buildhead) -- (calctemp);
+  \path[line](calcequil) |- (calctemp); 
+  \path[line](tissueparams) -| (buildhead);
+\end{tikzpicture}
