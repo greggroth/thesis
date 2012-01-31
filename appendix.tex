@@ -2,7 +2,7 @@
 \addappheadtotoc
 \chapter{Code}
 \label{appendix:code}
-The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/tempcalc})
+The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/temptools})
 % Load T1/create head data
 \section{Creating the Head Matrix}
 \label{sec:headmatrix}
@@ -54,7 +54,7 @@ The following function inputs the head data matrix (\cref{sec:headmatrix}), the 
 \lstinputlisting[style=codeblock]{code/tempCalcDynMF.m}
 \chapter{Visualization Tools}
 \label{ch:visualize}
-The temperature data is a four dimensional dataset (time, x, y and z), so good visualizations tools are necessary to analyzing the results.  The primary tool I use is a modification of SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}) and is provided as part of temptools (\url{https://github.com/greggroth/tempcalc/tree/master/tt/supportfcts/SliceBrowser}).  In working with this, I also created a function (TempPlot()) to act as a wrapper and handle possible plotting situations depending on the number of inputs.
+The temperature data is a four dimensional dataset (time, x, y and z), so good visualizations tools are necessary to analyzing the results.  The primary tool I use is a modification of SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}) and is provided as part of temptools (\url{https://github.com/greggroth/temptools/tree/master/lib/SliceBrowser}).  In working with this, I also created a function (TempPlot()) to act as a wrapper and handle possible plotting situations depending on the number of inputs.
 \subsection{TempPlot()}
 \lstinputlisting[style=codeblock]{code/TempPlot.m}
 \subsection{tsliceplot}
@@ -65,7 +65,7 @@ Usage:
   tsliceplot(temperature_data, equilibrium_temperature_data)
 \end{lstlisting}
 
-The script is available as part of temptools (\url{https://github.com/greggroth/tempcalc/tree/master/tt/supportfcts/tsliceplot}).
+The script is available as part of temptools (\url{https://github.com/greggroth/temptools/tree/master/lib/tsliceplot}).
 
 \begin{figure}[hbt]
   \centering
