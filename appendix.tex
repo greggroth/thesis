@@ -2,7 +2,35 @@
 \addappheadtotoc
 \chapter{Code}
 \label{appendix:code}
-The following sections include the code used.  It was written for Matlab 2011(b) and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/temptools})
+The following sections include the code used.  It was written for Matlab R2011b and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/temptools}).  Additionally, many of the tasks can be completed using the temptools gui (\cref{fig:ttmain,fig:ttcalcequil,fig:tttempcalc,fig:ttvisualize}) which can be invoked by running
+\begin{lstlisting}[style=snippet]
+  temptools
+\end{lstlisting}
+at the Matlab command prompt (make sure the temptools directory and subdirectories have been added to the Matlab path).
+\begin{figure}[hbt]
+  \centering
+    \caption[temptools: main window]{\label{fig:ttmain} The main window of temptools.  From here, you can go through the calculation steps and launch the visualization tool.}
+    \includegraphics[keepaspectratio=true, width=17cm]{temptools/main.png}
+  \centering
+\end{figure}
+\begin{figure}[hbt]
+  \centering
+    \caption[temptools: calculate the equilibrium temperature window]{\label{fig:ttcalcequil} This is the interface for calculating the equilibrium temperature (method explained in~\cref{sec:findequil}) under certain conditions.}
+    \includegraphics[keepaspectratio=true, width=17cm]{temptools/calcequil}
+  \centering
+\end{figure}
+\begin{figure}[hbt]
+  \centering
+    \caption[temptools: calculate temperature during activity]{\label{fig:tttempcalc} The interface for calculating temperature changes when blood flow and metabolism are time dependent.  This can be achieved by either loading metabolism and blood flow datasets or by using generated activity.}
+    \includegraphics[keepaspectratio=true, width=17cm]{temptools/tempcalc}
+  \centering
+\end{figure}
+\begin{figure}[hbt]
+  \centering
+    \caption[temptools: visualize the data]{\label{fig:ttvisualize} Visualize your data using the temptools visualization window.  This loads all of the required data and launches a slice browser or tsliceplot (see \cref{ch:visualize} for more details).}
+    \includegraphics[keepaspectratio=true, width=10cm]{temptools/visualize}
+  \centering
+\end{figure}
 % Load T1/create head data
 \section{Creating the Head Matrix}
 \label{sec:headmatrix}

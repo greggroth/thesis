@@ -17,18 +17,18 @@ Paul Lauterbur.
   nuclear magnetic resonance.
 \newblock \emph{Nature}, 242:\penalty0 190--191, 1973.
 
-\bibitem[Sotero and Trujillo-Barreto(2007)]{sotero2007}
-Roberto~C Sotero and Nelson~J Trujillo-Barreto.
-\newblock Modeling the role of excitatory and inhibitory neuronal activity in
-  the generation of the bold signal.
-\newblock \emph{NeuroImage}, 35:\penalty0 149--165, 2007.
-
 \bibitem[Sotero and Iturria-Medina(2011)]{sotero2011}
 Roberto~C Sotero and Yasser Iturria-Medina.
 \newblock From {B}lood {O}xygen {L}evel {D}ependent ({BOLD}) signals to brain
   temperature maps.
 \newblock \emph{Bulletin of Mathematical Biology}, 73\penalty0 (11):\penalty0
   2731--2747, 2011.
+
+\bibitem[Collins et~al.(2004)Collins, Smith, and Turner]{collins}
+Christopher~M. Collins, Michael~B. Smith, and Robert Turner.
+\newblock Model of local temperature changes in brain upon functional
+  activation.
+\newblock \emph{Journal of Applied Physics}, 97:\penalty0 2051--2055, 2004.
 
 \bibitem[Pennes(1948)]{pennes}
 H~H Pennes.

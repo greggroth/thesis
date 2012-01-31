@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.30)  30 JAN 2012 13:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.30)  31 JAN 2012 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,6 +648,95 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 Package: placeins 2005/04/18  v 2.2
 )
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.markings.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen183
+\pgfdecoratedremainingdistance=\dimen184
+\pgfdecoratedinputsegmentcompleteddistance=\dimen185
+\pgfdecoratedinputsegmentremainingdistance=\dimen186
+\pgf@decorate@distancetomove=\dimen187
+\pgf@decorate@repeatstate=\count140
+\pgfdecorationsegmentamplitude=\dimen188
+\pgfdecorationsegmentlength=\dimen189
+)
+\tikz@lib@dec@box=\box37
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.markings.code.tex))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarysnakes.code.tex
+File: tikzlibrarysnakes.code.tex 2008/02/05 v2.10 (rcs-revision 1.6)
+
+
+Package tikz Warning: Snakes have been superseded by decorations. Please use th
+e decoration libraries instead of the snakes library on input line 14.
+
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.shapes.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.shapes.code.tex)))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2008/06/21 v2.10 (rcs-revision 1.3)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryscopes.code.tex
+File: tikzlibraryscopes.code.tex 2008/06/27 v2.10 (rcs-revision 1.2)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex
+File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
+\arrowsize=\dimen190
+))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2009/09/04 v2.10 (rcs-revision 1.6)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2008/10/07 v2.10 (rcs-revision 1.3)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarychains.code.tex
+File: tikzlibrarychains.code.tex 2008/02/27 v2.10 (rcs-revision 1.5)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2008/06/18 v2.10 (rcs-revision 1.2)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
@@ -660,28 +749,12 @@ shapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
 ))
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryshapes.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
-shapes.misc.code.tex
-File: pgflibraryshapes.misc.code.tex 2008/10/07 v2.10 (rcs-revision 1.3)
-))
-(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryshapes.symbols.code.tex
 File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
 shapes.symbols.code.tex
 File: pgflibraryshapes.symbols.code.tex 2009/10/27 v2.10 (rcs-revision 1.3)
-))
-(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryshapes.arrows.code.tex
-File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
-shapes.arrows.code.tex
-File: pgflibraryshapes.arrows.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
 ))
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryshapes.callouts.code.tex
@@ -694,71 +767,70 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
 shapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box37
-\pgfnodeparttwobox=\box38
-\pgfnodepartthreebox=\box39
-\pgfnodepartfourbox=\box40
-\pgfnodeparttwentybox=\box41
-\pgfnodepartnineteenbox=\box42
-\pgfnodeparteighteenbox=\box43
-\pgfnodepartseventeenbox=\box44
-\pgfnodepartsixteenbox=\box45
-\pgfnodepartfifteenbox=\box46
-\pgfnodepartfourteenbox=\box47
-\pgfnodepartthirteenbox=\box48
-\pgfnodeparttwelvebox=\box49
-\pgfnodepartelevenbox=\box50
-\pgfnodeparttenbox=\box51
-\pgfnodepartninebox=\box52
-\pgfnodeparteightbox=\box53
-\pgfnodepartsevenbox=\box54
-\pgfnodepartsixbox=\box55
-\pgfnodepartfivebox=\box56
+\pgfnodepartlowerbox=\box38
+\pgfnodeparttwobox=\box39
+\pgfnodepartthreebox=\box40
+\pgfnodepartfourbox=\box41
+\pgfnodeparttwentybox=\box42
+\pgfnodepartnineteenbox=\box43
+\pgfnodeparteighteenbox=\box44
+\pgfnodepartseventeenbox=\box45
+\pgfnodepartsixteenbox=\box46
+\pgfnodepartfifteenbox=\box47
+\pgfnodepartfourteenbox=\box48
+\pgfnodepartthirteenbox=\box49
+\pgfnodeparttwelvebox=\box50
+\pgfnodepartelevenbox=\box51
+\pgfnodeparttenbox=\box52
+\pgfnodepartninebox=\box53
+\pgfnodeparteightbox=\box54
+\pgfnodepartsevenbox=\box55
+\pgfnodepartsixbox=\box56
+\pgfnodepartfivebox=\box57
 )))
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
-code.tex
-File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-\arrowsize=\dimen183
-))
+s/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
+\pgf@layerbox@background=\box58
+\pgf@layerboxsaved@background=\box59
+)
 (/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
-) (./thesis.aux (./title.aux) (./copyright.aux) (./approval.aux) (./dedication.
-aux) (./acknowledgments.aux)
+s/tikzlibrarydecorations.text.code.tex
+(/usr/local/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.text.code.tex
+\pgf@lib@dec@text@box=\box60
+)) (./thesis.aux (./title.aux) (./copyright.aux)
+(./approval.aux) (./dedication.aux) (./acknowledgments.aux)
 (./signature_page.aux) (./appendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count140
-\scratchdimen=\dimen184
-\scratchbox=\box57
-\nofMPsegments=\count141
-\nofMParguments=\count142
+\scratchcounter=\count141
+\scratchdimen=\dimen191
+\scratchbox=\box61
+\nofMPsegments=\count142
+\nofMParguments=\count143
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count143
-\MPscratchDim=\dimen185
-\MPnumerator=\count144
-\makeMPintoPDFobject=\count145
+\MPscratchCnt=\count144
+\MPscratchDim=\dimen192
+\MPnumerator=\count145
+\makeMPintoPDFobject=\count146
 \everyMPtoPDFconversion=\toks29
 )
 *geometry* driver: auto-detecting
@@ -795,20 +867,20 @@ LaTeX Font Info:    ... okay on input line 76.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count146
-\AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 76.
+\c@lstlisting=\count147
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring OFF on input line 79.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count147
+\c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
@@ -828,7 +900,7 @@ LaTeX Info: Redefining \nameref on input line 76.
 name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.80 \include{copyright}
+l.83 \include{copyright}
                          [1
 
 
@@ -893,125 +965,124 @@ Chapter 1.
 
 ] (./chapters/BOLDandTemp.tex
 Chapter 2.
-<./figures/flowchart.png, id=299, 698.61pt x 377.2494pt>
-File: ./figures/flowchart.png Graphic file (type png)
+(./figures/boldFlowChart.tex)
+Overfull \hbox (6.38138pt too wide) in paragraph at lines 39--14
+ [][] 
+ []
 
-<use ./figures/flowchart.png>
-Package pdftex.def Info: ./figures/flowchart.png used on input line 11.
-(pdftex.def)             Requested size: 469.75502pt x 253.67104pt.
- [2
+[2
 
 
 ]
-Overfull \hbox (1.3492pt too wide) detected at line 40
+Overfull \hbox (1.3492pt too wide) detected at line 41
 [][][]\OML/cmm/m/it/10 change in temperature  \OT1/cmr/m/n/10 =  \OML/cmm/m/it/
 10 heat generated by metabolism  \OMS/cmsy/m/n/10 ^^@  \OML/cmm/m/it/10 heat lo
 st to convection  \OMS/cmsy/m/n/10 ^^@  \OML/cmm/m/it/10 heat lost to conductio
 n[]
  []
 
-[3 <./figures/flowchart.png>]
-Overfull \hbox (22.00731pt too wide) in alignment at lines 60--86
+[3]
+Overfull \hbox (22.00731pt too wide) in alignment at lines 61--87
 [][][] 
  []
 
-(./figures/calculationsFlowChart.tex) [4]
-<./figures/segmented_head.png, id=349, 626.34pt x 293.4162pt>
+[4] (./figures/calculationsFlowChart.tex) [5]
+<./figures/segmented_head.png, id=360, 626.34pt x 293.4162pt>
 File: ./figures/segmented_head.png Graphic file (type png)
 
 <use ./figures/segmented_head.png>
-Package pdftex.def Info: ./figures/segmented_head.png used on input line 111.
+Package pdftex.def Info: ./figures/segmented_head.png used on input line 112.
 (pdftex.def)             Requested size: 469.75502pt x 220.07056pt.
 
-Overfull \hbox (22.29729pt too wide) in paragraph at lines 110--112
+Overfull \hbox (22.29729pt too wide) in paragraph at lines 111--113
  []|  [] 
  []
 
-[5] <./figures/head_reference.png, id=355, 134.904pt x 112.7412pt>
+[6] <./figures/head_reference.png, id=367, 134.904pt x 112.7412pt>
 <use ./figures/head_reference.png>
-<./figures/equilibrium_temperature_0_55_52.pdf, id=356, 998.73125pt x 702.625pt
+<./figures/equilibrium_temperature_0_55_52.pdf, id=368, 998.73125pt x 702.625pt
 > <use ./figures/equilibrium_temperature_0_55_52.pdf>
-<./figures/sim_bold_(48_58_76).pdf, id=357, 1284.8pt x 454.69875pt>
+<./figures/sim_bold_(48_58_76).pdf, id=369, 1284.8pt x 454.69875pt>
 <use ./figures/sim_bold_(48_58_76).pdf>
-<./figures/sim_bold_(48_58_56).pdf, id=358, 1284.8pt x 454.69875pt>
+<./figures/sim_bold_(48_58_56).pdf, id=370, 1284.8pt x 454.69875pt>
 <use ./figures/sim_bold_(48_58_56).pdf> <use ./figures/head_reference.png>
 <use ./figures/equilibrium_temperature_0_55_52.pdf>
 <use ./figures/sim_bold_(48_58_76).pdf>
 <use ./figures/sim_bold_(48_58_56).pdf>
 File: ./figures/head_reference.png Graphic file (type png)
  <use ./figures/head_reference.png>
-Package pdftex.def Info: ./figures/head_reference.png used on input line 135.
+Package pdftex.def Info: ./figures/head_reference.png used on input line 136.
 (pdftex.def)             Requested size: 169.11209pt x 141.34244pt.
 File: ./figures/equilibrium_temperature_0_55_52.pdf Graphic file (type pdf)
 
 <use ./figures/equilibrium_temperature_0_55_52.pdf>
 Package pdftex.def Info: ./figures/equilibrium_temperature_0_55_52.pdf used on 
-input line 135.
+input line 136.
 (pdftex.def)             Requested size: 234.8775pt x 165.23482pt.
 File: ./figures/sim_bold_(48_58_76).pdf Graphic file (type pdf)
 
 <use ./figures/sim_bold_(48_58_76).pdf>
 Package pdftex.def Info: ./figures/sim_bold_(48_58_76).pdf used on input line 1
-35.
+36.
 (pdftex.def)             Requested size: 469.75502pt x 166.24464pt.
 File: ./figures/sim_bold_(48_58_56).pdf Graphic file (type pdf)
 
 <use ./figures/sim_bold_(48_58_56).pdf>
 Package pdftex.def Info: ./figures/sim_bold_(48_58_56).pdf used on input line 1
-35.
+36.
 (pdftex.def)             Requested size: 469.75502pt x 166.24464pt.
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 135--135
+Overfull \hbox (12.0pt too wide) in alignment at lines 136--136
 [][] 
  []
 
-[6 <./figures/segmented_head.png>] [7 <./figures/head_reference.png> <./figures
+[7 <./figures/segmented_head.png>] [8 <./figures/head_reference.png> <./figures
 /equilibrium_temperature_0_55_52.pdf> <./figures/sim_bold_(48_58_76).pdf> <./fi
 gures/sim_bold_(48_58_56).pdf>]
-<./figures/slice_x_24.pdf, id=386, 1127.21124pt x 702.625pt>
+<./figures/slice_x_24.pdf, id=398, 1127.21124pt x 702.625pt>
 File: ./figures/slice_x_24.pdf Graphic file (type pdf)
 
 <use ./figures/slice_x_24.pdf>
-Package pdftex.def Info: ./figures/slice_x_24.pdf used on input line 145.
+Package pdftex.def Info: ./figures/slice_x_24.pdf used on input line 146.
 (pdftex.def)             Requested size: 469.75502pt x 292.81686pt.
 
-<./figures/avg_data_24_52_67.pdf, id=387, 1127.21124pt x 702.625pt>
+<./figures/avg_data_24_52_67.pdf, id=399, 1127.21124pt x 702.625pt>
 File: ./figures/avg_data_24_52_67.pdf Graphic file (type pdf)
 
 <use ./figures/avg_data_24_52_67.pdf>
-Package pdftex.def Info: ./figures/avg_data_24_52_67.pdf used on input line 146
+Package pdftex.def Info: ./figures/avg_data_24_52_67.pdf used on input line 147
 .
 (pdftex.def)             Requested size: 469.75502pt x 292.81686pt.
 
-Overfull \hbox (10.0pt too wide) in paragraph at lines 143--149
+Overfull \hbox (10.0pt too wide) in paragraph at lines 144--150
  []$ 
  []
 
 
-LaTeX Warning: Float too large for page by 10.4038pt on input line 151.
+LaTeX Warning: Float too large for page by 10.4038pt on input line 152.
 
-) [8 <./figures/slice_x_24.pdf> <./figures/avg_data_24_52_67.pdf>]
+) [9 <./figures/slice_x_24.pdf> <./figures/avg_data_24_52_67.pdf>]
 (./chapters/detectors.tex
 Chapter 3.
-<./figures/AbsorptionData.pdf, id=420, 1127.21124pt x 504.88625pt>
+<./figures/AbsorptionData.pdf, id=433, 1127.21124pt x 504.88625pt>
 File: ./figures/AbsorptionData.pdf Graphic file (type pdf)
 
 <use ./figures/AbsorptionData.pdf>
 Package pdftex.def Info: ./figures/AbsorptionData.pdf used on input line 7.
 (pdftex.def)             Requested size: 469.75502pt x 210.40982pt.
- [9
+ [10
 
 
 
-] [10 <./figures/AbsorptionData.pdf>])
-[11
+] [11 <./figures/AbsorptionData.pdf>])
+[12
 
 ] (./chapters/conclusion.tex
 Chapter 4.
-) (./thesis.bbl [12
+) (./thesis.bbl [13
 
 
-]) [13
+]) [14
 
 ]
 \openout2 = `appendix.aux'.
@@ -1021,70 +1092,117 @@ Appendix A.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(./code/ImportSegmentedT1.m [14
+<./figures/temptools/main.png, id=475, 789.95125pt x 548.0475pt>
+File: ./figures/temptools/main.png Graphic file (type png)
+
+<use ./figures/temptools/main.png>
+Package pdftex.def Info: ./figures/temptools/main.png used on input line 13.
+(pdftex.def)             Requested size: 483.69684pt x 335.57959pt.
+
+Overfull \hbox (13.94182pt too wide) in paragraph at lines 13--15
+ [][] 
+ []
+
+<./figures/temptools/calcequil.png, id=478, 709.65125pt x 421.575pt>
+File: ./figures/temptools/calcequil.png Graphic file (type png)
+
+<use ./figures/temptools/calcequil.png>
+Package pdftex.def Info: ./figures/temptools/calcequil.png used on input line 1
+9.
+(pdftex.def)             Requested size: 483.69684pt x 287.34906pt.
+
+Overfull \hbox (13.94182pt too wide) in paragraph at lines 19--21
+ [][] 
+ []
+
+<./figures/temptools/tempcalc.png, id=479, 969.6225pt x 669.50125pt>
+File: ./figures/temptools/tempcalc.png Graphic file (type png)
+
+<use ./figures/temptools/tempcalc.png>
+Package pdftex.def Info: ./figures/temptools/tempcalc.png used on input line 25
+.
+(pdftex.def)             Requested size: 483.69684pt x 333.98363pt.
+
+Overfull \hbox (13.94182pt too wide) in paragraph at lines 25--27
+ [][] 
+ []
+
+<./figures/temptools/visualize.png, id=482, 418.56375pt x 583.17876pt>
+File: ./figures/temptools/visualize.png Graphic file (type png)
+
+<use ./figures/temptools/visualize.png>
+Package pdftex.def Info: ./figures/temptools/visualize.png used on input line 3
+1.
+(pdftex.def)             Requested size: 284.52756pt x 396.42284pt.
+ [15
 
 
-] [15] [16]) (./code/fillAir.m [17])
-(./code/fillHoles.m [18] [19]) (./code/build_skin.m [20])
-(./code/repair_headdata.m [21]) [22] (./code/sample_bold_import.m [23
+] [16 <./figures/temptools/main.png>] [17 <./figures/temptools/calcequil.png>] 
+[18 <./figures/temptools/tempcalc.png>] [19 <./figures/temptools/visualize.png>
+] (./code/ImportSegmentedT1.m
+[20
 
-] [24]
-[25]) (./code/avg_NII_rest.m [26] [27]) [28] (./code/avg_NII_normalize.m
-[29] [30] [31]) (./code/BOLDtoMF.m [32] [33] [34])
-Overfull \hbox (16.74077pt too wide) in paragraph at lines 40--41
+] [21] [22]) (./code/fillAir.m) [23] (./code/fillHoles.m [24])
+(./code/build_skin.m [25]) (./code/repair_headdata.m [26]) [27]
+(./code/sample_bold_import.m [28
+
+] [29] [30]) (./code/avg_NII_rest.m [31]
+[32]) [33] (./code/avg_NII_normalize.m [34] [35] [36]) (./code/BOLDtoMF.m
+[37] [38] [39])
+Overfull \hbox (16.74077pt too wide) in paragraph at lines 68--69
 \OT1/cmtt/m/n/10 mathworks . com / matlabcentral / fileexchange / 3644-[]real-[
 ]values-[]of-[]the-[]lambert-[]w-[]function / content /
  []
 
-(./code/lambw.m [35]) [36] (./code/tempCalcEquilibrium.m [37
+(./code/lambw.m [40]) [41] (./code/tempCalcEquilibrium.m [42
 
-] [38] [39]
-[40] [41]) [42] (./code/tempCalcDynMF.m [43
+] [43] [44]
+[45] [46]) [47] (./code/tempCalcDynMF.m [48
 
-] [44] [45] [46] [47]) [48]
+] [49] [50] [51] [52]) [53]
 Appendix B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 58.
+(hyperref)                than one, level fixed on input line 86.
 
-(./code/TempPlot.m [49
+(./code/TempPlot.m [54
 
-] [50] [51])
-<./figures/tsliceplot/default-view.png, id=1689, 1012.78375pt x 611.28375pt>
+] [55] [56])
+<./figures/tsliceplot/default-view.png, id=1734, 1012.78375pt x 611.28375pt>
 File: ./figures/tsliceplot/default-view.png Graphic file (type png)
 
 <use ./figures/tsliceplot/default-view.png>
 Package pdftex.def Info: ./figures/tsliceplot/default-view.png used on input li
-ne 73.
+ne 101.
 (pdftex.def)             Requested size: 469.75502pt x 283.52579pt.
 
-<./figures/tsliceplot/z-plane-view.png, id=1691, 1012.78375pt x 611.28375pt>
+<./figures/tsliceplot/z-plane-view.png, id=1736, 1012.78375pt x 611.28375pt>
 File: ./figures/tsliceplot/z-plane-view.png Graphic file (type png)
 
 <use ./figures/tsliceplot/z-plane-view.png>
 Package pdftex.def Info: ./figures/tsliceplot/z-plane-view.png used on input li
-ne 80.
+ne 108.
 (pdftex.def)             Requested size: 469.75502pt x 283.52579pt.
-) [52 <./figures/tsliceplot/default-view.png>] [53 <./figures/tsliceplot/z-plan
+) [57 <./figures/tsliceplot/default-view.png>] [58 <./figures/tsliceplot/z-plan
 e-view.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
  (./thesis.aux
 (./title.aux) (./copyright.aux) (./approval.aux) (./dedication.aux)
 (./acknowledgments.aux) (./signature_page.aux) (./appendix.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 2E863E92D235D9D659350053565E2344;3207.
  ) 
 Here is how much of TeX's memory you used:
- 21545 strings out of 493629
- 401430 string characters out of 3143323
- 969462 words of memory out of 3000000
- 23220 multiletter control sequences out of 15000+200000
+ 22627 strings out of 493629
+ 436903 string characters out of 3143323
+ 929892 words of memory out of 3000000
+ 24225 multiletter control sequences out of 15000+200000
  8251 words of font info for 30 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 56i,14n,56p,1009b,2321s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,14n,60p,1009b,1742s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1102,10 +1220,10 @@ ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 11/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
 1/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2011
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on thesis.pdf (63 pages, 824511 bytes).
+Output written on thesis.pdf (68 pages, 909276 bytes).
 PDF statistics:
- 2005 PDF objects out of 2073 (max. 8388607)
- 1859 compressed objects within 19 object streams
- 1167 named destinations out of 1200 (max. 500000)
- 428 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2052 PDF objects out of 2073 (max. 8388607)
+ 1892 compressed objects within 19 object streams
+ 1178 named destinations out of 1200 (max. 500000)
+ 443 words of extra memory for PDF output out of 10000 (max. 10000000)
 

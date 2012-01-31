@@ -6,29 +6,30 @@ A level-1 auxiliary file: copyright.aux
 A level-1 auxiliary file: approval.aux
 A level-1 auxiliary file: dedication.aux
 A level-1 auxiliary file: acknowledgments.aux
+A level-1 auxiliary file: signature_page.aux
 The style file: unsrtnat.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: thesis.bib
 You've used 8 entries,
             2481 wiz_defined-function locations,
-            607 strings with 5832 characters,
-and the built_in function-call counts, 2886 in all, are:
-= -- 261
-> -- 112
-< -- 7
-+ -- 48
-- -- 32
-* -- 206
-:= -- 465
+            609 strings with 5859 characters,
+and the built_in function-call counts, 2924 in all, are:
+= -- 262
+> -- 118
+< -- 6
++ -- 50
+- -- 34
+* -- 214
+:= -- 473
 add.period$ -- 24
 call.type$ -- 8
 change.case$ -- 15
 chr.to.int$ -- 8
 cite$ -- 8
 duplicate$ -- 147
-empty$ -- 274
+empty$ -- 276
 format.name$ -- 46
-if$ -- 601
+if$ -- 607
 int.to.chr$ -- 1
 int.to.str$ -- 9
 missing$ -- 7
@@ -38,9 +39,9 @@ pop$ -- 57
 preamble$ -- 1
 purify$ -- 8
 quote$ -- 0
-skip$ -- 90
+skip$ -- 88
 stack$ -- 0
-substring$ -- 169
+substring$ -- 175
 swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0

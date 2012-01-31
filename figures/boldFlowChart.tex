@@ -1,0 +1,39 @@
+\tikzstyle{block} = [draw=none, fill=beachstorm]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+\tikzstyle{sotero} = [draw, very thick, dashed, color=goldfish, -latex']
+\tikzstyle{collins} = [draw, very thick, dashed, color=aoi, -latex']
+\tikzstyle{citation} = [draw=none, fill=white, minimum height=0.5cm, anchor=north, text width=3.5cm]
+
+\begin{tikzpicture}[node distance=0.7cm, rectangle, text width=4.5cm, text badly centered, rounded corners, minimum height=1cm, anchor=north]
+  \node[block](stimulus){Stimulus/Task};
+  
+  \node[block, below=of stimulus, xshift=-5cm](excitatory){Excitatory};
+  \node[block, below=of stimulus, xshift= 7cm](inhibitory){Inhibitory};
+  
+  \node[block, below=of excitatory](cbf){Cerebral Blood Flow};
+  \node[block, below=of inhibitory, xshift=-3cm](o2){Oxygen Consumption};
+  
+  \node[block, below=of cbf, xshift=4.5cm](bold){fMRI BOLD Response};
+  \node[block, below=of bold](temp){Temperature Change};
+  
+  \node[citation](sotero1) at (-3, -4.5) {Sotero, et. al. 2011};
+  % \node[citation](sotero1) at (2, -4.5) {Sotero, et. al. 2011};
+  % \node[citation](sotero1) at (-4.5, -7.5) {Collins, et. al. 2011};
+  \node[citation](sotero1) at (6, -6.5) {Collins, et. al. 2011};
+  
+  \path[line](stimulus.west) -| (excitatory.north);
+  \path[line](stimulus.east) -| (inhibitory.north);
+  \path[line](excitatory.south) -- (cbf.north);
+  \path[line](excitatory.east) -| (o2.north);
+  \path[line](inhibitory.west) -| (o2.north);
+  
+  \path[line](cbf.south) |- ([yshift=-5pt] bold.west);
+  \path[line](cbf.south) |- ([yshift= 5pt] temp.west);
+  \path[line](o2.south)  |- ([yshift=-5pt] bold.east);
+  \path[line](o2.south)  |- ([yshift= 5pt] temp.east);
+  
+  \path[sotero]([yshift= 5pt] bold) -| ([xshift= 20pt] cbf);
+  \path[sotero]([yshift= 5pt] bold) -| ([xshift=-20pt] o2);
+  \path[collins]([xshift=-45pt] cbf) |- ([yshift=-5pt] temp);
+  \path[collins]([xshift=45pt] o2)  |- ([yshift= -5pt] temp);
+\end{tikzpicture}
