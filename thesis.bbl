@@ -5,12 +5,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Collins et~al.(2004)Collins, Smith, and Turner]{collins}
-Christopher~M. Collins, Michael~B. Smith, and Robert Turner.
-\newblock Model of local temperature changes in brain upon functional
-  activation.
-\newblock \emph{Journal of Applied Physics}, 97:\penalty0 2051--2055, 2004.
-
 \bibitem[Carr and Purcell(1954)]{carr1954}
 Herman~Y Carr and E~M Purcell.
 \newblock Effects of diffusion on free precession in nuclear magnetic resonance
@@ -29,6 +23,12 @@ Roberto~C Sotero and Yasser Iturria-Medina.
   temperature maps.
 \newblock \emph{Bulletin of Mathematical Biology}, 73\penalty0 (11):\penalty0
   2731--2747, 2011.
+
+\bibitem[Collins et~al.(2004)Collins, Smith, and Turner]{collins}
+Christopher~M. Collins, Michael~B. Smith, and Robert Turner.
+\newblock Model of local temperature changes in brain upon functional
+  activation.
+\newblock \emph{Journal of Applied Physics}, 97:\penalty0 2051--2055, 2004.
 
 \bibitem[Pennes(1948)]{pennes}
 H~H Pennes.

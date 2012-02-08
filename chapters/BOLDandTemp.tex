@@ -120,32 +120,34 @@
   \end{figure}
   
   % SETUP AND FILE PROCESSING
-    \subsubsection{Preparing the files for calculation}
-  In order to begin the temperature calculating procedure, a model of the head must first be created.  Using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/}), we segmented a T1 contrast image of the head into five different tissue types.  
-  \begin{figure}[bht] 
-    \centering \hspace*{20px} 
-  	\includegraphics{segmented-head} 
-  	\caption{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
-  \end{figure}
-  \begin{table*}[t] 
-    \caption{\label{tab:tissues} Tissue-specific parameters used to calculate the temperature change (from~\citet{collins}).} 
-    \vspace{10pt}
-  		\begin{tabular*}{\linewidth}{llllll} 
-  		  \toprule
-  		  Tissue & $f_0, 100*ml g^{-1} min^{-1}$ & $\rho, kg/m^{3}$ & $c, J kg^{-1}*\degree C^{-1}$ & $k, W m^{-1}*\degree C^{-1}$ & $Q_{m}, W/m^{3}$ \\
-  		  \midrule
-  			Bone & 3 & 1,080 & 2,110 & 0.65 & 26.1 \\
-  			Cerebrospinal Fluid & 0 & 1,007 & 3,800 & 0.50 & 0 \\
-  			Gray Matter & 67.1 & 1,035.5 & 3,680 & 0.565 & 15,575 \\
-  			White Matter & 23.7 & 1,027.4 & 3,600 & 0.503 & 5,192 \\
-  			Muscle & 3.8 & 1,041 & 3,720 & 0.4975 & 687 \\
-  			Skin & 12 & 1,100 & 3,150 & 0.342 & 1,100 \\
-  			\bottomrule
-  		\end{tabular*}
-  \end{table*}
+    \subsubsection{Preparing the model of the head}
+    \begin{figure}[tb] 
+      \centering \hspace*{20px} 
+    	\includegraphics{segmented-head} 
+    	\caption{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
+    \end{figure}
+    \begin{table*}[tb] 
+      \caption[Tissue-specific parameters]{\label{tbl:tissues} Tissue-specific parameters used to calculate the temperature change (from~\citet{collins}).} 
+      \vspace{10pt}
+    		\begin{tabular*}{\linewidth}{llllll} 
+    		  \toprule
+    		  Tissue & $f_0, 100*ml g^{-1} min^{-1}$ & $\rho, kg/m^{3}$ & $c, J kg^{-1}*\degree C^{-1}$ & $k, W m^{-1}*\degree C^{-1}$ & $Q_{m}, W/m^{3}$ \\
+    		  \midrule
+    			Bone & 3 & 1,080 & 2,110 & 0.65 & 26.1 \\
+    			Cerebrospinal Fluid & 0 & 1,007 & 3,800 & 0.50 & 0 \\
+    			Gray Matter & 67.1 & 1,035.5 & 3,680 & 0.565 & 15,575 \\
+    			White Matter & 23.7 & 1,027.4 & 3,600 & 0.503 & 5,192 \\
+    			Muscle & 3.8 & 1,041 & 3,720 & 0.4975 & 687 \\
+    			Skin & 12 & 1,100 & 3,150 & 0.342 & 1,100 \\
+    			\bottomrule
+    		\end{tabular*}
+    \end{table*}
+  In order to begin the temperature calculating procedure, a model of the head must first be created.  Using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/}), we segmented a T1 contrast image of the head into five different tissue types: bone, cerebral spinal fluid, gray matter, white matter and soft tissue.  It was assumed that soft tissue voxels that are incontact with air are more appropriately labeled as skin, so in total we are left with a model of the head separated in to six tissue types (\cref{fig:segmented}).  The advantage this has is that we are able to use tissue specific parameters when doing the calculations, thereby improving the accuracy of the results.  The parameters used are available in~\cref{tbl:tissues}.  The code used to create the head matrix is discussed in~\cref{sec:headmatrix}.
+
+  
   % CALC EQUIL T
     \subsubsection{Calculating the equilibrium temperature}
-  The first step in calculating the temperature change is to first know what the resting state temperature is for each voxel within the head.  
+  The first step in calculating the temperature change is to first know what the resting state temperature is for each voxel within the head. Our approach was to have the initial temperature for all tissue voxels to be equal to 37\degree C and air voxels are kept at 24\degree C.  The starting temperature of the tissue doesn't affect the final resting state temperature; however, starting off at drastically different values could greatly increase the calculating time required before the temperature stabilizes. The finite difference implementation of the Pennes bioheat equation (\cref{eq:3dbioheat}) is used to update the temperature.  The temperature is updated until the temperature for every voxel has stabilized ($\frac{dT}{dt} < 10^{-6}$ \degree C/s).  Since temperature changes due to changes in neuronal activity are typically greater than $10^{-2}$ \degree C, a change in temperature less than $10^{-6}$ \degree C/s is sufficiently small that transient temperature changes are negligible and temperature can be considered stabilized.  The code used to calculate the equilibrium temperature is detailed in~\cref{sec:findequil}.
   
   % CALC M AND F
     \subsubsection{Calculating Metabolism and Blood Flow Changes}
@@ -157,7 +159,7 @@
   \label{sec:results}
     \subsubsection{Using Theoretical BOLD Data}
     \FloatBarrier
-    \begin{figure}[tbh] 
+    \begin{figure}[p] 
     	\begin{center}
     		\begin{tabularx}{\textwidth}{cc}
     			\raisebox{20px}{\includegraphics[width=0.36\textwidth]{headref}} & 
@@ -170,7 +172,7 @@
     \end{figure}
     \subsubsection{Using Experimental BOLD Data}
     \FloatBarrier
-    \begin{figure}[tbh] 
+    \begin{figure}[p] 
     	\begin{center}
     		$ 
     		\begin{array}{c}
