@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.30)  8 FEB 2012 17:13
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.30)  8 FEB 2012 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -993,11 +993,11 @@ n[]
  []
 
 [3]
-Overfull \hbox (10.36137pt too wide) in alignment at lines 61--87
+Overfull \hbox (10.36137pt too wide) in alignment at lines 49--75
 [][][] 
  []
 
-[4] [5] (./figures/calculationsFlowChart.tex)
+[4] (./figures/calculationsFlowChart.tex)
 Package epstopdf Info: Source file: <./figures/segmented-head.eps>
 (epstopdf)                    date: 2012-02-06 15:16:27
 (epstopdf)                    size: 135878 bytes
@@ -1007,34 +1007,34 @@ pdf>
 (epstopdf)                    size: 26159 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/segmented-head-e
 ps-converted-to.pdf ./figures/segmented-head.eps>
-(epstopdf)             \includegraphics on input line 126.
+(epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/segmented-head-eps-converted-to.pdf, id=370, 450.68375pt x 252.945pt
+<./figures/segmented-head-eps-converted-to.pdf, id=361, 450.68375pt x 252.945pt
 >
 File: ./figures/segmented-head-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/segmented-head-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/segmented-head-eps-converted-to.pdf used on 
-input line 126.
+input line 114.
 (pdftex.def)             Requested size: 469.75502pt x 263.66255pt.
 
-Overfull \hbox (22.29729pt too wide) in paragraph at lines 125--127
+Overfull \hbox (22.29729pt too wide) in paragraph at lines 113--115
  []|  [] 
  []
 
 
-Overfull \hbox (12.66841pt too wide) in alignment at lines 132--143
+Overfull \hbox (12.66841pt too wide) in alignment at lines 120--131
 [][][][][][] 
  []
 
-[6] [7 <./figures/segmented-head-eps-converted-to.pdf>]
-<./figures/headref-eps-converted-to.pdf, id=391, 1142.2675pt x 880.28876pt>
+[5] [6] [7 <./figures/segmented-head-eps-converted-to.pdf>]
+<./figures/headref-eps-converted-to.pdf, id=390, 1142.2675pt x 880.28876pt>
 <use ./figures/headref-eps-converted-to.pdf>
-<./figures/equilibrium_temperature_0_55_52.pdf, id=392, 998.73125pt x 702.625pt
+<./figures/equilibrium_temperature_0_55_52.pdf, id=391, 998.73125pt x 702.625pt
 > <use ./figures/equilibrium_temperature_0_55_52.pdf>
-<./figures/sim_bold_(48_58_76).pdf, id=393, 1284.8pt x 454.69875pt>
+<./figures/sim_bold_(48_58_76).pdf, id=392, 1284.8pt x 454.69875pt>
 <use ./figures/sim_bold_(48_58_76).pdf>
-<./figures/sim_bold_(48_58_56).pdf, id=394, 1284.8pt x 454.69875pt>
+<./figures/sim_bold_(48_58_56).pdf, id=393, 1284.8pt x 454.69875pt>
 <use ./figures/sim_bold_(48_58_56).pdf>
 <use ./figures/headref-eps-converted-to.pdf>
 <use ./figures/equilibrium_temperature_0_55_52.pdf>
@@ -1048,65 +1048,65 @@ Package epstopdf Info: Source file: <./figures/headref.eps>
 (epstopdf)                    size: 171753 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/headref-eps-conv
 erted-to.pdf ./figures/headref.eps>
-(epstopdf)             \includegraphics on input line 169.
+(epstopdf)             \includegraphics on input line 173.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/headref-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/headref-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/headref-eps-converted-to.pdf used on input l
-ine 169.
+ine 173.
 (pdftex.def)             Requested size: 169.11209pt x 130.3183pt.
 File: ./figures/equilibrium_temperature_0_55_52.pdf Graphic file (type pdf)
 
 <use ./figures/equilibrium_temperature_0_55_52.pdf>
 Package pdftex.def Info: ./figures/equilibrium_temperature_0_55_52.pdf used on 
-input line 169.
+input line 173.
 (pdftex.def)             Requested size: 234.8775pt x 165.23482pt.
 File: ./figures/sim_bold_(48_58_76).pdf Graphic file (type pdf)
 
 <use ./figures/sim_bold_(48_58_76).pdf>
 Package pdftex.def Info: ./figures/sim_bold_(48_58_76).pdf used on input line 1
-69.
+73.
 (pdftex.def)             Requested size: 469.75502pt x 166.24464pt.
 File: ./figures/sim_bold_(48_58_56).pdf Graphic file (type pdf)
 
 <use ./figures/sim_bold_(48_58_56).pdf>
 Package pdftex.def Info: ./figures/sim_bold_(48_58_56).pdf used on input line 1
-69.
+73.
 (pdftex.def)             Requested size: 469.75502pt x 166.24464pt.
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 169--169
+Overfull \hbox (12.0pt too wide) in alignment at lines 173--173
 [][] 
  []
 
 [8] [9 <./figures/headref-eps-converted-to.pdf> <./figures/equilibrium_temperat
 ure_0_55_52.pdf> <./figures/sim_bold_(48_58_76).pdf> <./figures/sim_bold_(48_58
-_56).pdf>] <./figures/slice_x_24.pdf, id=424, 1127.21124pt x 702.625pt>
+_56).pdf>] <./figures/slice_x_24.pdf, id=428, 1127.21124pt x 702.625pt>
 File: ./figures/slice_x_24.pdf Graphic file (type pdf)
 
 <use ./figures/slice_x_24.pdf>
-Package pdftex.def Info: ./figures/slice_x_24.pdf used on input line 179.
+Package pdftex.def Info: ./figures/slice_x_24.pdf used on input line 183.
 (pdftex.def)             Requested size: 469.75502pt x 292.81686pt.
 
-<./figures/avg_data_24_52_67.pdf, id=425, 1127.21124pt x 702.625pt>
+<./figures/avg_data_24_52_67.pdf, id=429, 1127.21124pt x 702.625pt>
 File: ./figures/avg_data_24_52_67.pdf Graphic file (type pdf)
 
 <use ./figures/avg_data_24_52_67.pdf>
-Package pdftex.def Info: ./figures/avg_data_24_52_67.pdf used on input line 180
+Package pdftex.def Info: ./figures/avg_data_24_52_67.pdf used on input line 184
 .
 (pdftex.def)             Requested size: 469.75502pt x 292.81686pt.
 
-Overfull \hbox (10.0pt too wide) in paragraph at lines 177--183
+Overfull \hbox (10.0pt too wide) in paragraph at lines 181--187
  []$ 
  []
 
 
-LaTeX Warning: Float too large for page by 10.4038pt on input line 185.
+LaTeX Warning: Float too large for page by 10.4038pt on input line 189.
 
 ) [10 <./figures/slice_x_24.pdf> <./figures/avg_data_24_52_67.pdf>]
 (./chapters/detectors.tex
 Chapter 3.
-<./figures/AbsorptionData.pdf, id=458, 1127.21124pt x 504.88625pt>
+<./figures/AbsorptionData.pdf, id=462, 1127.21124pt x 504.88625pt>
 File: ./figures/AbsorptionData.pdf Graphic file (type pdf)
 
 <use ./figures/AbsorptionData.pdf>
@@ -1133,7 +1133,7 @@ Appendix A.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-<./figures/temptools/main.png, id=501, 789.95125pt x 548.0475pt>
+<./figures/temptools/main.png, id=505, 789.95125pt x 548.0475pt>
 File: ./figures/temptools/main.png Graphic file (type png)
 
 <use ./figures/temptools/main.png>
@@ -1144,7 +1144,7 @@ Overfull \hbox (13.94182pt too wide) in paragraph at lines 13--15
  [][] 
  []
 
-<./figures/temptools/calcequil.png, id=505, 709.65125pt x 421.575pt>
+<./figures/temptools/calcequil.png, id=509, 709.65125pt x 421.575pt>
 File: ./figures/temptools/calcequil.png Graphic file (type png)
 
 <use ./figures/temptools/calcequil.png>
@@ -1156,7 +1156,7 @@ Overfull \hbox (13.94182pt too wide) in paragraph at lines 19--21
  [][] 
  []
 
-<./figures/temptools/tempcalc.png, id=506, 969.6225pt x 669.50125pt>
+<./figures/temptools/tempcalc.png, id=510, 969.6225pt x 669.50125pt>
 File: ./figures/temptools/tempcalc.png Graphic file (type png)
 
 <use ./figures/temptools/tempcalc.png>
@@ -1168,7 +1168,7 @@ Overfull \hbox (13.94182pt too wide) in paragraph at lines 25--27
  [][] 
  []
 
-<./figures/temptools/visualize.png, id=509, 418.56375pt x 583.17876pt>
+<./figures/temptools/visualize.png, id=513, 418.56375pt x 583.17876pt>
 File: ./figures/temptools/visualize.png Graphic file (type png)
 
 <use ./figures/temptools/visualize.png>
@@ -1209,7 +1209,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (./code/TempPlot.m [55
 
 ] [56] [57])
-<./figures/tsliceplot/default-view.png, id=1760, 1012.78375pt x 611.28375pt>
+<./figures/tsliceplot/default-view.png, id=1764, 1012.78375pt x 611.28375pt>
 File: ./figures/tsliceplot/default-view.png Graphic file (type png)
 
 <use ./figures/tsliceplot/default-view.png>
@@ -1217,7 +1217,7 @@ Package pdftex.def Info: ./figures/tsliceplot/default-view.png used on input li
 ne 101.
 (pdftex.def)             Requested size: 469.75502pt x 283.52579pt.
 
-<./figures/tsliceplot/z-plane-view.png, id=1762, 1012.78375pt x 611.28375pt>
+<./figures/tsliceplot/z-plane-view.png, id=1766, 1012.78375pt x 611.28375pt>
 File: ./figures/tsliceplot/z-plane-view.png Graphic file (type png)
 
 <use ./figures/tsliceplot/z-plane-view.png>
@@ -1235,16 +1235,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 9BAFBB10C8CB1A06B90CDD485DF0CFA8;3206.
+(rerunfilecheck)             Checksum: 3526D18DC080E0D31E761861335993D5;3221.
  ) 
 Here is how much of TeX's memory you used:
  22655 strings out of 493629
  437340 string characters out of 3143323
- 930646 words of memory out of 3000000
+ 930778 words of memory out of 3000000
  24232 multiletter control sequences out of 15000+200000
  8251 words of font info for 30 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 56i,14n,60p,1211b,1742s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,14n,60p,1210b,1742s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1262,10 +1262,10 @@ ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 11/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
 1/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2011
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on thesis.pdf (70 pages, 997694 bytes).
+Output written on thesis.pdf (70 pages, 999809 bytes).
 PDF statistics:
- 2078 PDF objects out of 2487 (max. 8388607)
- 1915 compressed objects within 20 object streams
+ 2082 PDF objects out of 2487 (max. 8388607)
+ 1919 compressed objects within 20 object streams
  1180 named destinations out of 1200 (max. 500000)
  443 words of extra memory for PDF output out of 10000 (max. 10000000)
 

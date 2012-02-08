@@ -6,13 +6,13 @@
 \contentsline {section}{\numberline {2.1}Background}{2}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1} Previously Proposed Temperature Models}{2}{subsection.2.1.1}
 \contentsline {subsubsection}{Single-Voxel Approach}{2}{section*.1}
-\contentsline {subsubsection}{Multi-Voxel Approach}{4}{section*.2}
+\contentsline {subsubsection}{Multi-Voxel Approach}{5}{section*.2}
 \contentsline {section}{\numberline {2.2}Modeling the BOLD Response}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Modeling Temperature}{5}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}The Approach}{5}{subsection.2.3.1}
-\contentsline {subsubsection}{Preparing the model of the head}{7}{section*.3}
-\contentsline {subsubsection}{Calculating the equilibrium temperature}{7}{section*.4}
-\contentsline {subsubsection}{Calculating Metabolism and Blood Flow Changes}{8}{section*.5}
+\contentsline {subsubsection}{Preparing the model of the head}{5}{section*.3}
+\contentsline {subsubsection}{Calculating the equilibrium temperature}{6}{section*.4}
+\contentsline {subsubsection}{Calculating Metabolism and Blood Flow Changes from fMRI BOLD}{7}{section*.5}
 \contentsline {subsubsection}{Calculating the change in temperature in the active brain}{8}{section*.6}
 \contentsline {subsection}{\numberline {2.3.2}Results}{8}{subsection.2.3.2}
 \contentsline {subsubsection}{Using Theoretical BOLD Data}{8}{section*.7}

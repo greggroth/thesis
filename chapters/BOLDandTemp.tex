@@ -41,19 +41,7 @@
     \end{equation}
     The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature ($T(t) - T_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue ($T(t) - T_0$).  Since $T_a$ is less than $T(0)$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
     
-    \begin{equation}
-      \label{eq:f}
-      f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
-    \end{equation}
-    \begin{equation}
-      \label{eq:m} 
-      m(t)=af^{c+1}(t)e^{-bf(t)}
-    \end{equation}
     
-    \begin{equation}
-      \label{eq:y} 
-    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
-    \end{equation}
     
     %%%%  Table of values used in Sotero, 2011  %%%%%
     \begin{table*}[bt]
@@ -150,8 +138,24 @@
   The first step in calculating the temperature change is to first know what the resting state temperature is for each voxel within the head. Our approach was to have the initial temperature for all tissue voxels to be equal to 37\degree C and air voxels are kept at 24\degree C.  The starting temperature of the tissue doesn't affect the final resting state temperature; however, starting off at drastically different values could greatly increase the calculating time required before the temperature stabilizes. The finite difference implementation of the Pennes bioheat equation (\cref{eq:3dbioheat}) is used to update the temperature.  The temperature is updated until the temperature for every voxel has stabilized ($\frac{dT}{dt} < 10^{-6}$ \degree C/s).  Since temperature changes due to changes in neuronal activity are typically greater than $10^{-2}$ \degree C, a change in temperature less than $10^{-6}$ \degree C/s is sufficiently small that transient temperature changes are negligible and temperature can be considered stabilized.  The code used to calculate the equilibrium temperature is detailed in~\cref{sec:findequil}.
   
   % CALC M AND F
-    \subsubsection{Calculating Metabolism and Blood Flow Changes}
+    \subsubsection{Calculating Metabolism and Blood Flow Changes from fMRI BOLD}
     \label{sss:calcmf}
+    This is the critical step where we use fMRI BOLD data to calculate the normalized change in metabolism and blood flow.  The method used~\cite{sotero2011} is an assemblage of a couple other works [CITATION NEEDED]. The input data is a folder containing a BOLD dataset taken at equal time intervals.  The first step in processing the data for temperature calculations is to determine a resting state.  The resting state is calculated by taking the element-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($S(t)/S_0$).  This can then be used to calculate a BOLD-dependent variable, $y(t)$
+    \begin{equation}
+      \label{eq:y} 
+    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
+    \end{equation}
+  where A is the maximum change in BOLD that can occur; $\alpha$ comes from a steady state flow-volume relation; $\beta$ is a field-strength dependent parameter; and a, b, and c are parameters of the gamma function fitted from E(f) vs. f (values provided in~\cref{tbl:soteroparams}) \cite{sotero2011}. With $y(t)$,  the change in blood flow can be calculated as follows
+    \begin{equation}
+      \label{eq:f}
+      f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
+    \end{equation}
+  where W(y(t)) is the Lambert-W function of y(t). From $f(t)$, the change in metabolism $m(t)$ can be determined
+    \begin{equation}
+      \label{eq:m} 
+      m(t)=af^{c+1}(t)e^{-bf(t)}.
+    \end{equation}
+  The implementation of these functions is available in~\cref{sec:fmriprocessing}. 
   % CALC CHANGE IN T
     \subsubsection{Calculating the change in temperature in the active brain}
 % RESULTS
