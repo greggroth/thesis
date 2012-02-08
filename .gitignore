@@ -1,1 +1,9 @@
 .DS_Store
+thesis.pdf
+*.aux
+*.bbl
+*.log
+*.lot
+*.toc
+*.blg
+
