@@ -35,10 +35,11 @@
     
     While~\cref{eq:bioheat} is appears complicated, conceptually the equation can be easily understood.
     %%%%%%%  Explanation %%%%%%%%%%%%%%%%%%%
-    \begin{equation}    
+    \begin{align}    
       \label{eq:soteroexplaiend}
-      change\ in\ temperature\ =\ heat\ generated\ by\ metabolism\ -\ heat\ lost\ to\ convection\ -\ heat\ lost\ to\ conduction
-    \end{equation}
+      change\ in\ temperature\ &=\ heat\ generated\ by\ metabolism\ -\ heat\ lost\ to\ convection\ \nonumber \\
+      &\qquad {} -\ heat\ lost\ to\ conduction
+    \end{align}
     The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature ($T(t) - T_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue ($T(t) - T_0$).  Since $T_a$ is less than $T(0)$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
     
     
@@ -46,6 +47,7 @@
     %%%%  Table of values used in Sotero, 2011  %%%%%
     \begin{table*}[bt]
       \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
+      \small
         \begin{tabular*}{\linewidth}{lp{10cm}p{4cm}}
           \toprule
           Parameter & Meaning & Value \\
@@ -59,7 +61,7 @@
           $\rho_{b}$ & Blood density & 1.05 g/cm\textsuperscript{3} \\
           C$_{B}$ & Blood heat capacity & 3.894 J/(gK) \\
           $\tau$ & Time constant for conductive heat loss from the ROI to the surrounding tissue & 190.52 s \\
-          a, b, c & Parameters of the gamma function fitted from E(f) vs. f & 0.4492, 0.2216, -0.9872 \\
+          a, b, c & Parameters of the gamma function fitted from E(f) vs. f & 0.4492, 0.2216, $-0.9872$ \\
           A & Maximum BOLD signal change & 0.22 \\
           $\alpha$ & Steady state flow-volume relation & 0.4 \\
           $\beta$ & Field-strength dependent parameter & 1.5 \\
@@ -110,16 +112,17 @@
   % SETUP AND FILE PROCESSING
     \subsubsection{Preparing the model of the head}
     \begin{figure}[tb] 
-      \centering \hspace*{20px} 
+      \centering\hspace*{20px} 
     	\includegraphics{segmented-head} 
     	\caption{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
     \end{figure}
     \begin{table*}[tb] 
       \caption[Tissue-specific parameters]{\label{tbl:tissues} Tissue-specific parameters used to calculate the temperature change (from~\citet{collins}).} 
       \vspace{10pt}
-    		\begin{tabular*}{\linewidth}{llllll} 
+      \small
+    		\begin{tabular*}{\linewidth}{@{} l p{2.7cm}p{2cm}p{2.4cm}p{2.5cm}p{2cm}@{}}
     		  \toprule
-    		  Tissue & $f_0, 100*ml g^{-1} min^{-1}$ & $\rho, kg/m^{3}$ & $c, J kg^{-1}*\degree C^{-1}$ & $k, W m^{-1}*\degree C^{-1}$ & $Q_{m}, W/m^{3}$ \\
+    		  Tissue & $f_0$ \newline $100 \; ml/(g \; min)$ & $\rho$ \newline $kg/m^{3}$ & $c$ \newline $J \: kg^{-1} \: \degree C^{-1}$ & $k$ \newline $W \: m^{-1} \: \degree C^{-1}$ & $Q_{m}$ \newline $W/m^{3}$ \\
     		  \midrule
     			Bone & 3 & 1,080 & 2,110 & 0.65 & 26.1 \\
     			Cerebrospinal Fluid & 0 & 1,007 & 3,800 & 0.50 & 0 \\
@@ -130,7 +133,7 @@
     			\bottomrule
     		\end{tabular*}
     \end{table*}
-  In order to begin the temperature calculating procedure, a model of the head must first be created.  Using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/}), we segmented a T1 contrast image of the head into five different tissue types: bone, cerebral spinal fluid, gray matter, white matter and soft tissue.  It was assumed that soft tissue voxels that are incontact with air are more appropriately labeled as skin, so in total we are left with a model of the head separated in to six tissue types (\cref{fig:segmented}).  The advantage this has is that we are able to use tissue specific parameters when doing the calculations, thereby improving the accuracy of the results.  The parameters used are available in~\cref{tbl:tissues}.  The code used to create the head matrix is discussed in~\cref{sec:headmatrix}.
+  In order to begin the temperature calculating procedure, a model of the head must first be created.  Using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/}), we segmented a T1 contrast image of the head into five different tissue types: bone, cerebral spinal fluid, gray matter, white matter and soft tissue.  It was assumed that soft tissue voxels that are in contact with air are more appropriately labeled as skin, so in total we are left with a model of the head separated in to six tissue types (\cref{fig:segmented}).  The advantage this has is that we are able to use tissue specific parameters when doing the calculations, thereby improving the accuracy of the results.  The parameters used are available in~\cref{tbl:tissues}.  The code used to create the head matrix is discussed in~\cref{sec:headmatrix}.
 
   
   % CALC EQUIL T
@@ -141,21 +144,66 @@
     \subsubsection{Calculating Metabolism and Blood Flow Changes from fMRI BOLD}
     \label{sss:calcmf}
     This is the critical step where we use fMRI BOLD data to calculate the normalized change in metabolism and blood flow.  The method used~\cite{sotero2011} is an assemblage of a couple other works [CITATION NEEDED]. The input data is a folder containing a BOLD dataset taken at equal time intervals.  The first step in processing the data for temperature calculations is to determine a resting state.  The resting state is calculated by taking the element-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($S(t)/S_0$).  This can then be used to calculate a BOLD-dependent variable, $y(t)$
-    \begin{equation}
-      \label{eq:y} 
-    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
-    \end{equation}
+
+    (where y used to be)
+
   where A is the maximum change in BOLD that can occur; $\alpha$ comes from a steady state flow-volume relation; $\beta$ is a field-strength dependent parameter; and a, b, and c are parameters of the gamma function fitted from E(f) vs. f (values provided in~\cref{tbl:soteroparams}) \cite{sotero2011}. With $y(t)$,  the change in blood flow can be calculated as follows
-    \begin{equation}
-      \label{eq:f}
-      f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
-    \end{equation}
+
+  (where f used to be)
+
   where W(y(t)) is the Lambert-W function of y(t). From $f(t)$, the change in metabolism $m(t)$ can be determined
-    \begin{equation}
-      \label{eq:m} 
-      m(t)=af^{c+1}(t)e^{-bf(t)}.
-    \end{equation}
+
+  (where m used to be)
+
   The implementation of these functions is available in~\cref{sec:fmriprocessing}. 
+  \begin{equation}
+    \label{eq:mf}
+    m(t)=f(t)\frac{E(t)}{E_0}
+  \end{equation}
+  \begin{equation}
+    \label{eq:E}
+    E(f)=1-(1-E_0)^{\frac{1}{f(t)}}
+  \end{equation}
+  \begin{equation}
+    \label{eq:EmfCombined}
+    m(t)=\frac{f(t)}{E_0}\left[1-(1-E_0)^{\frac{1}{f(t)}}\right]
+  \end{equation}
+  \begin{equation}
+    \label{eq:gammafct}
+    \frac{E(f)}{E_0}=af^{c}(t)e^{-bf(t)}
+  \end{equation}
+  \begin{equation}
+    \label{eq:m} 
+    m(t)=af^{c+1}(t)e^{-bf(t)}.
+  \end{equation}
+  \begin{equation}
+    \label{eq:S}
+    \frac{\Delta S(t)}{S_0} = \frac{S(t)-S_0}{S_0} = A(1-f^{\alpha-\beta}(t) m^\beta(t))
+  \end{equation}
+  \begin{equation}
+    \label{eq:mAndS}
+    f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=\left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
+  \end{equation}
+  \begin{equation}
+    \label{eq:mAndSmultiplied}
+    -\frac{b\beta}{\alpha+\beta c} f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=-\frac{b\beta}{\alpha+\beta c} \left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
+  \end{equation}
+  \begin{equation}
+    \label{eq:lambertWsetup}
+    z e^z = x
+  \end{equation}
+  \begin{equation}
+    \label{eq:lambertW}
+    z=W(x)
+  \end{equation}
+  \begin{equation}
+    \label{eq:f}
+    f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
+  \end{equation}
+  \begin{equation}
+    \label{eq:y} 
+  	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
+  \end{equation}
   % CALC CHANGE IN T
     \subsubsection{Calculating the change in temperature in the active brain}
 % RESULTS
