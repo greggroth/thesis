@@ -6,4 +6,5 @@ thesis.pdf
 *.lot
 *.toc
 *.blg
-
+*.lof
+*.out
