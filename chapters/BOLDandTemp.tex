@@ -42,42 +42,6 @@
     \end{align}
     The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature ($T(t) - T_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue ($T(t) - T_0$).  Since $T_a$ is less than $T(0)$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
     
-    
-    
-    %%%%  Table of values used in Sotero, 2011  %%%%%
-    \begin{table*}[bt]
-      \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
-      \small
-        \begin{tabular*}{\linewidth}{lp{10cm}p{4cm}}
-          \toprule
-          Parameter & Meaning & Value \\
-          \midrule
-          T$_{a}$ & Arterial blood temperature & 37\degree C \\
-          $C_{tissue}$ & Tissue Heat Capacity & 3.664 J/(gK) \\
-          $\Delta H^{\circ}$ & Enthalpy released by oxidation of glucose & $4.7 10^{5}$ J \\
-          $\Delta H_{b}$ & Enthalpy used to release O$_{2}$ from hemoglobin & $2.8 10^{4}$ J \\
-          CMRO$_{2}\mid_{0}$ & Cerebral metabolic rate of O$_{2}$ consumption at rest & $0.0263 10^{-6}$ mol/(gs) \\
-          CBF$\mid_{0}$ & Cerebral blood flow at rest & 0.0093 cm\textsuperscript{3}/(gs) \\
-          $\rho_{b}$ & Blood density & 1.05 g/cm\textsuperscript{3} \\
-          C$_{B}$ & Blood heat capacity & 3.894 J/(gK) \\
-          $\tau$ & Time constant for conductive heat loss from the ROI to the surrounding tissue & 190.52 s \\
-          a, b, c & Parameters of the gamma function fitted from E(f) vs. f & 0.4492, 0.2216, $-0.9872$ \\
-          A & Maximum BOLD signal change & 0.22 \\
-          $\alpha$ & Steady state flow-volume relation & 0.4 \\
-          $\beta$ & Field-strength dependent parameter & 1.5 \\
-          \midrule
-          Variable & Meaning & \\
-          \midrule
-          m(t) & CMRO$_2$ normalized to baseline & \\
-          f(t) & CBF normalized to baseline & \\
-          T(t) & Temperature & \\
-          W(t) & Lambert W Function & \\
-          $\frac{\Delta S(t)}{S_0}$ & Change in BOLD signal normalized to rest & \\
-          \bottomrule
-        \end{tabular*}
-    \end{table*}
-    
-    
     \subsubsection{\label{sss:multivoxel}Multi-Voxel Approach}
   
 
@@ -143,67 +107,92 @@
   % CALC M AND F
     \subsubsection{Calculating Metabolism and Blood Flow Changes from fMRI BOLD}
     \label{sss:calcmf}
-    This is the critical step where we use fMRI BOLD data to calculate the normalized change in metabolism and blood flow.  The method used~\cite{sotero2011} is an assemblage of a couple other works [CITATION NEEDED]. The input data is a folder containing a BOLD dataset taken at equal time intervals.  The first step in processing the data for temperature calculations is to determine a resting state.  The resting state is calculated by taking the element-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($S(t)/S_0$).  This can then be used to calculate a BOLD-dependent variable, $y(t)$
+    %%%%  Table of values used in Sotero, 2011  %%%%%
+    \begin{table*}[bt]
+      \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
+      \small
+        \begin{tabular*}{\linewidth}{lp{10cm}p{4cm}}
+          \toprule
+          Parameter & Meaning & Value \\
+          \midrule
+          T$_{a}$ & Arterial blood temperature & 37\degree C \\
+          $C_{tissue}$ & Tissue Heat Capacity & 3.664 J/(gK) \\
+          $\Delta H^{\circ}$ & Enthalpy released by oxidation of glucose & $4.7 10^{5}$ J \\
+          $\Delta H_{b}$ & Enthalpy used to release O$_{2}$ from hemoglobin & $2.8 10^{4}$ J \\
+          CMRO$_{2}\mid_{0}$ & Cerebral metabolic rate of O$_{2}$ consumption at rest & $0.0263 10^{-6}$ mol/(gs) \\
+          CBF$\mid_{0}$ & Cerebral blood flow at rest & 0.0093 cm\textsuperscript{3}/(gs) \\
+          $\rho_{b}$ & Blood density & 1.05 g/cm\textsuperscript{3} \\
+          C$_{B}$ & Blood heat capacity & 3.894 J/(gK) \\
+          $\tau$ & Time constant for conductive heat loss from the ROI to the surrounding tissue & 190.52 s \\
+          a, b, c & Parameters of the gamma function fitted from E(f) vs. f & 0.4492, 0.2216, $-0.9872$ \\
+          A & Maximum BOLD signal change & 0.22 \\
+          $\alpha$ & Steady state flow-volume relation & 0.4 \\
+          $\beta$ & Field-strength dependent parameter & 1.5 \\
+          \midrule
+          Variable & Meaning & \\
+          \midrule
+          m(t) & CMRO$_2$ normalized to baseline & \\
+          f(t) & CBF normalized to baseline & \\
+          T(t) & Temperature & \\
+          W(t) & Lambert W Function & \\
+          $\frac{\Delta S(t)}{S_0}$ & Change in BOLD signal normalized to rest & \\
+          \bottomrule
+        \end{tabular*}
+    \end{table*}
+    This is the critical step where we use fMRI BOLD data to calculate the normalized change in metabolism and blood flow.  The method used~\citep{sotero2011} is an assemblage of a couple other works [CITATION NEEDED]. It starts by using the relation between metabolism and blood flow proposed by~\citet{buxton2004}:
+    \begin{equation} \label{eq:mf}
+      m(t)=f(t)\frac{E(t)}{E_0}
+    \end{equation}
+  where $E_0$ is the oxygen extraction at rest and $E(f)$ is
+    \begin{equation} \label{eq:E}
+      E(f)=1-(1-E_0)^{\frac{1}{f(t)}}
+    \end{equation}
+  in accordance with the oxygen limitation model~\citep{buxton1997}.  Combining~\cref{eq:mf} with~\cref{eq:E} yields
+    \begin{equation} \label{eq:EmfCombined}
+      m(t)=\frac{f(t)}{E_0}\left[1-(1-E_0)^{\frac{1}{f(t)}}\right]
+    \end{equation}
+  \Citet{sotero2011} goes about solving~\cref{eq:EmfCombined} by adjusting $E(t)$ data generated by~\cref{eq:E} and fitting it to the gamma function for the $f$ range (0.7--2.0) that is within experimentally reported values~\citep{fox1988,leithner2009,lin2010}:
+    \begin{equation} \label{eq:gammafct}
+      \frac{E(f)}{E_0}=af^{c}(t)e^{-bf(t)}
+    \end{equation}
+  where values for a, b and c are provided in~\cref{tbl:soteroparams}.  From this approximation we have the final form of metabolism:
+    \begin{equation} \label{eq:m} 
+      m(t)=af^{c+1}(t)e^{-bf(t)}.
+    \end{equation}
+  As proposed by~\citet{davis1998}, the BOLD signal changes ($\frac{\Delta S(t)}{S_0}$) can be described in terms of $m(t)$ and $f(t)$:
+    \begin{equation} \label{eq:S}
+      \frac{\Delta S(t)}{S_0} = \frac{S(t)-S_0}{S_0} = A(1-f^{\alpha-\beta}(t) m^\beta(t))
+    \end{equation}
+  Substituting~\cref{eq:m} into~\cref{eq:S} yields
+    \begin{equation} \label{eq:mAndS}
+      f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=\left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
+    \end{equation}
+  where A is the maximum change in BOLD signal.  Multiplying each side by $-\frac{b\beta}{\alpha+\beta c}$ gives
+    \begin{equation} \label{eq:mAndSmultiplied}
+      -\frac{b\beta}{\alpha+\beta c} f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=-\frac{b\beta}{\alpha+\beta c} \left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
+    \end{equation}
+  which can be solved by using the Lambert W function
+    \begin{equation} \label{eq:lambertW}
+      z=W(x)
+    \end{equation}
+  where z is given by
+    \begin{equation} \label{eq:lambertWsetup}
+      z e^z = x
+    \end{equation}
+  Finally, $f(t)$ is obtained from~\cref{eq:mAndSmultiplied}
+    \begin{equation} \label{eq:f}
+      f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
+    \end{equation}
+  where
+    \begin{equation} \label{eq:y} 
+    	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
+    \end{equation}
+  is a function of the BOLD signal.  Using \cref{eq:m,eq:f,eq:y} allows for the metabolism and blood flow to be calculated from the BOLD signal (values used are provided in~\cref{tbl:soteroparams}).
+  
+    In order to process the files, the input BOLD data is stored in folder as a separate file for each time step.  The first step in processing the data for temperature calculations is to determine a resting state BOLD signal ($S_0$).  The resting state is calculated by taking the element-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($\frac{\Delta S(t)}{S_0}$).  
+    
+    Once $\frac{\Delta S(t)}{S_0}$ is known for each time step, \cref{eq:m,eq:f,eq:y} can be used to calculate the metabolism and blood flow. The implementation of these functions is available in~\cref{sec:fmriprocessing}. 
 
-    (where y used to be)
-
-  where A is the maximum change in BOLD that can occur; $\alpha$ comes from a steady state flow-volume relation; $\beta$ is a field-strength dependent parameter; and a, b, and c are parameters of the gamma function fitted from E(f) vs. f (values provided in~\cref{tbl:soteroparams}) \cite{sotero2011}. With $y(t)$,  the change in blood flow can be calculated as follows
-
-  (where f used to be)
-
-  where W(y(t)) is the Lambert-W function of y(t). From $f(t)$, the change in metabolism $m(t)$ can be determined
-
-  (where m used to be)
-
-  The implementation of these functions is available in~\cref{sec:fmriprocessing}. 
-  \begin{equation}
-    \label{eq:mf}
-    m(t)=f(t)\frac{E(t)}{E_0}
-  \end{equation}
-  \begin{equation}
-    \label{eq:E}
-    E(f)=1-(1-E_0)^{\frac{1}{f(t)}}
-  \end{equation}
-  \begin{equation}
-    \label{eq:EmfCombined}
-    m(t)=\frac{f(t)}{E_0}\left[1-(1-E_0)^{\frac{1}{f(t)}}\right]
-  \end{equation}
-  \begin{equation}
-    \label{eq:gammafct}
-    \frac{E(f)}{E_0}=af^{c}(t)e^{-bf(t)}
-  \end{equation}
-  \begin{equation}
-    \label{eq:m} 
-    m(t)=af^{c+1}(t)e^{-bf(t)}.
-  \end{equation}
-  \begin{equation}
-    \label{eq:S}
-    \frac{\Delta S(t)}{S_0} = \frac{S(t)-S_0}{S_0} = A(1-f^{\alpha-\beta}(t) m^\beta(t))
-  \end{equation}
-  \begin{equation}
-    \label{eq:mAndS}
-    f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=\left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
-  \end{equation}
-  \begin{equation}
-    \label{eq:mAndSmultiplied}
-    -\frac{b\beta}{\alpha+\beta c} f(t)e^{-\frac{b \beta}{\alpha + \beta c}f(t)}=-\frac{b\beta}{\alpha+\beta c} \left(\frac{\left(A-\frac{\Delta S(t)}{S_0}\right)}{A a^\beta}\right)^{\frac{1}{\alpha+\beta c}}
-  \end{equation}
-  \begin{equation}
-    \label{eq:lambertWsetup}
-    z e^z = x
-  \end{equation}
-  \begin{equation}
-    \label{eq:lambertW}
-    z=W(x)
-  \end{equation}
-  \begin{equation}
-    \label{eq:f}
-    f(t)=\frac{\alpha+\beta c}{b \beta}W(y(t))
-  \end{equation}
-  \begin{equation}
-    \label{eq:y} 
-  	y(t)=-\frac{b \beta}{\alpha+\beta c} \left[\frac{(A-\frac{S(t)}{S_{0}}-1)}{A a^{\beta}}\right]^{\left(\frac{1}{\alpha+\beta c}\right)} 
-  \end{equation}
   % CALC CHANGE IN T
     \subsubsection{Calculating the change in temperature in the active brain}
 % RESULTS
@@ -228,8 +217,8 @@
     	\begin{center}
     		$ 
     		\begin{array}{c}
-    			\includegraphics{slice_x_24} \\
-    			\includegraphics{avg_data_24_52_67} 
+    			\includegraphics[width=0.9\linewidth]{slice_x_24} \\
+    			\includegraphics[width=0.9\linewidth]{avg_data_24_52_67} 
     		\end{array}
     		$ 
     	\end{center}
