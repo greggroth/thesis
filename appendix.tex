@@ -6,7 +6,7 @@ The following sections include the code used.  It was written for Matlab R2011b 
 \begin{lstlisting}[style=snippet]
   temptools
 \end{lstlisting}
-at the Matlab command prompt (make sure the temptools directory and subdirectories have been added to the Matlab path).
+at the Matlab command prompt (make sure the temptools directory and subdirectories have been added to the Matlab path).  The procedure used is explained in~\cref{sec:approach} and a graphical representation is available in~\cref{fig:procedureflowchart}.
 \begin{figure}[hbt]
   \centering
     \caption[temptools: main window]{\label{fig:ttmain} The main window of temptools.  From here, you can go through the calculation steps and launch the visualization tool.}
@@ -34,7 +34,7 @@ at the Matlab command prompt (make sure the temptools directory and subdirectori
 % Load T1/create head data
 \section{Creating the Head Matrix}
 \label{sec:headmatrix}
-Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run ImportSegmentedT1() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}), fillHoles() (\ref{ass:fillHoles}), build\_skin() (\ref{ass:buildskin}) and repair\_headdata() (\ref{ass:repairheaddata}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:theapproach}.
+Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run ImportSegmentedT1() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}), fillHoles() (\ref{ass:fillHoles}), build\_skin() (\ref{ass:buildskin}) and repair\_headdata() (\ref{ass:repairheaddata}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:prephead}.
 \subsection{ImportSegmentedT1()}
 \lstinputlisting[style=codeblock]{code/ImportSegmentedT1.m}
 \subsection{fillAir()}
@@ -56,7 +56,7 @@ This function will go through the dataset and make sure the tissue-specific para
 \label{sec:fmriprocessing}
 The following sections details the processing required to convert the BOLD data (in NIFTI format) to metabolism and blood flow time-courses that can then be used to calculate temperature.
 \subsection{sample\_bold\_import()}
-The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It's is written for my data on my machine, but it can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:theapproach}.
+The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It's is written for my data on my machine, but it can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:calcmf}.
 \lstinputlisting[style=codeblock]{"code/sample_bold_import.m"}
 \subsection{avg\_NII\_rest()}
 \lstinputlisting[style=codeblock]{"code/avg_NII_rest.m"}
@@ -71,13 +71,13 @@ The lambw() function is a wrapper for the wapr() function available on Matlab Fi
 \clearpage
 \section{Calculating the Equilibrium Temperature}
 \label{sec:findequil}
-In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:theapproach}.
+In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:calcequilT}.
 \subsection{tempCalcEquilibrium()}
 \lstinputlisting[style=codeblock]{code/tempCalcEquilibrium.m}
 % Find Temperature Change
 \clearpage
 \section{Calculating the Temperature Change}
-The following function inputs the head data matrix (\cref{sec:headmatrix}), the metabolism and blood flow time courses (cref{sec:fmriprocessing}) and the equilibrium temperatures (\cref{sec:findequil}) and calculates the temperature time-course.   More details about this algorithm can be found in~\cref{sec:theapproach}.
+The following function inputs the head data matrix (\cref{sec:headmatrix}), the metabolism and blood flow time courses (\cref{sec:fmriprocessing}) and the equilibrium temperatures (\cref{sec:findequil}) and calculates the temperature time-course.   More details about this algorithm can be found in~\cref{sec:calcT}.
 \subsection{tempCalcDynMF}
 \lstinputlisting[style=codeblock]{code/tempCalcDynMF.m}
 \chapter{Visualization Tools}

@@ -2,7 +2,8 @@ function [ total ] = ImportSegmentedT1(varargin)
 %  ImportSegmentedT1 Import NII files from a directory
 %   Must be run within the directory containing the files
 %
-%   Output: head data as single with variables stored in the 4th dimension.
+%   Output: head data as single with variables stored in the 4th
+%   dimension.
 %
 %   Author:  Greggory Rothmeier (greggroth@gmail.com)
 %   Georgia State University
@@ -18,9 +19,10 @@ end
 % =====================
 % = Tissue Parameters =
 % =====================
-% Each tissue type is assigned an integer index (i.e. gray matter -> 11) such that
-% tissue-specific parameters can be found by looking at that element within the 
-% corresponding storage matrix (i.e. QmSTORE(11) -> gray matter Qm)
+% Each tissue type is assigned an integer index (i.e. gray matter -> 11) 
+% such that tissue-specific parameters can be found by looking at that 
+% element within the corresponding storage matrix 
+% (i.e. QmSTORE(11) -> gray matter Qm)
 
 % Parameters taken from Colins, 2004
 
@@ -35,8 +37,8 @@ wSTORE = [0 1000 3 45.2 0 1.35 40 0 0 2.8 67.1 3.8 3.8 12 23.7];
 % =====================================
 % = Import the pre-segmented T1 files =
 % =====================================
-% The T1 contrast image sould be segmented using SPM8.
-%   This loop needs to complete before the next one can begin
+%  The T1 contrast image sould be segmented using SPM8.
+%  This loop needs to complete before the next one can begin
 %  Import all of the datat and store as 'cdat1','cdat2', etc.
 for i = 1:5
     eval(strcat('dat',num2str(i),' = loadNII(''rc', num2str(i), 'single_subj_T1.nii'');'))  
@@ -47,9 +49,9 @@ end
 % ============================
 % = Populate the head matrix =
 % ============================
-%   For each data file, it fills in the data from the data storage arrays
-%   for that particular type of tissue.  It picks which ever tissue is the 
-%   most likely candidate for that voxel based on the segmented data
+%  For each data file, it fills in the data from the data storage arrays
+%  for that particular type of tissue.  It picks which ever tissue is 
+%  the most likely candidate for that voxel based on the segmented data
 
 %   PROBLEM:  It returns 0 (later filled with air) if there is equal
 %   probability of a voxel being two or more different types of tissue.  
@@ -65,9 +67,12 @@ for i = 1:5
     %  Create a mask that indicates whether it is the mostly likely tissue type
     guide = [1 2 3 4 5 1 2 3 4 5];  %  This guides it through the data correctly
     eval(strcat('mask = (dat',num2str(i),'>dat',num2str(guide(i+1)),') & (dat',num2str(i),'>dat',num2str(guide(i+2)),') & (dat',num2str(i),'>dat',num2str(guide(i+3)),') & (dat',num2str(i),'>dat',num2str(guide(i+4)),') & (dat',num2str(i),'~=0);'))
-    holder(:,:,:,1) = mask;                      %  move structure data to new matrix
-    a = find(holder(:,:,:,1) == 1);              %  get indicies of tissues
-    [x y z t] = ind2sub(size(holder),a);         %  gets coordinates from index
+    %  move structure data to new matrix   
+    holder(:,:,:,1) = mask;        
+    %  get indicies of tissues              
+    a = find(holder(:,:,:,1) == 1);          
+    %  gets coordinates from index    
+    [x y z t] = ind2sub(size(holder),a);         
    
     %  go to each tissue point and store the info
     for j = 1:length(a)                        
@@ -84,8 +89,8 @@ end
 % The filleAir() function checks for any voxels which were not assigned a 
 % tissue type and fills them in with air
 almostthere = fillAir(out1+out2+out3+out4+out5);
-% The fillHoles() function corrects for a voxel having two equally-probable 
-% tissue types
+% The fillHoles() function corrects for a voxel having two 
+% equally-probable tissue types
 total = single(buildskin(fillHoles(dat1,dat2,dat3,dat4,dat5,almostthere)));
 waitbar(1,statusbar,'Saving Data')
 
