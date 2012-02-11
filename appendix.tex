@@ -1,8 +1,8 @@
 \appendix
 \addappheadtotoc
 \chapter{Code}
-\label{appendix:code}
-The following sections include the code used.  It was written for Matlab R2011b and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{ch:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/temptools}).  Additionally, many of the tasks can be completed using the temptools gui (\cref{fig:ttmain,fig:ttcalcequil,fig:tttempcalc,fig:ttvisualize}) which can be invoked by running
+\label{apdx:code}
+The following sections include the code used.  It was written for Matlab R2011b and requires SPM8 to run.  Additionally, it is recommended that you have at least 4 GB of RAM in order to work with the large datasets that are produced.  For information about how to visualize the data produced, see~\cref{apdx:visualize}.  All of the code is available through the temptools github page (\url{https://github.com/greggroth/temptools}).  Additionally, many of the tasks can be completed using the temptools gui (\cref{fig:ttmain,fig:ttcalcequil,fig:tttempcalc,fig:ttvisualize}) which can be invoked by running
 \begin{lstlisting}[style=snippet]
   temptools
 \end{lstlisting}
@@ -15,7 +15,7 @@ at the Matlab command prompt (make sure the temptools directory and subdirectori
 \end{figure}
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: calculate the equilibrium temperature window]{\label{fig:ttcalcequil} This is the interface for calculating the equilibrium temperature (method explained in~\cref{sec:findequil}) under certain conditions.}
+    \caption[temptools: calculate the equilibrium temperature window]{\label{fig:ttcalcequil} This is the interface for calculating the equilibrium temperature (method explained in~\cref{apdx:findequil}) under certain conditions.}
     \includegraphics[keepaspectratio=true, width=17cm]{temptools/calcequil}
   \centering
 \end{figure}
@@ -27,33 +27,33 @@ at the Matlab command prompt (make sure the temptools directory and subdirectori
 \end{figure}
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: visualize the data]{\label{fig:ttvisualize} Visualize your data using the temptools visualization window.  This loads all of the required data and launches a slice browser or tsliceplot (see \cref{ch:visualize} for more details).}
+    \caption[temptools: visualize the data]{\label{fig:ttvisualize} Visualize your data using the temptools visualization window.  This loads all of the required data and launches a slice browser or tsliceplot (see \cref{apdx:visualize} for more details).}
     \includegraphics[keepaspectratio=true, width=10cm]{temptools/visualize}
   \centering
 \end{figure}
 % Load T1/create head data
 \section{Creating the Head Matrix}
-\label{sec:headmatrix}
-Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run ImportSegmentedT1() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{ass:fillair}), fillHoles() (\ref{ass:fillHoles}), build\_skin() (\ref{ass:buildskin}) and repair\_headdata() (\ref{ass:repairheaddata}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:prephead}.
+\label{apdx:headmatrix}
+Before any calculations can be done, a matrix containing tissue-specific parameters must be created.  First, a T1 contrast image should be segmented using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/software/spm8/}).  For ease of consistency, the one provided by SPM8 in ./canonical/ is best to use.  Using SPM's ``New Segmentation'' algorithim will segment the image into five different tissue types (gray matter, white matter, cerebral spinal fluid, soft tissue and bone).  Once this is complete, run ImportSegmentedT1() within this directory and it will return a matrix that has been populated with the tissue-specific parameters required for accurate temperature calculations. The functions fillAir() (\ref{code:fillair}), fillHoles() (\ref{code:fillHoles}), build\_skin() (\ref{code:buildskin}) and repair\_headdata() (\ref{code:repairheaddata}) are functions required by BulkImportNII().  More information about this procedure is in~\cref{sec:prephead}.
 \subsection{ImportSegmentedT1()}
 \lstinputlisting[style=codeblock]{code/ImportSegmentedT1.m}
 \subsection{fillAir()}
-\label{ass:fillair}
+\label{code:fillair}
 \lstinputlisting[style=codeblock]{code/fillAir.m}
 \subsection{fillHoles()}
-\label{ass:fillHoles}
+\label{code:fillHoles}
 \lstinputlisting[style=codeblock]{code/fillHoles.m}
 \subsection{build\_skin()}
-\label{ass:buildskin}
+\label{code:buildskin}
 \lstinputlisting[style=codeblock]{"code/build_skin.m"}
 \subsection{repair\_headdata()}
-\label{ass:repairheaddata}
+\label{code:repairheaddata}
 This function will go through the dataset and make sure the tissue-specific parameters are correct for the tissue type assigned for that voxel.  fillAir(), fillHoles() and build\_skin() all correct mislabeled voxels, but they only correct the tissue assignment.  After using any of these functions, the data must be passed through repair\_headdata to update the stored parameters.
 \lstinputlisting[style=codeblock]{"code/repair_headdata.m"}
 % Load fMRI Data
 \clearpage
 \section{Loading the fMRI Data}
-\label{sec:fmriprocessing}
+\label{apdx:fmriprocessing}
 The following sections details the processing required to convert the BOLD data (in NIFTI format) to metabolism and blood flow time-courses that can then be used to calculate temperature.
 \subsection{sample\_bold\_import()}
 The following code automates the procedure of processing and doing all the calculations on the dataset reported in~\citet{dhamala}.  It's is written for my data on my machine, but it can be used to gain a better understanding of the procedure. For a conceptual explanation, see~\cref{sec:calcmf}.
@@ -70,18 +70,18 @@ The lambw() function is a wrapper for the wapr() function available on Matlab Fi
 % Find Equilibrium
 \clearpage
 \section{Calculating the Equilibrium Temperature}
-\label{sec:findequil}
+\label{apdx:findequil}
 In order to determine the temperature fluctuations due to changes in activity, the baseline temperature must first be established for each voxel.  The function tempCalcEquilibrium() will update the temperature using the Penne's bioheat equation (\cref{eq:3dbioheat}) until the change in temperature for each voxel falls below a certain threshold.  Details about this procedure are available in~\cref{sec:calcequilT}.
 \subsection{tempCalcEquilibrium()}
 \lstinputlisting[style=codeblock]{code/tempCalcEquilibrium.m}
 % Find Temperature Change
 \clearpage
 \section{Calculating the Temperature Change}
-The following function inputs the head data matrix (\cref{sec:headmatrix}), the metabolism and blood flow time courses (\cref{sec:fmriprocessing}) and the equilibrium temperatures (\cref{sec:findequil}) and calculates the temperature time-course.   More details about this algorithm can be found in~\cref{sec:calcT}.
+The following function takes as inputs the head data matrix (\cref{apdx:headmatrix}), the metabolism and blood flow time courses (\cref{apdx:fmriprocessing}) and the equilibrium temperatures (\cref{apdx:findequil}) and calculates the temperature time-course.   More details about this algorithm can be found in~\cref{sec:calcT}.
 \subsection{tempCalcDynMF}
 \lstinputlisting[style=codeblock]{code/tempCalcDynMF.m}
 \chapter{Visualization Tools}
-\label{ch:visualize}
+\label{apdx:visualize}
 The temperature data is a four dimensional dataset (time, x, y and z), so good visualizations tools are necessary to analyzing the results.  The primary tool I use is a modification of SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}) and is provided as part of temptools (\url{https://github.com/greggroth/temptools/tree/master/lib/SliceBrowser}).  In working with this, I also created a function (TempPlot()) to act as a wrapper and handle possible plotting situations depending on the number of inputs.
 \subsection{TempPlot()}
 \lstinputlisting[style=codeblock]{code/TempPlot.m}
