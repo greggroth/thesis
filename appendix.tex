@@ -9,26 +9,26 @@ The following sections include the code used.  It was written for Matlab R2011b 
 at the Matlab command prompt (make sure the temptools directory and subdirectories have been added to the Matlab path).  The procedure used is explained in~\cref{sec:approach} and a graphical representation is available in~\cref{fig:procedureflowchart}.
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: main window]{\label{fig:ttmain} The main window of temptools.  From here, you can go through the calculation steps and launch the visualization tool.}
     \includegraphics[keepaspectratio=true, width=17cm]{temptools/main.png}
+    \caption[temptools: main window]{\label{fig:ttmain} The main window of temptools.  From here, you can go through the calculation steps and launch the visualization tool.}
   \centering
 \end{figure}
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: calculate the equilibrium temperature window]{\label{fig:ttcalcequil} This is the interface for calculating the equilibrium temperature (method explained in~\cref{apdx:findequil}) under certain conditions.}
     \includegraphics[keepaspectratio=true, width=17cm]{temptools/calcequil}
+    \caption[temptools: calculate the equilibrium temperature window]{\label{fig:ttcalcequil} This is the interface for calculating the equilibrium temperature (method explained in~\cref{apdx:findequil}) under certain conditions.}
   \centering
 \end{figure}
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: calculate temperature during activity]{\label{fig:tttempcalc} The interface for calculating temperature changes when blood flow and metabolism are time dependent.  This can be achieved by either loading metabolism and blood flow datasets or by using generated activity.}
     \includegraphics[keepaspectratio=true, width=17cm]{temptools/tempcalc}
+    \caption[temptools: calculate temperature during activity]{\label{fig:tttempcalc} The interface for calculating temperature changes when blood flow and metabolism are time dependent.  This can be achieved by either loading metabolism and blood flow datasets or by using generated activity.}
   \centering
 \end{figure}
 \begin{figure}[hbt]
   \centering
-    \caption[temptools: visualize the data]{\label{fig:ttvisualize} Visualize your data using the temptools visualization window.  This loads all of the required data and launches a slice browser or tsliceplot (see \cref{apdx:visualize} for more details).}
     \includegraphics[keepaspectratio=true, width=10cm]{temptools/visualize}
+    \caption[temptools: visualize the data]{\label{fig:ttvisualize} Visualize your data using the temptools visualization window.  This loads all of the required data and launches a slice browser or tsliceplot (see \cref{apdx:visualize} for more details).}
   \centering
 \end{figure}
 % Load T1/create head data
@@ -83,6 +83,8 @@ The following function takes as inputs the head data matrix (\cref{apdx:headmatr
 \chapter{Visualization Tools}
 \label{apdx:visualize}
 The temperature data is a four dimensional dataset (time, x, y and z), so good visualizations tools are necessary to analyzing the results.  The primary tool I use is a modification of SliceBrowser (\url{http://www.mathworks.com/matlabcentral/fileexchange/20604}) and is provided as part of temptools (\url{https://github.com/greggroth/temptools/tree/master/lib/SliceBrowser}).  In working with this, I also created a function (TempPlot()) to act as a wrapper and handle possible plotting situations depending on the number of inputs.
+\setcounter{section}{1}
+\setcounter{subsection}{0}
 \subsection{TempPlot()}
 \lstinputlisting[style=codeblock]{code/TempPlot.m}
 \subsection{tsliceplot}
@@ -97,14 +99,14 @@ The script is available as part of temptools (\url{https://github.com/greggroth/
 
 \begin{figure}[hbt]
   \centering
-    \caption[Visualization using tsliceplot]{Experimental data for activity in the motor cortex visualized with tsliceplot. \label{fig:tsliceplot}}
     \includegraphics{tsliceplot/default-view}
+    \caption[Visualization using tsliceplot]{Experimental data for activity in the motor cortex visualized with tsliceplot. \label{fig:tsliceplot}}
   \centering
 \end{figure}
 
 \begin{figure}[hbt]
   \centering
-    \caption[Visualization using tsliceplot (z v. t plane)]{The same data as is presented in~\cref{fig:tsliceplot}, but viewed flat-on along the z vs. time plane.\label{fig:tsliceplotz}}
     \includegraphics{tsliceplot/z-plane-view}
+    \caption[Visualization using tsliceplot (z v. t plane)]{The same data as is presented in~\cref{fig:tsliceplot}, but viewed flat-on along the z vs. time plane.\label{fig:tsliceplotz}}
   \centering
 \end{figure}

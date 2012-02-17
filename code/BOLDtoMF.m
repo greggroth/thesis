@@ -18,7 +18,6 @@ function [ ] = BOLDtoMF( varargin)
 % =========
 % = Setup =
 % =========
-
 % if a folder isn't an argument, it'll prompt for one
 switch length(varargin)   
     case 0
@@ -106,6 +105,4 @@ end
 
 close(statusbar)
 cd(oldfold)
-
 end
-
