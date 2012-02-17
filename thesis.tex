@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt]{gsuthesis}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
 \usepackage[numbers]{natbib}
@@ -135,13 +135,13 @@
 % Everything is kept in seperate *.tex files.  Use this file to change the orders.
 \pagenumbering{roman}
 \currentpdfbookmark{Abstract}{link:abstract}
-\include{abstract}
-\include{title}
-\include{copyright}
-\include{approval}
+\include{frontmatter/abstract}
+\include{frontmatter/title}
+\include{frontmatter/copyright}
+\include{frontmatter/approval}
 \setcounter{page}{4}
-\include{dedication}
-\include{acknowledgments}
+\include{frontmatter/dedication}
+\include{frontmatter/acknowledgments}
 \clearpage\phantomsection
 \tableofcontents
 \clearpage\phantomsection
@@ -152,7 +152,7 @@
 \listoffigures
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{List of Abbreviations}
-\include{abbreviations}
+\include{frontmatter/abbreviations}
 % \currentpdfbookmark{Signature Page}{link:signaturepage}
 % \include{signature_page}
 \pagenumbering{arabic}
@@ -169,6 +169,6 @@
 \addcontentsline{toc}{chapter}{References}
 \bibliography{thesis}
 \appendix
-\clearpage\input{appendix}
+\clearpage\input{chapters/appendix}
   
 \end{document}
