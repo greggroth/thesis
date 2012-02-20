@@ -359,15 +359,17 @@
                       \@afterheading
                     \fi}
 \def\@makechapterhead#1{%
-  \vspace*{50\p@}%
-  {\parindent \z@ \raggedright \normalfont
+  {\parindent \z@ \centering \normalfont
     \ifnum \c@secnumdepth >\m@ne
-        \huge\bfseries \@chapapp\space \thechapter
-        \par\nobreak
-        \vskip 20\p@
+        \normalsize\bfseries\@chapapp\space \thechapter % Chapter number
+        % \par\nobreak
+        % \vskip 20\p@
+        \quad
     \fi
     \interlinepenalty\@M
-    \Huge \bfseries #1\par\nobreak
+    \normalsize\bfseries\scshape #1\par           % chapter title
+    \vspace{5pt}%                                 % add vertical space
+    \nobreak
     \vskip 40\p@
   }}
 \def\@schapter#1{\if@twocolumn
@@ -377,11 +379,11 @@
                    \@afterheading
                  \fi}
 \def\@makeschapterhead#1{%
-  \vspace*{50\p@}%
-  {\parindent \z@ \raggedright
-    \normalfont
+  {\parindent \z@ \centering \normalfont
     \interlinepenalty\@M
-    \Huge \bfseries  #1\par\nobreak
+    \normalsize\bfseries\scshape #1\par           % chapter title
+    \vspace{5pt}%                                 % add vertical space
+    \nobreak
     \vskip 40\p@
   }}
 \newcommand\section{\@startsection {section}{1}{\z@}%
@@ -714,15 +716,15 @@
     \parindent 1em%
     \noindent
     \hb@xt@1.8em{\hss\@makefnmark}#1}
-\newcommand\contentsname{Contents}
+\newcommand\contentsname{Table of Contents}
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
-\newcommand\bibname{Bibliography}
+\newcommand\bibname{References}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
 \newcommand\tablename{Table}
 \newcommand\partname{Part}
-\newcommand\chaptername{Chapter}
+\newcommand\chaptername{}
 \newcommand\appendixname{Appendix}
 \newcommand\abstractname{Abstract}
 \def\today{\ifcase\month\or
