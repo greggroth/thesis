@@ -1,23 +1,4 @@
 \documentclass[12pt]{gsuthesis}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
-\usepackage[numbers]{natbib}
-\usepackage[pdftex]{graphicx}
-\usepackage{booktabs}
-\setkeys{Gin}{width=\textwidth}
-\usepackage[allbordercolors={1 1 1}]{hyperref}
-\usepackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox}
-\usepackage[compact]{titlesec}
-\usepackage[section]{placeins}
-\usepackage[font=normalsize,labelsep=quad]{caption}
-\usepackage{fancyhdr, cleveref}
-\fancypagestyle{plain}{%
-\fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\normalsize\thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
-\pagestyle{plain}
-% \epstopdfsetup{update,prepend}
 \graphicspath{{./figures/}}
 % \DeclareMathSizes{10.95}{11}{10}{10}
 % \DeclareMathSizes{12}{12}{11}{10}
@@ -75,19 +56,6 @@
    framexbottommargin=4pt,
    % frame=bottomline
 }
-\renewcommand{\cftchapdotsep}{\cftdotsep}
-\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftlottitlefont}{\hfill\normalsize\bfseries}
-\renewcommand{\cftafterlottitle}{\hfill}
-\renewcommand{\cftloftitlefont}{\hfill\normalsize\bfseries}
-\renewcommand{\cftafterloftitle}{\hfill}
-\setlength{\cftbeforetoctitleskip}{-20pt}
-\setlength{\cftbeforelottitleskip}{-20pt}
-\setlength{\cftbeforeloftitleskip}{-20pt}
-\setlength{\cftaftertoctitleskip}{40pt}
-\setlength{\cftafterlottitleskip}{40pt}
-\setlength{\cftafterloftitleskip}{40pt}
 \newenvironment{code}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
 {\end{list}}
@@ -95,18 +63,6 @@
 \newcommand{\degree}{\ensuremath{^\circ}}
 %%%%%  Put in your title here: %%%%%%
 \newcommand{\thesisTitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{2}
-\titleformat{\section}%
-  {\normalsize\bfseries}{\thesection}{0.5em}{}
-\titleformat{\subsection}%
-  {\normalsize\bfseries}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}%
-  {\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
-\makeatletter
-\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{0pt}}{}{}%
-\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{0pt}}{}{}%
-\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%  BEGIN DOCUMENT  %%%%%%%%%%%%%

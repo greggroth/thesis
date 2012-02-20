@@ -52,9 +52,9 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{report}
-              [2007/10/19 v1.4h
- Standard LaTeX document class]
+\ProvidesClass{gsuthesis}
+              [2012/2/20 v0.1
+ GSU Thesis/Dissertation Class]
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -522,6 +522,7 @@
      \fi
     }
 \fi
+
 \newcommand\appendix{\par
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
@@ -590,7 +591,7 @@
 \newcommand\@pnumwidth{1.55em}
 \newcommand\@tocrmarg{2.55em}
 \newcommand\@dotsep{4.5}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \newcommand\tableofcontents{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -746,6 +747,47 @@
 \else
   \onecolumn
 \fi
+
+\RequirePackage{fancyhdr}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\normalsize\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
+\RequirePackage[numbers]{natbib}
+\RequirePackage[pdftex]{graphicx}
+\RequirePackage{booktabs}
+\setkeys{Gin}{width=\textwidth}
+\RequirePackage[allbordercolors={1 1 1}]{hyperref}
+\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox}
+\RequirePackage[compact]{titlesec}
+\RequirePackage[section]{placeins}
+\RequirePackage[font=normalsize,labelsep=quad]{caption}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{-20pt}
+\setlength{\cftbeforelottitleskip}{-20pt}
+\setlength{\cftbeforeloftitleskip}{-20pt}
+\setlength{\cftaftertoctitleskip}{40pt}
+\setlength{\cftafterlottitleskip}{40pt}
+\setlength{\cftafterloftitleskip}{40pt}
+\titleformat{\section}%
+  {\normalsize\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}%
+  {\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}%
+  {\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+\makeatletter
+\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{0pt}}{}{}%
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{0pt}}{}{}%
+\makeatother
+\RequirePackage{cleveref}%
 \endinput
-%%
-%% End of file `report.cls'.
