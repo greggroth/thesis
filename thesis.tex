@@ -61,23 +61,31 @@
 {\end{list}}
 \newcommand{\signhere}{\vspace{0.4in}\rule{\linewidth}{0.5mm}\\}
 \newcommand{\degree}{\ensuremath{^\circ}}
-\newcommand{\thetitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
-\newcommand{\thesisTitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
-\newcommand{\theauthor}{Greggory H. Rothmeier}
-\newcommand{\themonth}{May}
-\newcommand{\theyear}{2012}
-\newcommand{\thedegree}{Master of Science}
-\newcommand{\college}{College of Arts and Sciences}
-\newcommand{\chair}{A. G. Unil Perera}
-\newcommand{\committee}{
-    Mukesh Dhamala \\
-    Brian Thoms \\
-    D. Michael Crenshaw \\
-  }
-\newcommand{\abstracttext}{Regional tissue temperature dynamics in the brain is determined by the balance of the metabolic heat production rate and heat exchange with blood flowing through capillaries embedded in the tissue, the surrounding tissues and the environment. Local changes in blood flow and metabolism during functional activity can upset this balance and induce transient temperature changes. Invasive experimental studies in animal models have established that the brain temperature changes during functional activity are observable and a definitive relationship exists between temperature and brain activity. We present a theoretical framework that links tissue temperature dynamics with hemodynamic activity allowing us to non-invasively estimate brain temperature changes from experimentally measured blood-oxygen level dependent (BOLD) signals. With this unified approach, we are able to pinpoint the mechanisms for hemodynamic activity-related temperature increases and decreases.  In addition to this, the potential uses and limitations of optical measurements are discussed.}
-\newcommand{\indexwords}{Functional magnetic resonance imaging, Blood oxygen level dependent, Temperature, Functional near-infrared spectroscopy}
-\newcommand{\dedication}{This is dedicated to my parents who made me go to college and to Brooke who inspired me to go to graduate school.  If I wasn't lucky enough to have all of you I would probably be working for Geek Squad.}
-\newcommand{\acknowledgments}{I want to thank my advisors A. G. Unil Perera and Mukesh Dhamala for their guidance and leadership through my graduate school career.  Likewise, I must thank everyone in Dr. Perera's and Dr. Dhamala's labs for always being helpful over the past couple of years.  Thank you.}
+% \newcommand{\thetitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
+\thetitle{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
+\theauthor{Greggory H. Rothmeier}
+\themonth{May}
+\theyear{2012}
+\thedegree{Master of Science}
+\college{College of Arts and Sciences}
+\chair{A. G. Unil Perera}
+\committee{Mukesh Dhamala,Brian Thoms,D. Michael Crenshaw}
+\theabstract{Regional tissue temperature dynamics in the brain is determined by the balance of the metabolic heat production rate and heat exchange with blood flowing through capillaries embedded in the tissue, the surrounding tissues and the environment. Local changes in blood flow and metabolism during functional activity can upset this balance and induce transient temperature changes. Invasive experimental studies in animal models have established that the brain temperature changes during functional activity are observable and a definitive relationship exists between temperature and brain activity. We present a theoretical framework that links tissue temperature dynamics with hemodynamic activity allowing us to non-invasively estimate brain temperature changes from experimentally measured blood-oxygen level dependent (BOLD) signals. With this unified approach, we are able to pinpoint the mechanisms for hemodynamic activity-related temperature increases and decreases.  In addition to this, the potential uses and limitations of optical measurements are discussed.}
+\indexwords{Functional magnetic resonance imaging, Blood oxygen level dependent, Temperature, Functional near-infrared spectroscopy}
+\dedication{This is dedicated to my parents who made me go to college and to Brooke who inspired me to go to graduate school.  If I wasn't lucky enough to have all of you I would probably be working for Geek Squad.}
+\acknowledgments{I want to thank my advisors A. G. Unil Perera and Mukesh Dhamala for their guidance and leadership through my graduate school career.  Likewise, I must thank everyone in Dr. Perera's and Dr. Dhamala's labs for always being helpful over the past couple of years.  Thank you.}
+\approvaldate{}
+\abbreviations{
+  BOLD     & Blood Oxygen Level Dependent          \\
+  fMRI     & Functional Magnetic Resonance Imaging \\
+  fNIRS    & Functional Near-Infrared Spectroscopy \\
+  NMR      & Nuclear Magnetic Resonance            \\
+  ROI      & Region of Interest                    \\
+  CSF      & Cerebral Spinal Fluid                 \\
+  OLM      & Oxygen Limitation Model               \\
+  oxy-Hb   & Oxyhemoglobin                         \\
+  deoxy-Hb & Deoxyhemoglobin                       \\
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,6 +93,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 % Everything is kept in seperate *.tex files.  Use this file to change the orders.
+\pagenumbering{roman}
 \makeabstract
 \maketitle
 \makecopyright
@@ -99,16 +108,16 @@
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{List of Abbreviations}
-\include{frontmatter/abbreviations}
+\listofabbreviations
 % \currentpdfbookmark{Signature Page}{link:signaturepage}
 % \include{signature_page}
-\pagenumbering{arabic}
-\setcounter{page}{1}
+
 %%%%%  Chapters  %%%%%%%%%%%%%%
 % List of Chapters in the order they need to appear
-\clearpage\input{chapters/introduction}
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\input{chapters/introduction}
 \clearpage\input{chapters/BOLDandTemp}
 \clearpage\input{chapters/detectors}
 \clearpage\input{chapters/conclusion}

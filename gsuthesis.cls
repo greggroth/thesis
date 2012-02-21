@@ -186,17 +186,17 @@
   \newcommand\maketitle{\begin{titlepage}%
   \begin{center}
   \normalsize
-  \textsc{\thetitle} \\
+  \textsc{\@thetitle} \\
   \vspace{1.0in}
   by \\
   \vspace{1.0in}
-  \textsc{\theauthor} \\
+  \textsc{\@theauthor} \\
   \vspace{3.0in}
   A Thesis Submitted in Partial Fulfillment of the Requirements for the Degree of\\
-  \thedegree\\
-  in the \college\\
+  \@thedegree\\
+  in the \@college\\
   Georgia State University\\
-  \theyear\\
+  \@theyear\\
   \vspace*{\fill}
   \end{center}
   % \let\footnotesize\small
@@ -283,27 +283,42 @@
   \par
   \vskip 1.5em}
 \fi
+
+\def\thetitle#1{\def\@thetitle{#1}}
+\def\theabstract#1{\def\@theabstract{#1}}
+\def\theauthor#1{\def\@theauthor{#1}}
+\def\thedegree#1{\def\@thedegree{#1}}
+\def\themonth#1{\def\@themonth{#1}}
+\def\theyear#1{\def\@theyear{#1}}
+\def\chair#1{\def\@chair{#1}}
+\def\committee#1{\def\@committee{#1}}
+\def\indexwords#1{\def\@indexwords{#1}}
+\def\approvaldate#1{\def\@approvaldate{#1}}
+\def\college#1{\def\@college{#1}}
+\def\acknowledgments#1{\def\@acknowledgments{#1}}
+\def\dedication#1{\def\@dedication{#1}}
+\def\abbreviations#1{\def\@abbreviations{#1}}
+
 \newcommand{\makeabstract}{
-  \pagenumbering{roman}
   \currentpdfbookmark{\abstractname}{link:abstract}
   \newpage
   \thispagestyle{empty}
   \begin{center}
     \normalsize
-    \textsc{\thetitle} \\
+    \textsc{\@thetitle} \\
     \vspace{0.2in}
     by \\
     \vspace{0.2in}
-    \textsc{\theauthor} \\
+    \textsc{\@theauthor} \\
     \vspace{0.2in}
-    Under the Direction of \chair\\
+    Under the Direction of \@chair\\
     \vspace{0.2in}
     \textsc{\abstractname}
     \vspace{0.2in}
   \end{center}
-  \abstracttext
+  \@theabstract
   \vspace*{\fill}\\
-  INDEX WORDS: \indexwords
+  INDEX WORDS: \@indexwords
 }
 \newcommand{\makecopyright}{
   \thispagestyle{empty}
@@ -311,8 +326,8 @@
     \vspace*{\fill}
     \begin{singlespace}
       Copyright by\\
-      \theauthor\\
-      \theyear\\
+      \@theauthor\\
+      \@theyear\\
     \end{singlespace}
     \vspace{0.5in}
   \end{center}
@@ -321,54 +336,68 @@
   \newpage
   \thispagestyle{empty}
   \begin{center}
-    \textsc{\thetitle} \\
+    \textsc{\@thetitle} \\
     \vspace{0.5in}
     by \\
     \vspace{0.5in}
-    \textsc{\theauthor} \\
+    \textsc{\@theauthor} \\
     \vspace{1in}
   \end{center}
   \begin{flushright}
-    \begin{doublespace}
-      Committee Chair:~~~~\chair \\
-      Committee:~~~~\committee
-    \end{doublespace}
+    \begin{tabular}{p{4cm}p{5cm}}
+      Committee Chair: & \@chair \\
+      Committee: & 
+        \@for\i:=\@committee\do{%
+          \i \newline
+          }
+    \end{tabular}
   \end{flushright}
-  \vspace{0.5in}
-  \begin{flushleft}
-    Electronic Version Approved: \\
-    \vspace{0.5in}
-    \begin{doublespace}
-      Office of Graduate Studies\\
-      \college\\
-      Georgia State University\\
-      \themonth~\theyear\\
-    \end{doublespace}
-  \end{flushleft}
   \vspace*{\fill}
+  \begin{flushleft}
+    Electronic Version Approved: \@approvaldate\\
+    \vspace{0.5in}
+    Office of Graduate Studies\\
+    \@college\\
+    Georgia State University\\
+    \@themonth~\@theyear\\
+  \end{flushleft}
 }
 \newcommand{\makeacknowledgments}{
-  \newpage
-  \phantomsection
+  \clearpage\phantomsection
   \addcontentsline{toc}{chapter}{Acknowledgments}
   \begin{doublespace}
     \begin{center}
       \textbf{Acknowledgments}
     \end{center}
-    \acknowledgments
+    \@acknowledgments
   \end{doublespace}
 }
 \newcommand{\makededication}{
-  \newpage
-  \phantomsection
+  \clearpage\phantomsection
   \addcontentsline{toc}{chapter}{Dedication}
   \begin{doublespace}
     \begin{center}
       \textbf{Dedication}
     \end{center}
-  \dedication
+  \@dedication
   \end{doublespace}
   \setcounter{page}{4}
+}
+\newcommand{\listofabbreviations}{
+  % \clearpage\phantomsection
+  % \addcontentsline{toc}{chapter}{List of Abbreviations}
+  % \begin{center}
+  %   {\normalsize\bfseries List of Abbreviations}
+  % \end{center}
+  \chapter*{\listofabbreviationsname}
+  \addcontentsline{toc}{chapter}{\listofabbreviationsname}
+  % \vspace{\cftafterloftitleskip}
+  \begin{table*}[h]
+      \setlength{\extrarowheight}{10pt}
+      \begin{tabularx}{\linewidth}{p{4cm} X}
+        \@abbreviations
+      \end{tabularx}
+  \end{table*}
 }
 \newcommand*\chaptermark[1]{}
 \setcounter{secnumdepth}{2}
@@ -822,6 +851,7 @@
 \newcommand\contentsname{Table of Contents}
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
+\newcommand\listofabbreviationsname{List of Abbreviations}
 \newcommand\bibname{References}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
@@ -837,7 +867,7 @@
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
 \pagestyle{plain}
-\pagenumbering{arabic}
+% \pagenumbering{arabic}
 \if@twoside
 \else
   \raggedbottom
@@ -865,7 +895,7 @@
 \RequirePackage{booktabs}
 \setkeys{Gin}{width=\textwidth}
 \RequirePackage[allbordercolors={1 1 1}]{hyperref}
-\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox}
+\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox,array}
 \RequirePackage[compact]{titlesec}
 \RequirePackage[section]{placeins}
 \RequirePackage[font=normalsize,labelsep=quad]{caption}
