@@ -284,6 +284,8 @@
   \vskip 1.5em}
 \fi
 \newcommand{\makeabstract}{
+  \pagenumbering{roman}
+  \currentpdfbookmark{\abstractname}{link:abstract}
   \newpage
   \thispagestyle{empty}
   \begin{center}
@@ -296,7 +298,7 @@
     \vspace{0.2in}
     Under the Direction of \chair\\
     \vspace{0.2in}
-    \textsc{Abstract}
+    \textsc{\abstractname}
     \vspace{0.2in}
   \end{center}
   \abstracttext
@@ -848,6 +850,7 @@
   \onecolumn
 \fi
 
+\RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
 \RequirePackage{fancyhdr}
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
@@ -857,7 +860,6 @@
   }
 \pagestyle{plain}
 \RequirePackage[usenames,dvipsnames]{xcolor}
-\RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
 \RequirePackage[numbers]{natbib}
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{booktabs}
