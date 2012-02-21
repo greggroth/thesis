@@ -61,8 +61,24 @@
 {\end{list}}
 \newcommand{\signhere}{\vspace{0.4in}\rule{\linewidth}{0.5mm}\\}
 \newcommand{\degree}{\ensuremath{^\circ}}
-%%%%%  Put in your title here: %%%%%%
+\newcommand{\thetitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
 \newcommand{\thesisTitle}{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
+\newcommand{\theauthor}{Greggory H. Rothmeier}
+\newcommand{\themonth}{May}
+\newcommand{\theyear}{2012}
+\newcommand{\thedegree}{Master of Science}
+\newcommand{\college}{College of Arts and Sciences}
+\newcommand{\chair}{A. G. Unil Perera}
+\newcommand{\committee}{
+    Mukesh Dhamala \\
+    Brian Thoms \\
+    D. Michael Crenshaw \\
+  }
+\newcommand{\abstracttext}{Regional tissue temperature dynamics in the brain is determined by the balance of the metabolic heat production rate and heat exchange with blood flowing through capillaries embedded in the tissue, the surrounding tissues and the environment. Local changes in blood flow and metabolism during functional activity can upset this balance and induce transient temperature changes. Invasive experimental studies in animal models have established that the brain temperature changes during functional activity are observable and a definitive relationship exists between temperature and brain activity. We present a theoretical framework that links tissue temperature dynamics with hemodynamic activity allowing us to non-invasively estimate brain temperature changes from experimentally measured blood-oxygen level dependent (BOLD) signals. With this unified approach, we are able to pinpoint the mechanisms for hemodynamic activity-related temperature increases and decreases.  In addition to this, the potential uses and limitations of optical measurements are discussed.}
+\newcommand{\indexwords}{Functional magnetic resonance imaging, Blood oxygen level dependent, Temperature, Functional near-infrared spectroscopy}
+\newcommand{\dedication}{This is dedicated to my parents who made me go to college and to Brooke who inspired me to go to graduate school.  If I wasn't lucky enough to have all of you I would probably be working for Geek Squad.}
+\newcommand{\acknowledgments}{I want to thank my advisors A. G. Unil Perera and Mukesh Dhamala for their guidance and leadership through my graduate school career.  Likewise, I must thank everyone in Dr. Perera's and Dr. Dhamala's labs for always being helpful over the past couple of years.  Thank you.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%  BEGIN DOCUMENT  %%%%%%%%%%%%%
@@ -71,13 +87,12 @@
 % Everything is kept in seperate *.tex files.  Use this file to change the orders.
 \pagenumbering{roman}
 \currentpdfbookmark{Abstract}{link:abstract}
-\include{frontmatter/abstract}
-\include{frontmatter/title}
-\include{frontmatter/copyright}
-\include{frontmatter/approval}
-\setcounter{page}{4}
-\include{frontmatter/dedication}
-\include{frontmatter/acknowledgments}
+\makeabstract
+\maketitle
+\makecopyright
+\makeapproval
+\makededication
+\makeacknowledgments
 \clearpage\phantomsection
 \tableofcontents
 \clearpage\phantomsection

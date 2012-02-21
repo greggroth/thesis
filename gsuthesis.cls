@@ -184,24 +184,39 @@
     }
   \if@titlepage
   \newcommand\maketitle{\begin{titlepage}%
-  \let\footnotesize\small
-  \let\footnoterule\relax
-  \let \footnote \thanks
-  \null\vfil
-  \vskip 60\p@
-  \begin{center}%
-    {\LARGE \@title \par}%
-    \vskip 3em%
-    {\large
-     \lineskip .75em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-      \vskip 1.5em%
-    {\large \@date \par}%       % Set date in \large size.
-  \end{center}\par
-  \@thanks
-  \vfil\null
+  \begin{center}
+  \normalsize
+  \textsc{\thetitle} \\
+  \vspace{1.0in}
+  by \\
+  \vspace{1.0in}
+  \textsc{\theauthor} \\
+  \vspace{3.0in}
+  A Thesis Submitted in Partial Fulfillment of the Requirements for the Degree of\\
+  \thedegree\\
+  in the \college\\
+  Georgia State University\\
+  \theyear\\
+  \vspace*{\fill}
+  \end{center}
+  % \let\footnotesize\small
+  %   \let\footnoterule\relax
+  %   \let \footnote \thanks
+  %   \null\vfil
+  %   \vskip 60\p@
+  %   \begin{center}%
+  %     {\LARGE \@title \par}%
+  %     \vskip 3em%
+  %     {\large
+  %      \lineskip .75em%
+  %       \begin{tabular}[t]{c}%
+  %         \@author
+  %       \end{tabular}\par}%
+  %       \vskip 1.5em%
+  %     {\large \@date \par}%       % Set date in \large size.
+  %   \end{center}\par
+  %   \@thanks
+  %   \vfil\null
   \end{titlepage}%
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
@@ -268,6 +283,91 @@
   \par
   \vskip 1.5em}
 \fi
+\newcommand{\makeabstract}{
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \normalsize
+    \textsc{\thetitle} \\
+    \vspace{0.2in}
+    by \\
+    \vspace{0.2in}
+    \textsc{\theauthor} \\
+    \vspace{0.2in}
+    Under the Direction of \chair\\
+    \vspace{0.2in}
+    \textsc{Abstract}
+    \vspace{0.2in}
+  \end{center}
+  \abstracttext
+  \vspace*{\fill}\\
+  INDEX WORDS: \indexwords
+}
+\newcommand{\makecopyright}{
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{\fill}
+    \begin{singlespace}
+      Copyright by\\
+      \theauthor\\
+      \theyear\\
+    \end{singlespace}
+    \vspace{0.5in}
+  \end{center}
+}
+\newcommand{\makeapproval}{
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \textsc{\thetitle} \\
+    \vspace{0.5in}
+    by \\
+    \vspace{0.5in}
+    \textsc{\theauthor} \\
+    \vspace{1in}
+  \end{center}
+  \begin{flushright}
+    \begin{doublespace}
+      Committee Chair:~~~~\chair \\
+      Committee:~~~~\committee
+    \end{doublespace}
+  \end{flushright}
+  \vspace{0.5in}
+  \begin{flushleft}
+    Electronic Version Approved: \\
+    \vspace{0.5in}
+    \begin{doublespace}
+      Office of Graduate Studies\\
+      \college\\
+      Georgia State University\\
+      \themonth~\theyear\\
+    \end{doublespace}
+  \end{flushleft}
+  \vspace*{\fill}
+}
+\newcommand{\makeacknowledgments}{
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Acknowledgments}
+  \begin{doublespace}
+    \begin{center}
+      \textbf{Acknowledgments}
+    \end{center}
+    \acknowledgments
+  \end{doublespace}
+}
+\newcommand{\makededication}{
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Dedication}
+  \begin{doublespace}
+    \begin{center}
+      \textbf{Dedication}
+    \end{center}
+  \dedication
+  \end{doublespace}
+  \setcounter{page}{4}
+}
 \newcommand*\chaptermark[1]{}
 \setcounter{secnumdepth}{2}
 \newcounter {part}
@@ -277,9 +377,9 @@
 \newcounter {subsubsection}[subsection]
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
-\renewcommand \thepart {\@Roman\c@part}
-\renewcommand \thechapter {\@arabic\c@chapter}
-\renewcommand \thesection {\thechapter.\@arabic\c@section}
+\renewcommand\thepart {\@Roman\c@part}
+\renewcommand\thechapter {\@arabic\c@chapter}
+\renewcommand\thesection {\thechapter.\@arabic\c@section}
 \renewcommand\thesubsection   {\thesection.\@arabic\c@subsection}
 \renewcommand\thesubsubsection{\thesubsection.\@arabic\c@subsubsection}
 \renewcommand\theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
@@ -750,10 +850,11 @@
 
 \RequirePackage{fancyhdr}
 \fancypagestyle{plain}{%
-\fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\normalsize\thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+  \fancyhf{} % clear all header and footer fields
+  \fancyfoot[C]{\normalsize\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  }
 \pagestyle{plain}
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
