@@ -318,7 +318,9 @@
   \end{center}
   \@theabstract
   \vspace*{\fill}\\
-  INDEX WORDS: \@indexwords
+  \begin{singlespace}
+    INDEX WORDS: \@indexwords
+  \end{singlespace}
 }
 \newcommand{\makecopyright}{
   \thispagestyle{empty}
