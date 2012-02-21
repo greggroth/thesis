@@ -124,7 +124,7 @@
       }%
    \renewcommand\newblock{\par}}%
 }
-\ExecuteOptions{letterpaper,10pt,oneside,onecolumn,final,openany}
+\ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
 \input{size1\@ptsize.clo}
 \setlength\lineskip{1\p@}
@@ -386,14 +386,8 @@
   \setcounter{page}{4}
 }
 \newcommand{\listofabbreviations}{
-  % \clearpage\phantomsection
-  % \addcontentsline{toc}{chapter}{List of Abbreviations}
-  % \begin{center}
-  %   {\normalsize\bfseries List of Abbreviations}
-  % \end{center}
   \chapter*{\listofabbreviationsname}
   \addcontentsline{toc}{chapter}{\listofabbreviationsname}
-  % \vspace{\cftafterloftitleskip}
   \begin{table*}[h]
       \setlength{\extrarowheight}{10pt}
       \begin{tabularx}{\linewidth}{p{4cm} X}
@@ -538,7 +532,7 @@
 \newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
                                        {3.25ex \@plus1ex \@minus .2ex}%
                                        {-1em}%
-                                      {\normalfont\normalsize\bfseries}}
+                                    {\normalfont\normalsize\bfseries}}
 \if@twocolumn
   \setlength\leftmargini  {2em}
 \else
@@ -868,7 +862,7 @@
   \space\number\day, \number\year}
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
-\pagestyle{plain}
+% \pagestyle{plain}
 % \pagenumbering{arabic}
 \if@twoside
 \else
@@ -925,4 +919,5 @@
 \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{0pt}}{}{}%
 \makeatother
 \RequirePackage{cleveref}%
+\doublespacing
 \endinput
