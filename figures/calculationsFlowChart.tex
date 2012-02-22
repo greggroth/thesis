@@ -9,16 +9,16 @@
     \node[data](fmridata){fMRI BOLD Data};
     \node[temptools, below=of fmridata](calcrest){Calculate resting state (avg\_NII\_rest)};
     \node[temptools, below=of calcrest](normalize){Normalize the data to resting state (avg\_NII\_normalize)};
-    \node[temptools, below=of normalize](boldtomf){Calculate the change in metabolism and blood flow (BOLDtoMF)};
+    \node[temptools, below=of normalize](boldtomf){Calculate the change in metabolism and blood flow (BOLDtoMF)\\Details given in \cref{sec:calcmf}};
     % middle column
     \node[data, right=of fmridata](t1contrast){T1 contrast image};
     \node[spm, below=of t1contrast](segment){Segment image (SPM8)};
-    \node[temptools, right=of boldtomf](buildhead){Build head matrix (ImportSegmentedT1)};
+    \node[temptools, right=of boldtomf](buildhead){Build head matrix (ImportSegmentedT1)\\Details given in \cref{sec:prephead}};
     % right column
-    \node[temptools, right=of buildhead](calcequil){Calculate equilibrium temperature (tempCalcEquilibrium)};
-    \node[params, above=of calcequil, xshift=-2cm](tissueparams){Tissue-specific parameters};
+    \node[temptools, right=of buildhead](calcequil){Calculate equilibrium temperature (tempCalcEquilibrium)\\Details given in \cref{sec:calcequilT}};
+    \node[params, above=of calcequil, xshift=-2cm](tissueparams){Tissue-specific parameters (given in \cref{tbl:tissues})};
     % bottom
-    \node[temptools, below=of buildhead, text width=8cm](calctemp){Find temperature change during activity (tempCalcDynMF)};
+    \node[temptools, below=of buildhead, text width=8cm](calctemp){Find temperature change during activity (tempCalcDynMF)\\Details given in \cref{sec:calcT}};
   
   \path[line](fmridata) -- (calcrest);
   \path[line](calcrest) -- (normalize);

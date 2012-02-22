@@ -2,7 +2,7 @@
 \graphicspath{{./figures/}}
 % \DeclareMathSizes{10.95}{11}{10}{10}
 % \DeclareMathSizes{12}{12}{11}{10}
-\usetikzlibrary{decorations.markings,snakes,fit,scopes,arrows,calc,shapes.misc, shapes.arrows, chains,matrix,positioning, decorations.pathmorphing, shapes, backgrounds, decorations.text}
+\usetikzlibrary{decorations,arrows,shapes,positioning}
 \tikzset{variable/.default=}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -99,11 +99,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 % Everything is kept in seperate *.tex files.  Use this file to change the orders.
-\pagenumbering{roman}
+\setcounter{page}{-100}  % fix for hyperref
 \makeabstract
 \maketitle
 \makecopyright
 \makeapproval
+\pagenumbering{roman}
+\setcounter{page}{4}
 \makededication
 \makeacknowledgments
 \clearpage\phantomsection
@@ -121,8 +123,8 @@
 %%%%%  Chapters  %%%%%%%%%%%%%%
 % List of Chapters in the order they need to appear
 \clearpage
-\setcounter{page}{1}
 \pagenumbering{arabic}
+\setcounter{page}{1}
 \input{chapters/introduction}
 \clearpage\input{chapters/BOLDandTemp}
 \clearpage\input{chapters/detectors}

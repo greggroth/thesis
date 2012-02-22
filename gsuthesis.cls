@@ -366,6 +366,7 @@
 }
 \newcommand{\makeacknowledgments}{
   \clearpage\phantomsection
+  % \pagenumbering{roman}
   \addcontentsline{toc}{chapter}{Acknowledgments}
   \begin{doublespace}
     \begin{center}
@@ -376,6 +377,8 @@
 }
 \newcommand{\makededication}{
   \clearpage\phantomsection
+  % \pagenumbering{roman}
+  % \setcounter{page}{4}
   \addcontentsline{toc}{chapter}{Dedication}
   \begin{doublespace}
     \begin{center}
@@ -383,10 +386,10 @@
     \end{center}
   \@dedication
   \end{doublespace}
-  \setcounter{page}{4}
 }
 \newcommand{\listofabbreviations}{
   \chapter*{\listofabbreviationsname}
+  % \pagenumbering{roman}
   \addcontentsline{toc}{chapter}{\listofabbreviationsname}
   \begin{table*}[h]
       \setlength{\extrarowheight}{10pt}
@@ -863,7 +866,7 @@
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
 % \pagestyle{plain}
-% \pagenumbering{arabic}
+\pagenumbering{arabic}
 \if@twoside
 \else
   \raggedbottom
@@ -876,11 +879,12 @@
   \onecolumn
 \fi
 
+\RequirePackage[allbordercolors={1 1 1}]{hyperref}
 \RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
 \RequirePackage{fancyhdr}
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
-  \fancyfoot[C]{\normalsize\thepage}
+  \fancyfoot[C]{\normalsize \thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
   }
@@ -890,7 +894,6 @@
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{booktabs}
 \setkeys{Gin}{width=\textwidth}
-\RequirePackage[allbordercolors={1 1 1}]{hyperref}
 \RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox,array}
 \RequirePackage[compact]{titlesec}
 \RequirePackage[section]{placeins}
