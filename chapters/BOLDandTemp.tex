@@ -180,12 +180,12 @@
     \subsection{\label{sec:calcT} Calculating the change in temperature in the active brain}
     As discussed in~\cref{sec:multivox}, the foundation of the model is the Penne's bioheat equation,~\cref{eq:3dbioheat}.  The metabolism and blood flow time-courses calculated in~\cref{sec:calcmf} are used to scale the baseline heat production and blood profusion.  This, in turn, induces a change in the temperature.
     
-    The Penne's bioheat equation (\cref{eq:3dbioheat}) is implemented using the finite difference method:
+    The Penne's bioheat equation (\cref{eq:3dbioheat}) is implemented using the first-order forward finite difference method:
     \begin{equation}
       \label{eq:finitedifference}
       \dot{T}(t) \approx \frac{T(t+l)-T(t)}{l}
     \end{equation}
-    where $T(t)$ is the temperature at time $t$ and $l$ is the time step size. Next, we can also approximate $\nabla^{2} T$ by using the finite difference method
+    where $T(t)$ is the temperature at time $t$ and $l$ is the time step size. Next, we can approximate $\nabla^{2} T$ by using the second order central finite difference method applied for each coordiante:
     \begin{align}
       \frac{\partial^2T(t;x,y,z)}{\partial x^2} &\approx \frac{T(t;x+h,y,z)-2 T(t;x,y,z)+T(t;x-h,y,z)}{h^2} \notag\\
       \frac{\partial^2T(t;x,y,z)}{\partial y^2} &\approx \frac{T(t;x,y+h,z)-2 T(t;x,y,z)+T(t;x,y-h,z)}{h^2} \notag\\
@@ -223,7 +223,7 @@ where
   \end{align}
   The time step size (l) can be picked arbitrarily, however the spatial step size (h) is limited to the voxel spacing.
   
-  The final equation~(\cref{eq:fdfinal}) gives a method for calculating the next time step ($T(t+l)$) from the current time step ($T(t)$).  The implementation of this equation is discussed in~\cref{apdx:tempCalcDynMF}.
+  The final equation~(\cref{eq:fdfinal}) gives a method for calculating the next time step ($T(t+l)$) from the current time step ($T(t)$) for each voxel.  By using the central difference to solve $\nabla^2 T$, the voxels on all six sides of the current voxel are considered in the heat conduction.  The implementation of this equation is discussed in~\cref{apdx:tempCalcDynMF}.
   
 % RESULTS
   \section{\label{sec:results} Results} 
