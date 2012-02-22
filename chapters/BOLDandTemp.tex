@@ -39,7 +39,7 @@
     \begin{equation} \label{eq:3dbioheat} 
     	\rho c \frac{dT}{dt} = k \nabla^{2}T-\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} 
     \end{equation}
-  where $\rho$ is the tissue density, $c$ is the specific heat of the voxel, $k$ is the thermal conductivity, $\rho_{blood}$ is the blood density, $w$ is perfusion by blood, $c_{blood}$ is the specific heat of blood, $T_{blood}$ is the arterial blood temperature, and $Q_{m}$ is the baseline metabolic heat production. $f(t)$ and $m(t)$ are the time-dependent changes in blood flow and metabolism. These two factors determine the short-term change in temperature and are calculated from the fMRI BOLD response (see~\cref{sec:approach} for more on this).
+  where $\rho$ is the tissue density, $c$ is the specific heat of the voxel, $k$ is the thermal conductivity, $\rho_{blood}$ is the blood density, $w$ is perfusion by blood, $c_{blood}$ is the specific heat of blood, $T_{blood}$ is the arterial blood temperature, and $Q_{m}$ is the baseline metabolic heat production. $f(t)$ and $m(t)$ are the time-dependent changes in blood flow and metabolism. These two factors determine the short-term change in temperature and are calculated from the fMRI BOLD response; however what makes this approach more complete than a single-voxel approach is that the relatively slow conductive heat loss makes for a different equilibrium temperature at each voxel.  This affect can only be captured by considering the entire head.  The approach we use is a multi-voxel approach, so more details about this model are discussed in~\cref{sec:approach}.
 
 % THE APPROACH
 \section{\label{sec:approach} Our Approach}
@@ -58,7 +58,7 @@
   
   The resting-state time slices from the fMRI BOLD dataset are averaged to create a resting state representative slice.  The rest of the BOLD data is then normalized to this in order to have the normalized change in BOLD response ($\frac{\Delta S}{S_0}$ in~\cref{eq:y}).  This can then be used with~\cref{eq:m,eq:f,eq:y} to create a time series for the change in blood flow and metabolism.  More details about this procedure are given in~\cref{sec:calcmf}.
   
-  
+  The following sections provide a detailed explanation of the theory behind our modeling approach.  The code used to implement this procedure is provided and documented in~\cref{apdx:code}.  
   
   % SETUP AND FILE PROCESSING
     \subsection{\label{sec:prephead} Preparing the model of the head}
@@ -172,21 +172,59 @@
     \end{equation}
   is a function of the BOLD signal.  Using \cref{eq:m,eq:f,eq:y} allows for the metabolism and blood flow to be calculated from the BOLD signal (values used are provided in~\cref{tbl:soteroparams}).
   
-    In order to process the files, the input BOLD data is stored in folder as a separate file for each time step.  The first step in processing the data for temperature calculations is to determine a resting state BOLD signal ($S_0$).  The resting state is calculated by taking the element-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($\frac{\Delta S(t)}{S_0}$).  
+    In order to process the files, the BOLD dataset is stored in folder as a separate NIFTI (*.nii) file for each time step.  The first step in processing the data for temperature calculations is to determine a resting state BOLD signal ($S_0$).  The resting state is calculated by taking the voxel-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($\frac{\Delta S(t)}{S_0}$).  
     
-    Once $\frac{\Delta S(t)}{S_0}$ is known for each time step, \cref{eq:m,eq:f,eq:y} can be used to calculate the metabolism and blood flow. The implementation of these functions is available in~\cref{apdx:fmriprocessing}. 
+    Once $\frac{\Delta S(t)}{S_0}$ is known for each time step, \cref{eq:m,eq:f,eq:y} can be used to calculate the metabolism and blood flow. The implementation of this procedure is discussed in~\cref{apdx:fmriprocessing}. 
 
   % CALC CHANGE IN T
     \subsection{\label{sec:calcT} Calculating the change in temperature in the active brain}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ligula lorem, malesuada non feugiat a, bibendum sit amet leo. Sed in dui lacus. Nullam quam dolor, elementum ac semper vitae, lacinia et dui. Curabitur accumsan urna nec dolor porttitor mollis. Nunc id feugiat tellus. Proin orci arcu, egestas a tincidunt eu, luctus ut ligula. Curabitur at risus non nulla congue facilisis sed eu velit. Morbi eget bibendum sem.
-
-    Cras vel lectus leo. Donec at ante vel eros condimentum dignissim et at libero. Nullam vitae purus at diam semper gravida. Ut venenatis dapibus nulla pretium eleifend. Nam scelerisque dignissim augue, ac suscipit tellus vestibulum vel. Sed rutrum sollicitudin sodales. Pellentesque cursus lobortis neque, id ornare purus laoreet eget. Sed adipiscing sollicitudin convallis. Quisque eu orci sit amet libero mollis tincidunt. Nullam sed consectetur odio. Etiam a molestie orci.
-
-    Pellentesque sed purus odio. Nam pharetra aliquam augue vitae porta. Phasellus malesuada rhoncus tristique. Donec cursus, nibh vel eleifend bibendum, ante massa imperdiet mauris, vel varius dolor libero feugiat nibh. Sed libero sem, bibendum eu cursus sit amet, euismod in dui. Vestibulum massa nisl, accumsan eu cursus nec, pretium blandit lectus. Phasellus vitae ipsum eget tellus consequat molestie vel nec tortor. Curabitur blandit, lectus lacinia consectetur varius, leo metus placerat nisl, ullamcorper egestas nisl nisi in nulla.
-
-    Nunc sit amet mi sed ante dictum luctus eget et augue. Morbi vitae nunc justo. Praesent ac elit lorem. In hac habitasse platea dictumst. Integer pellentesque eros viverra justo scelerisque mollis. Vestibulum tempor tempus velit, et pulvinar odio iaculis ut. Quisque luctus massa sit amet justo ornare nec posuere eros aliquam. Vestibulum luctus pharetra augue, et varius ligula sollicitudin sit amet. Cras mi enim, laoreet quis vulputate ut, pulvinar vel nibh.
-
-    Cras sem justo, ultricies eget sodales eget, bibendum non neque. Pellentesque tempus mi eget massa venenatis id cursus sem aliquet. Nunc venenatis, est at porta faucibus, erat sem ultrices magna, eget tincidunt orci lorem vitae nisl. Sed sem velit, fermentum in hendrerit eu, tempor fermentum arcu. Nullam id nunc vel purus aliquet faucibus. Donec ullamcorper odio ac purus tristique mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget elit in orci iaculis congue. Suspendisse sit amet nisl a velit tempus pretium. Suspendisse quis vulputate nunc. Phasellus quis elit sit amet arcu faucibus adipiscing. Vestibulum faucibus enim ut libero venenatis ac facilisis dolor ultrices.
+    As discussed in~\cref{sec:multivox}, the foundation of the model is the Penne's bioheat equation,~\cref{eq:3dbioheat}.  The metabolism and blood flow time-courses calculated in~\cref{sec:calcmf} are used to scale the baseline heat production and blood profusion.  This, in turn, induces a change in the temperature.
+    
+    The Penne's bioheat equation (\cref{eq:3dbioheat}) is implemented using the finite difference method:
+    \begin{equation}
+      \label{eq:finitedifference}
+      \dot{T}(t) \approx \frac{T(t+l)-T(t)}{l}
+    \end{equation}
+    where $T(t)$ is the temperature at time $t$ and $l$ is the time step size. Next, we can also approximate $\nabla^{2} T$ by using the finite difference method
+    \begin{align}
+      \frac{\partial^2T(t;x,y,z)}{\partial x^2} &\approx \frac{T(t;x+h,y,z)-2 T(t;x,y,z)+T(t;x-h,y,z)}{h^2} \notag\\
+      \frac{\partial^2T(t;x,y,z)}{\partial y^2} &\approx \frac{T(t;x,y+h,z)-2 T(t;x,y,z)+T(t;x,y-h,z)}{h^2} \notag\\
+      \frac{\partial^2T(t;x,y,z)}{\partial z^2} &\approx \frac{T(t;x,y,z+h)-2 T(t;x,y,z)+T(t;x,y,z-h)}{h^2}\label{eq:fdspatial}
+    \end{align}
+where 
+  \begin{equation}
+    \label{eq:leplaceT}
+    \nabla^{2} T = 
+    \frac{\partial^2T(t;x,y,z)}{\partial x^2} + 
+    \frac{\partial^2T(t;x,y,z)}{\partial y^2} + 
+    \frac{\partial^2T(t;x,y,z)}{\partial z^2}
+  \end{equation}
+\Cref{eq:leplaceT} can be subtitued into the Penne's bioheat equation~(\cref{eq:3dbioheat})
+  \begin{equation}
+    \rho c \dot{T} = k_x \frac{\partial^2 T}{\partial x^2} + k_y \frac{\partial^2 T}{\partial y^2} + k_z \frac{\partial^2 T}{\partial z^2} -\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} \label{eq:simplifiedbioheat}
+  \end{equation}
+  where $\dot{T}$ is the first-derivative of temperature with respect to time, $k_x$ is the thermal conductivity in the x-direction, $k_y$ is the thermal conductivity in the y-direction and $k_z$ is the thermal conductivity in the z-direction.
+  Substituting~\cref{eq:fdspatial,eq:finitedifference} into~\cref{eq:simplifiedbioheat} yields
+  \begin{align}
+    \rho c \frac{T(t+l;x,y,z)-T(t;x,y,z)}{l} \approx \frac{1}{h^2} 
+    & [k_x (T(t;x+h,y,z)-2 T(t;x,y,z)+T(t;x-h,y,z)) \notag\\
+    & + k_y (T(t;x,y+h,z)-2 T(t;x,y,z)+T(t;x,y-h,z))\notag\\
+    & + k_z (T(t;x,y,z+h)-2 T(t;x,y,z)+T(t;x,y,z-h))]\notag\\
+    & -\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m}
+  \end{align}
+  which is then rearranged to solve for $T(t+l;x,y,z)$
+  \begin{align}
+    \label{eq:fdfinal}
+    T(t+l;x,y,z) \approx T(t;x,y,z) + \frac{l}{\rho c h^2} 
+    & [k_x (T(t;x+h,y,z)-2 T(t;x,y,z)+T(t;x-h,y,z)) \notag\\
+    & + k_y (T(t;x,y+h,z)-2 T(t;x,y,z)+T(t;x,y-h,z))\notag\\
+    & + k_z (T(t;x,y,z+h)-2 T(t;x,y,z)+T(t;x,y,z-h))]\notag\\
+    & -\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m}
+  \end{align}
+  The time step size (l) can be picked arbitrarily, however the spatial step size (h) is limited to the voxel spacing.
+  
+  The final equation~(\cref{eq:fdfinal}) gives a method for calculating the next time step ($T(t+l)$) from the current time step ($T(t)$).  The implementation of this equation is discussed in~\cref{apdx:tempCalcDynMF}.
+  
 % RESULTS
   \section{\label{sec:results} Results} 
    In order to understand the behavior of the model, we first applied it simulated BOLD data that was generated by convolving a boxcar function with the hemodynamic response function provided by SPM8.  After we understood the behavior of the model, we then applied it to experimental BOLD data that was collected by~\citet{dhamala}.
