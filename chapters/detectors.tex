@@ -11,16 +11,30 @@ The most precise method for measuring brain temperature is to use a thermocouple
   \end{center}
 \end{figure}
 
-As discussed in previous sections, changes in tissue activity can be detected by measuring the change in blood oxygenation levels.  Functional Magnetic Resonance Imaging (fMRI) is one technique for accomplishing this (through measuring the BOLD response), but other techniques exist.  
+As discussed in~\cref{ch:introduction}, changes in tissue activity can be detected by measuring the change in blood oxygenation levels.  Functional Magnetic Resonance Imaging (fMRI) is one technique for accomplishing this (through measuring the BOLD response), but other techniques exist.  
 
-The blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxy-Hb) and deoxyhemoglobin (deoxy-Hb).  Since oxy-Hb and deoxy-Hb have different absorption spectra (\cref{fig:fnirabsorption}), it is possible to determine this through optical techniques.
+The blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb).  Since oxyHb and deoxyHb have different absorption spectra (\cref{fig:fnirabsorption}), it is possible to determine this through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  It has a high temporal resolution (similar to fMRI), but a low spatial resolution (~1 cm).
 
+fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2-3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  The system works within an optical window between 700-1000 nm~\citep{villringer1997} where absorption of near-infrared photons by tissue is low~(\cref{fig:fnirabsorption}).
+
+Three techniques are used to illuminate the tissue: (i) time domain (or time resolved spectroscopy, TRS), (ii) frequency domain and (iii) continuous wave illumination~\citep{izzetoglu2004}.  In TRS, short pulses of light are incident on the tissue and the temporally distribution of photons in measured.  In frequency domain spectroscopy, the amplitude of the indecent light is modulated at a high frequency (10 to 100 MHz) and the phase shift and amplitude decay of the detected light is compared to the incident light. In continuous wave illumination, the incident light is not modulated so the detected light can only be compared for amplitude attenuation~\citep{izzetoglu2004}.
+
+All of the techniques use a modified version of the Beer-Lambert Law~(\cref{eq:beerlambert})~\citep{cope}.  
+\begin{equation}
+  \label{eq:modifiedbeerlamber}
+  I = G I_0 e^{-(\alpha_{deoxyHb}C_{deoxyHb}+\alpha_{oxyHb}C_{oxyHb})L} 
+\end{equation}
+where G is a factor to adjust for the measurement geometry, $I_0$ is in the incident light intensity, $\alpha_{oxyHb}$ and $\alpha_{deoxyHb}$ are the molar extinction coefficients for oxyHb and deoxyHb, $C_{oxyHb}$ and $C_{deoxyHb}$ are the chromophore concentrations for oxy-Hb and deoxy-Hb, and L is the path length~\citep{izzetoglu2004}.  By comparing a baseline measurement~($I_b$) with a new measurement~($I$), the optical density can be determined~\citep{izzetoglu2004}
+\begin{equation}
+  \Delta OD = \log \frac{I_b}{I} = \alpha_{deoxyHb} \Delta C_{deoxyHb}+\alpha_{oxyHb} \Delta C_{oxyHb}
+\end{equation}
+As discussed in~\citet{izzetoglu2004}, two wavelengths are utilized in the spectral window (between 700 and 1000~nm) in order to determine the change in concentration of chromophores $\Delta C_{deoxyHb}$ and $\Delta C_{oxyHb}$.  With these values, the oxygenation and total blood volume can be determined:
 \begin{align}
   \label{eq:o2bloodvolume}
   Oxygenation\ &= \Delta C_{HBO2} - \Delta C_{HB} \nonumber \\
   Blood\ Volume\ &= \Delta C_{HBO2} + \Delta C_{HB} 
 \end{align}
-
+Using this method to experimentally measure the blood oxygenation while measuring the fMRI BOLD response could be used to better refine the current model for calculating the metabolism and blood flow from the BOLD response.
 \section{Temperature Measurements}
 \begin{figure}[tb]
   \centering
@@ -34,7 +48,7 @@ Light absorption by a material is modeled using the Beer-Lambert law
 \begin{equation}
   I = I_0 e^{-\alpha (\lambda) x} \label{eq:beerlambert}
 \end{equation}
-where $I$ is the intensity at a depth ($x$) remaining from light with an incident intensity ($I_0$) in a material with absorption coefficient $\alpha$.  The point at which the intensity has decayed to 1/$e$ of the incident intensity is called he penetration depth, $\delta_{p}$
+where $I$ is the intensity at a depth ($x$) remaining from light with an incident intensity ($I_0$) in a material with absorption coefficient $\alpha$.  The point at which the intensity has decayed to 1/$e$ (about 37\%) of the incident intensity is called he penetration depth, $\delta_{p}$
 \begin{equation}
   \delta_p = \frac{1}{\alpha (\lambda)} \label{eq:penetrationdepth}
 \end{equation}
@@ -43,9 +57,9 @@ This equation can be used along with the black body spectrum at tissue temperatu
 Wien's Displacement Law is a solution to Planck's law for the peak light emission wavelength:
 \begin{align}
   \lambda_{max} &= \frac{b}{T} \label{eq:wienslaw} \\
-  b &= 2.897 7721 * 10^{-3} \mbox{ K m} \nonumber
+  b &= 2.897\,7721 * 10^{-3} \mbox{ K m} \nonumber
 \end{align}
-where b is Wien's displacement constant and T is the temperature in kelvin.  For $T=300$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.66~\textmu m.  
+where $b$ is Wien's displacement constant and T is the temperature in kelvin.  For $T=300$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.66~\textmu m.  
 
 Using~\cref{fig:waterabs} to find the absorption coefficient of approximately 700~cm$^{-1}$.  With the absorption coefficient, the penetration depth (\cref{eq:penetrationdepth}) is approximately 0.14~\textmu m.  This depth is roughly five orders of magnitude smaller than the distance from the surface of the brain to the surface of the head.  Thus, it can be assumed that a thermal imaging camera is unable to image photons coming from the brain.
 
