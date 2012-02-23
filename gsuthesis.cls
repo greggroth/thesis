@@ -879,6 +879,7 @@
   \onecolumn
 \fi
 
+\RequirePackage{textcomp}
 \RequirePackage[allbordercolors={1 1 1}]{hyperref}
 \RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
 \RequirePackage{fancyhdr}
