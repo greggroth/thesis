@@ -29,7 +29,7 @@ As discussed in~\cref{ch:introduction}, changes in tissue activity can be detect
 
 The blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb).  Since oxyHb and deoxyHb have different absorption spectra (\cref{fig:fnirabsorption}), it is possible to determine this through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  It has a high temporal resolution (millisecond), a low spatial resolution ($\sim$ 1~cm$^3$) compared to fMRI (as low as 1 mm$^3$), and is limited to only imaging the outer cortex (2--4 mm)~\citep{bunce2006}. A comparison of fMRI and fNIR is presented in~\cref{tbl:comaparemethods}.
 
-fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  The system works within an optical window between 700--1000~nm~\citep{villringer1997} where absorption of near-infrared photons by tissue is low~(\cref{fig:fnirabsorption}).
+fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  The exact spacing determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the cost of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where absorption of near-infrared photons by tissue is low~(\cref{fig:fnirabsorption}).
 
 \begin{figure}[tb]
   \centering
@@ -55,7 +55,7 @@ As discussed in~\citet{izzetoglu2004}, at least two wavelengths are utilized in 
   Blood\ Volume\ &= \Delta C_{HBO2} + \Delta C_{HB} 
 \end{align}
 Using this method to experimentally measure the blood oxygenation while measuring the fMRI BOLD response could be used to better refine the current model for calculating the metabolism and blood flow from the BOLD response.
-\section{Temperature Measurements}
+\section{Thermal Imaging}
 \begin{figure}[tb]
   \centering
   \includegraphics{water-wide-band}
