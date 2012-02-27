@@ -6,8 +6,8 @@ function [ ] = TempPlot( head, tempdata, highlightRegion, slice, equil,threshold
 %         TempPlot(structuredata,temperaturedata,highlightRegion,slice)
 %         TempPlot(structuredata,temperaturedata,highlightRegion,slice,EquillibriumData)
 %         
-%   This function with determine which type of data it is and then plot it
-%   appropiately.  
+%   This function with determine which type of data it is and then
+% plot it appropiately.  
 %
 %   equil - Equillibrium state data
 %   threshold - threshold value for being displayed as an overlay

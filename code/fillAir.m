@@ -1,7 +1,7 @@
 function [ output ] = fillAir( tissue )
 % fillAir() fills gaps in data with air
-%   Once you import all of the data using loadNII(), run it thought this to
-%   fill in the remaining spaces with air.  
+% Once you import all of the data using loadNII(), run it though
+% this to fill in the remaining spaces with air.  
 
 airdata = [1 0 0 1006 1.3 0.026 0];
 
@@ -14,5 +14,4 @@ for i = 1:length(a)
 end
 
 output = tissue;
-
 end

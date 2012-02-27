@@ -1,6 +1,9 @@
 function [  ] = avg_NII_normalize( varargin )
-%UNTITLED6 Normalize to rest state
-%   Detailed explanation goes here
+%  Uses the resting-state image calculated using
+%  avg_NII_rest() to normalize the rest of the data
+
+% If no inputs are given, the "open file..." UI will
+% prompt for the required information.
 
 %% Setup
 switch length(varargin)

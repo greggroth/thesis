@@ -1,8 +1,8 @@
 function [ head_out ] = repair_headdata( head_in )
 % repaid_headdata repopulates the headdata matrix
-%   If any changes are made to the index column in the headdata matrix, use
-%   this function to repopulate and correct the parameter values before running 
-% any other functions.
+%   If any changes are made to the index column in the headdata 
+% matrix, use this function to repopulate and correct the 
+% parameter values before running any other functions.
 %  head_in can be either 3 or 4 dimenisions
 
 

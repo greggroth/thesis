@@ -4,8 +4,8 @@ function [ ] = BOLDtoMF( varargin)
 %   Input: Directory containing a series of *.nii files of the BOLD
 %   response.  
 %
-%   Output: Two new files will be created in a new subdirectory with a
-%   variable for each time step.  
+%   Output: Two new files will be created in a new subdirectory 
+%   with a variable for each time step.  
 %
 %   Usage:                              
 %       BOLDtoMF 
@@ -13,7 +13,7 @@ function [ ] = BOLDtoMF( varargin)
 %
 %   If a directory is not provided, one will be requested.  
 %
-%   Method from Sotero, et. al. 2010
+%   Method from Sotero, et. al. 2011
 
 % =========
 % = Setup =

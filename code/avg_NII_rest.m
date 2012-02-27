@@ -1,6 +1,13 @@
 function [ ] = avg_NII_rest( varargin )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
+% Collects datasets which are part of the 
+% resting state and averages them together to
+% give a resting-state image
+% 
+% THIS MUST BE EDITED TO WORK
+% This is written for my data and you should read
+% and understand what it is doing before you use it.
+% It will almost certainly require some editing 
+% to select the right range of data.
 
 %% Setup
 switch length(varargin)
@@ -18,8 +25,9 @@ end
 oldfold = cd(fold_name);
 file_list = dir('*.nii');
 
-%  We're only interested in the rest period 
-%  (first and last 10 steps in this case)
+%  Select resting state images 
+%  (first and last 10 steps in my case).
+%  EDIT THIS TO FIT YOUR CASE
 file_list = file_list([1:10 170:180]);
 file_count = length(file_list);
 
@@ -66,6 +74,4 @@ mkdir('RestState')
 save_nii(fi,fullfile('RestState','RestStateAvg.nii'));
 
 cd(oldfold)
-
 end
-

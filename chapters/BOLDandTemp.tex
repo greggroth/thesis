@@ -1,10 +1,9 @@
 \chapter{Calculating Temperature Changes using the fMRI BOLD Response}
-    
   \section{\label{sec:tempmodelintro} Introduction}
   Current efforts to model temperature changes be can categorized into two classes.  The first class approaches the problem by considering a single voxel deep within the brain (single-voxel approach) while the second approach considers the brain and head as an entire system (multi-voxel approach).  Each of these methods has their own pros and cons which will be discussed below.
   %%  SINGLE VOXEL APROACH %%
     \subsection{\label{sec:singlevox} Single-Voxel Methods}
-    A single-voxel model of temperature was first proposed by SOMEONE, but has been refined over the past HOWLONG years CITEABUNCH to include more terms.  Although different approaches consider different contributions to the temperature change, they all narrow the problem down to a single voxel which is usually 2mm x 2mm x 2mm.  By simplifying the model, the heat equation can be simplified and the calculation is much easier to undertake.  However, since the brain is not homogenous, the values used for parameters such as heat production and thermal conductivity are taken from an average of the tissues.  As a result, this reduces the possible accuracy of such a model when applied to a subject.
+    Numerous single-voxel approaches have been created ~\citep{sotero2011,yablonskiy,trubel}~which differ largly only in their formulation of the Penne's bioheat eqution~\citep{pennes}.  Although different approaches consider different contributions to the temperature change, they all narrow the problem down to a single region of interest.  By simplifying the model, the heat equation can be simplified and the calculation is much easier to undertake.  However, since the brain is not homogenous, the values used for parameters such as heat production and thermal conductivity are taken from an average of the tissues.  As a result, this reduces the possible accuracy of such a model when applied to a subject.
     
     The most recently published iteration of a single-voxel model was published by~\citet{sotero2011}.  The basis of this model is a modification of the Penne's Bioheat Equation~\citep{pennes, sotero2011}.
     %%%%%%%  Bio-heat Equation %%%%%%%%%%%%

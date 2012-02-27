@@ -1,13 +1,14 @@
-%%===================================================================
-%%     How to process preprocessed BOLD data to calculate temperature
-%%===================================================================
+%%================================================================
+%% How to process preprocessed BOLD data to calculate temperature
+%%================================================================
 
-% This Matlab script was used to automate the the process of using BOLD data
-% stored in NIFTI (*.nii) format to calculate temperature changes.  The
-% particulars of the code may be specific to this case, but the procedure
-% should be the same when doing these calculations on other datasets.  All
-% required functions are included as an attachment to my thesis and are
-% available on my github (https://github.com/greggroth/tempcalc)
+% This Matlab script was used to automate the the process of using 
+% BOLD data stored in NIFTI (*.nii) format to calculate temperature 
+% changes.  The particulars of the code may be specific to this 
+% case, but the procedure should be the same when doing these 
+% calculations on other datasets.  All required functions are 
+% included as an attachment to my thesis and are available on my 
+% github (https://github.com/greggroth/tempcalc)
 
 cd('/Users/Greggory/Documents/Data/fmri_rhythmic_tapping01/NIFTI')
 
@@ -53,7 +54,8 @@ for i = 1:length(directories)
 end
 
 
-%%  Calculate the change in temperature based on metabolism and blood flow
+%%  Calculate the change in temperature based on metabolism and 
+%   blood flow
 
 % load('equil.mat');  % equillibriumT
 % load('tt_headdata.mat');  % headdata

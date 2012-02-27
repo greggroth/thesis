@@ -6,7 +6,8 @@ function [ out_head ] = fillHoles( in1,in2,in3,in4,in5,headin)
 % voxels that are surrounded by tissue and decides a tissue it
 % it would be best suited as
 
-head = squeeze(headin(:,:,:,1));  %  I only need the tissue indices so this makes things easier down the line
+%  I only need the tissue indices so this makes things easier down the line
+head = squeeze(headin(:,:,:,1));  
 
 %%  Data Storage
 QmSTORE = [0 0 26.1 11600 0 26.1 697 0 0 302 15575 0 697 1100 5192];
@@ -23,8 +24,8 @@ idx2 = (in1==in2 | in2 == in3 | in2==in4 | in2==in5) & logical(in2);
 idx3 = (in1==in3 | in2 == in3 | in3==in4 | in3==in5) & logical(in3);
 idx4 = (in1==in4 | in2 == in4 | in3==in4 | in4==in5) & logical(in4);
 idx5 = (in1==in5 | in2 == in5 | in3==in5 | in4==in5) & logical(in5);
-%  This array will have a zero anywhere there were two or more common
-%  elements between any of the five arrays.  
+%  This array will have a zero anywhere there were two or more
+% common elements between any of the five arrays.  
 idx = idx1|idx2|idx3|idx4|idx5;   
 
 [xmax ymax zmax] = size(in1)
@@ -33,7 +34,8 @@ idx = idx1|idx2|idx3|idx4|idx5;
 for i = 1:length(x)  %  go to each hole and do work
     if (x(i)~=1)&&(y(i)~=1)&&(z(i)~=1)&&(x(i)~=xmax)&&(y(i)~=ymax)&&(z(i)~=zmax)&&(headin(x(i),y(i),z(i),1)==1)  %  keeps away from the edge and only looks at voxels that were assigned air
         [commonesttissue nouse secondbest] = mode([head(x(i)+1,y(i),z(i)) head(x(i)-1,y(i),z(i)) head(x(i),y(i)+1,z(i)) head(x(i),y(i)-1,z(i)) head(x(i),y(i),z(i)+1) head(x(i),y(i),z(i)-1)]);
-        if commonesttissue == 1 && length(secondbest{1})>=2  % if air and something else are equally common, it'll choose air.  This forces it to pick the tissue if possible.
+        % if air and something else are equally common, it'll choose air.  This forces it to pick the tissue if possible.
+        if commonesttissue == 1 && length(secondbest{1})>=2  
             commonesttissue = secondbest{1}(2);
         end
         headin(x(i),y(i),z(i),:) = [commonesttissue 0 QmSTORE(commonesttissue) cSTORE(commonesttissue) rhoSTORE(commonesttissue) kSTORE(commonesttissue) wSTORE(commonesttissue)];

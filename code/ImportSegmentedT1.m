@@ -20,8 +20,8 @@ end
 % = Tissue Parameters =
 % =====================
 % Each tissue type is assigned an integer index (i.e. gray matter -> 11) 
-% such that tissue-specific parameters can be found by looking at that 
-% element within the corresponding storage matrix 
+% such that tissue-specific parameters can be found by looking at 
+% that element within the corresponding storage matrix 
 % (i.e. QmSTORE(11) -> gray matter Qm)
 
 % Parameters taken from Colins, 2004
@@ -49,12 +49,14 @@ end
 % ============================
 % = Populate the head matrix =
 % ============================
-%  For each data file, it fills in the data from the data storage arrays
-%  for that particular type of tissue.  It picks which ever tissue is 
-%  the most likely candidate for that voxel based on the segmented data
+% For each data file, it fills in the data from the data storage 
+% arrays for that particular type of tissue.  It picks which 
+% ever tissue is the most likely candidate for that voxel based
+% on the segmented data
 
-%   PROBLEM:  It returns 0 (later filled with air) if there is equal
-%   probability of a voxel being two or more different types of tissue.  
+%   PROBLEM:  It returns 0 (later filled with air) if there is 
+% equal probability of a voxel being two or more different types
+% of tissue.  
 %   SOLVED BY fillHoles()
 
 
@@ -86,8 +88,8 @@ for i = 1:5
     waitbar(i/6,statusbar,sprintf(['File ',num2str(i),' Import Compete']));
 end    
 
-% The filleAir() function checks for any voxels which were not assigned a 
-% tissue type and fills them in with air
+% The filleAir() function checks for any voxels which were not
+% assigned a tissue type and fills them in with air
 almostthere = fillAir(out1+out2+out3+out4+out5);
 % The fillHoles() function corrects for a voxel having two 
 % equally-probable tissue types

@@ -71,21 +71,13 @@ temperatureOut(1,:,:,:) = temperature(1,:,:,:);
 % ===========
 % = Do Work =
 % ===========
-%   This is a vectorized version of the next section.  For the love of
-%   god don't make any changes to this without first looking below to
-%   make sure you know what you're changing.  This is [nearly]
-%   impossible to understand, so take your time and don't break it.
-%   data is stored in 'tissue' as such : 
+%   This is a vectorized version of the next section.  For the love 
+% of god don't make any changes to this without first looking below
+% to make sure you know what you're changing.  This is [nearly]
+% impossible to understand because it's been vectorized, so take 
+% your time and don't break it.  Data is stored in 'tissue' as such: 
 %  [tissuetype 0 Qm c rho k w] <--  second element is blank for all. 
 %  [    1      2  3 4  5  6 7]
-
-% This makes an array that has smoothed out variations in k by 
-% averaging all of the k's around each voxel (including itself). This 
-% is a hap-hazard solution to the problem that if you only take the 
-% value of k for the voxel without considering what surrounds it, it 
-% doesn't matter whether the head is surrounded by air, water or 
-% anything else. Since water is a better thermal conductor than air, we 
-% need a way of accounting for this. This is one way:
 
 averagedk = (circshift(tissue(:,:,:,6),[1 0 0])+circshift(tissue(:,:,:,6),[-1 0 0])+circshift(tissue(:,:,:,6),[0 1 0])+circshift(tissue(:,:,:,6),[0 -1 0])+circshift(tissue(:,:,:,6),[0 0 1])+circshift(tissue(:,:,:,6),[0 0 -1])+tissue(:,:,:,6))/7;
 rhoblood = 1057;
@@ -129,12 +121,12 @@ close(statusbar);
 % ============
 % = Old Code =
 % ============
-% This is what used to be used. It's much slower (~60 times slower), 
-% but it's much easier to understand compared to the above code. If any
-% changes need to be made above, first look through this code to ensure
-% you understand what's happening before making changes. It's really 
-% easy to mess up the code above and nearly impossible to figure out 
-% where.
+% This is what used to be used. It's much slower (~60 times 
+% slower), but it's much easier to understand compared to the 
+% above code. If any changes need to be made above, first look 
+% through this code to ensure you understand it before making 
+% changes. It's reallyeasy to mess up the code above and nearly 
+% impossible to figure out where.
 % 
 %  good luck.
 
