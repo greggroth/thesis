@@ -347,11 +347,14 @@
   \end{center}
   \begin{flushright}
     \begin{tabular}{p{4cm}p{5cm}}
-      Committee Chair: & \@chair \\
+      Committee Co-Chairs: & 
+        \@for\i:=\@chair\do{%
+          \i \newline
+          } \\
       Committee: & 
         \@for\i:=\@committee\do{%
           \i \newline
-          }
+          } \\
     \end{tabular}
   \end{flushright}
   \vspace*{\fill}
