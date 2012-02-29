@@ -134,19 +134,19 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.13"
      inkscape:cx="560.5124"
-     inkscape:cy="374.13639"
-     inkscape:current-layer="layer2"
+     inkscape:cy="444.93285"
+     inkscape:current-layer="layer1"
      id="namedview2989"
      showgrid="false"
      inkscape:snap-bbox="false"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:bbox-paths="false"
      inkscape:bbox-nodes="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="713"
+     inkscape:window-width="1680"
+     inkscape:window-height="963"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata2991">
     <rdf:RDF>
@@ -155,7 +155,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -216,22 +216,22 @@
     <text
        xml:space="preserve"
        style="font-size:69.29114532px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="290.01019"
-       y="170.74469"
+       x="338.86002"
+       y="178.05516"
        id="text4536"
        sodipodi:linespacing="125%"
        transform="scale(1.0326032,0.9684262)"><tspan
          sodipodi:role="line"
          id="tspan4538"
-         x="290.01019"
-         y="170.74469">L<tspan
+         x="338.86002"
+         y="178.05516">L<tspan
    style="font-size:45.03987885px;baseline-shift:sub"
    id="tspan4540">1</tspan></tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4584"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="matrix(1.7887565,0,0,1.677584,105.8589,-156.84122)"><flowRegion
+       transform="matrix(1.7887565,0,0,1.677584,156.30138,-149.76157)"><flowRegion
          id="flowRegion4586"><rect
            id="rect4588"
            width="57.64706"
@@ -244,18 +244,18 @@
        xml:space="preserve"
        id="flowRoot5718"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="matrix(1.7887565,0,0,1.677584,-247.68356,-71.975193)"><flowRegion
+       transform="matrix(1.7887565,0,0,1.677584,-306.09064,-73.745105)"><flowRegion
          id="flowRegion5720"><rect
            id="rect5722"
-           width="144.70589"
-           height="65.882355"
+           width="200.61066"
+           height="65.882347"
            x="185.88235"
            y="75.588234" /></flowRegion><flowPara
-         id="flowPara5724">LED</flowPara></flowRoot>    <flowRoot
+         id="flowPara5724">Emitter</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot5726"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="matrix(1.7887565,0,0,1.677584,-378.15757,-102.96116)"><flowRegion
+       transform="matrix(1.7887565,0,0,1.677584,-355.14872,-95.881514)"><flowRegion
          id="flowRegion5728"><rect
            id="rect5730"
            width="210.58826"
