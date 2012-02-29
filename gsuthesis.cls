@@ -927,4 +927,6 @@
 \makeatother
 \RequirePackage{cleveref}%
 \doublespacing
+\let\oldsection\section 
+\renewcommand{\section}{\clearpage\oldsection}
 \endinput

@@ -1,18 +1,18 @@
 \chapter{Calculating Temperature Changes using the fMRI BOLD Response}
   \section{\label{sec:tempmodelintro} Introduction}
-  Current efforts to model temperature changes be can categorized into two classes.  The first class approaches the problem by considering a single voxel deep within the brain (single-voxel approach) while the second approach considers the brain and head as an entire system (multi-voxel approach).  Each of these methods has their own pros and cons which will be discussed below.
+  Using fMRI to find brain temperature is enticing because it is noninvasive.  Existing efforts to model temperature changes be can categorized into two classes.  The first class approaches the problem by considering a single region of interest (ROI) deep within the brain (single-voxel approach) while the second approach considers the brain and head as an entire system (multi-voxel approach).  Each of these methods has their own pros and cons which will be discussed below.
   %%  SINGLE VOXEL APROACH %%
     \subsection{\label{sec:singlevox} Single-Voxel Methods}
-    Numerous single-voxel approaches have been created ~\citep{sotero2011,yablonskiy,trubel}~which differ largly only in their formulation of the Penne's bioheat eqution~\citep{pennes}.  Although different approaches consider different contributions to the temperature change, they all narrow the problem down to a single region of interest.  By simplifying the model, the heat equation can be simplified and the calculation is much easier to undertake.  However, since the brain is not homogenous, the values used for parameters such as heat production and thermal conductivity are taken from an average of the tissues.  As a result, this reduces the possible accuracy of such a model when applied to a subject.
+    Numerous single-voxel approaches have been created ~\citep{sotero2011,yablonskiy,trubel}~which differ largly only in their formulation of Penne's Bioheat Eqution~\citep{pennes}.  Although different approaches consider different contributions to the temperature change, they all narrow the problem down to a single region of interest.  By simplifying the model, the heat equation can be simplified and the calculation is much easier to undertake.  However, since the brain is not homogenous, the values used for parameters such as heat production and thermal conductivity are taken from an average of the tissues.  As a result, this reduces the level of accuracy these models can achieve.
     
-    The most recently published iteration of a single-voxel model was published by~\citet{sotero2011}.  The basis of this model is a modification of the Penne's Bioheat Equation~\citep{pennes, sotero2011}.
+    The most recently published iteration of a single-voxel model was published by~\citet{sotero2011} in~\citeyear{sotero2011}. Their formulation of Penne's Bioheat Equation is as follows~\citep{pennes, sotero2011}.
     %%%%%%%  Bio-heat Equation %%%%%%%%%%%%
     \begin{align}
       \label{eq:bioheat}
-      C_t \frac{dT(t)}{dt} &= (\Delta H^{\circ}-\Delta H_{b}) CMRO_{2}\mid_{0} m(t) - \rho_{b} C_{b} CBF\mid_{0} f(t) (T(t) - T_{a}) \nonumber \\
+      C_{tissue} \frac{dT(t)}{dt} &= (\Delta H^{\circ}-\Delta H_{b}) CMRO_{2}\mid_{0} m(t) - \rho_{b} C_{b} CBF\mid_{0} f(t) (T(t) - T_{a}) \nonumber \\
       &\qquad {} - \frac{C_{t}}{\tau} (T(t)-T_{0})
     \end{align}
-    where $C_t$ is the specific heat of the tissue, $\Delta H^{\circ}$ is the enthalpy released in the oxidation of glucose, $\Delta H_b$ is the enthalpy used to release oxygen from hemoglobin, $COMRO_2 \mid_0$ is the metabolic rate at rest, $\rho_b$ is the blood density, $C_b$ is the specific heat of blood, $CBF\mid_0$ is the cerebral blood flow at rest, $T_a$ is the arterial blood temperature, $C_T$ is the specific heat for the tissue, and $\tau$ is a time constant for conductive heat loss.  The values used are provided in~\cref{tbl:soteroparams}.
+    where C$_{tissue}$ is the specific heat of the tissue, $\Delta H^{\circ}$ is the enthalpy released in the oxidation of glucose, $\Delta H_b$ is the enthalpy used to release oxygen from hemoglobin, CMRO$_2 \mid_0$ is the metabolic rate of oxygen at rest, $\rho_b$ is the blood density, C$_b$ is the specific heat of blood, CBF$\mid_0$ is the cerebral blood flow at rest, T$_a$ is the arterial blood temperature, C$_T$ is the specific heat for the tissue, and $\tau$ is a time constant for conductive heat loss.  The values used are provided in~\cref{tbl:soteroparams}.
     
     One advantage of using~\cref{eq:bioheat} is that the resting state temperature can be analytically determined by substituting $\frac{dT(t)}{dt} = 0$~\citep{sotero2011}.
     %%%%%%%  Resting state temperature %%%%%
@@ -20,53 +20,52 @@
       \label{eq:restingtemperature}
       T_{0} = T_{a} + \frac{(\Delta H \mid^{\circ} - \Delta H_{b}) CMRO_{2}\mid_{0}}{\rho_{B} C_{B} CBF\mid_{0}}
     \end{equation}
-    If the values provided in~\cref{tbl:soteroparams} are substitued into~\cref{eq:restingtemperature}, a resting temperature of 37.3057\degree C is found.  Since the resting temperature is always greater than the arterial blood temperature, it limits the ability of the model to account for all experimental results. 
+    If the values provided in~\cref{tbl:soteroparams} are substitued into~\cref{eq:restingtemperature}, a resting temperature of 37.3057\degree C is found (using T$_a$ = 37\degree C).  Regardless of the arterial blood temperature, since the second term of~\cref{eq:restingtemperature} is always positive the resting state temperature will always be greater than the arterial blood temperature. Thus, an increase in blood flow will remove heat from the ROI, thereby lowering the temperature. As will be further discussed in~\cref{sec:theoreticalresults}, this is an acceptable result for the majority of the brain; however a multi-voxel approach reveals that a region of the brain exists where this model is unable to predict temperature changes.  Since it is a simpler model than a multi-voxel model, it is easier to first understand the principles of Penne's Bioheat Equation using this model before discussing how it can be applied to the entire head. 
     
-    While~\cref{eq:bioheat} is appears complicated, conceptually the equation can be easily understood.
-    %%%%%%%  Explanation %%%%%%%%%%%%%%%%%%%
+    While~\cref{eq:bioheat} is appears complicated, conceptually the equation can be easily understood:
     \begin{align}    
       \label{eq:soteroexplaiend}
       change\ in\ temperature\ &=\ heat\ generated\ by\ metabolism\ -\ heat\ lost\ to\ convection\ \nonumber \\
       &\qquad {} -\ heat\ lost\ to\ conduction
     \end{align}
-    The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature ($T(t) - T_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue ($T(t) - T_0$).  Since $T_a$ is less than $T(0)$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
+    The system is a balance between heat generation (metabolism) and heat transfer (conduction and convection).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature (T$(t) - $T$_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue (T$(t) - $T$_0$).  Since T$_a$ is less than T$_0$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  
     
     %%  MULTI VOXEL APPROACH  %%
     \subsection{\label{sec:multivox} Multi-Voxel Methods}
-    The multi-voxel approach to calculating brain tissue temperature alleviates many of the issues that a single-voxel approach has.  The most prominent advantage a multi-voxel approach has is the a result of it accounting for a voxels location relative to the surface of the head and other voxels.  By accounting for a voxel's location, the same BOLD response in two different locations can have vastly different effects on the local tissue temperature (more on this in~\cref{sec:theoreticalresults}).
-    At the heart of our method is a three-dimensional implementation of the Pennes bioheat equation (\cref{eq:3dbioheat})\citep{collins}.
+    The multi-voxel approach to calculating brain tissue temperature alleviates many of the issues that a single-voxel approach has.  The most prominent advantage a multi-voxel approach has is a result of it accounting for a voxel's location relative to the surface of the head and other voxels.  By accounting for a voxel's location, the same BOLD response in two different locations can have vastly different effects on the local tissue temperature (more on this in~\cref{sec:theoreticalresults}).
+    
+    Multi-voxel methods use a three-dimensional implementation of Penne's Bioheat Equation~\citep{collins}.
     \begin{equation} \label{eq:3dbioheat} 
     	\rho c \frac{dT}{dt} = k \nabla^{2}T-\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} 
     \end{equation}
-  where $\rho$ is the tissue density, $c$ is the specific heat of the voxel, $k$ is the thermal conductivity, $\rho_{blood}$ is the blood density, $w$ is perfusion by blood, $c_{blood}$ is the specific heat of blood, $T_{blood}$ is the arterial blood temperature, and $Q_{m}$ is the baseline metabolic heat production. $f(t)$ and $m(t)$ are the time-dependent changes in blood flow and metabolism. These two factors determine the short-term change in temperature and are calculated from the fMRI BOLD response; however what makes this approach more complete than a single-voxel approach is that the relatively slow conductive heat loss makes for a different equilibrium temperature at each voxel.  This affect can only be captured by considering the entire head.  The approach we use is a multi-voxel approach, so more details about this model are discussed in~\cref{sec:approach}.
+  where $\rho$ is the tissue density, $c$ is the specific heat of the voxel, $k$ is the thermal conductivity, $\rho_{blood}$ is the blood density, $w$ is perfusion by blood, c$_{blood}$ is the specific heat of blood, T$_{blood}$ is the arterial blood temperature, and $Q_{m}$ is the baseline metabolic heat production. $f(t)$ and $m(t)$ are the time-dependent changes in blood flow and metabolism. These two factors determine the short-term change in temperature and are calculated from the fMRI BOLD response; however what makes this approach more complete than a single-voxel approach is that the relatively slow conductive heat loss makes for a different equilibrium temperature at each voxel.  This affect can only be captured by considering the entire head.  The approach we use is a multi-voxel approach, so more details about this model are discussed in~\cref{sec:approach}.
 
 % THE APPROACH
 \section{\label{sec:approach} Our Approach}
-\begin{figure}[tb]
-  \vspace{10pt}
-  \centering
-  \input{figures/calculationsFlowChart}
-  \caption[Procedure used to calculate temperature change]{\label{fig:procedureflowchart} The procedure used to calculate temperature from BOLD data.  Orange blocks ($\color{goldfish}\bullet$) represent data, the sandy-colored block ($\color{beachstorm}\bullet$) is a step done using SPM8 and the teal blocks ($\color{aoi}\bullet$) are steps done using a function provided within temptools (\cref{apdx:code}).  The name of the function used is in parentheses.}
-\end{figure}
-
-  Our approach combines a multi-voxel model (\cref{sec:multivox}) with a model for calculating the change in metabolism and blood flow from the BOLD response.  The Pennes bioheat equation (\cref{eq:bioheat}) \citep{pennes,sotero2011} includes three terms. The first and second terms describe heat generation by metabolism and heat exchange by convection to blood flow.  On shorter time scales, these two terms dominate and are sufficient for determining the temperature change; however, the third term becomes important on longer time scales, so it becomes important in determining the resting-state temperature.
+  Our approach combines a multi-voxel model (\cref{sec:multivox}) with a model for calculating the change in metabolism and blood flow from the BOLD response.  Penne's Bioheat Equation (\cref{eq:3dbioheat}) ~\citep{pennes,sotero2011} includes three terms. The first and second terms describe heat generation by metabolism and heat exchange by convection to blood.  The third term describes heat transfer through conduction to surrounding tissue (or air). On shorter time scales, the first two terms dominate and are sufficient for determining activity-induced temperature changes; however, the third term becomes important on longer time scales because it plays a role in determining the resting-state temperature.
   
-  The third term describes the heat exchanged by conduction to surrounding tissues.  This is a comparatively slow process, but on larger time scales, conduction plays an important role in determining the resting state temperature.  When calculating the temperature change, it is important to first have an accurate resting state temperature.  By considering the entire head, out model is able to accurately determine a resting state temperature for each voxel, enabling far more accurate temperature calculations than what is capable with single-voxel approaches.  
+  Conductive heat transfer to surrounding tissues is a comparatively slow process, but on larger time scales, conduction plays an important role in determining the resting state temperature.  When calculating the temperature change, it is important to first have an accurate resting state temperature since it can either be greater than or less than the arterial blood temperature.  By considering the entire head, the model we use is able to accurately determine a resting state temperature for each voxel, enabling far more accurate temperature calculations than what is capable with single-voxel approaches.
+  \begin{figure}[tb]
+    \vspace{10pt}
+    \centering
+    \input{figures/calculationsFlowChart}
+    \caption[Procedure used to calculate temperature change]{\label{fig:procedureflowchart} The procedure used to calculate temperature from BOLD data.  Orange blocks ($\color{goldfish}\bullet$) represent data, the sandy-colored block ($\color{beachstorm}\bullet$) is a step done using SPM8 and the teal blocks ($\color{aoi}\bullet$) are steps done using a function provided within temptools (\cref{apdx:code}).  The name of the function used is in parentheses.}
+  \end{figure}
   
-  \Cref{fig:procedureflowchart} gives a schematic of the temperature calculation procedure.  The orange blocks represent the required data.  The first thing to be done is establish the resting-state temperature for each voxel within the head.  The details of this procedure are given in~\cref{sec:calcequilT}, but in summary a T1 contrast image is segmented using SPM8~(\cref{fig:segmented}) and is combined with tissue-specific parameters~(\cref{tbl:tissues}).  The resulting dataset is then used to determine the resting-state temperature. 
+  \Cref{fig:procedureflowchart} gives a schematic of the temperature calculation procedure.  The orange blocks represent the required data.  The first thing to be done is establish the resting-state temperature for each voxel within the head.  The details of this procedure are given in~\cref{sec:calcequilT}, but in summary a T1 contrast image is segmented using SPM8~(\cref{fig:segmented}) and is combined with tissue-specific parameters~(\cref{tbl:tissues}).  The resulting dataset is then used to determine the resting-state temperature by repeatedly applying~\cref{eq:3dbioheat} until the temperature stabilizes for all voxels.
   
-  The resting-state time slices from the fMRI BOLD dataset are averaged to create a resting state representative slice.  The rest of the BOLD data is then normalized to this in order to have the normalized change in BOLD response ($\frac{\Delta S}{S_0}$ in~\cref{eq:y}).  This can then be used with~\cref{eq:m,eq:f,eq:y} to create a time series for the change in blood flow and metabolism.  More details about this procedure are given in~\cref{sec:calcmf}.
+  The resting-state time slices from the fMRI BOLD dataset are averaged to create a resting state representative slice.  The remaining BOLD data is then normalized to this in order to have the normalized change in BOLD response ($\frac{\Delta S}{S_0}$ in~\cref{eq:y}).  This can then be used with~\cref{eq:m,eq:f,eq:y} to create a time series for the change in blood flow and metabolism.  More details about this procedure are given in~\cref{sec:calcmf}.
   
   The following sections provide a detailed explanation of the theory behind our modeling approach.  The code used to implement this procedure is provided and documented in~\cref{apdx:code}.  
   
   % SETUP AND FILE PROCESSING
     \subsection{\label{sec:prephead} Preparing the model of the head}
-    \begin{figure}[p] 
+    \begin{figure}[tb] 
       \centering\hspace*{20px} 
     	\includegraphics{segmented-head} 
     	\caption[Slice of the segmented head]{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
     \end{figure}
-    \begin{table*}[p] 
+    \begin{table*}[tb] 
     		\begin{tabular*}{\linewidth}{@{} l p{2.7cm}p{2cm}p{2.4cm}p{2.5cm}p{2cm}@{}}
     		  \toprule
     		  Tissue & $f_0$ \newline $100 \; ml/(g \; min)$ & $\rho$ \newline $kg/m^{3}$ & $c$ \newline $J \: kg^{-1} \: \degree C^{-1}$ & $k$ \newline $W \: m^{-1} \: \degree C^{-1}$ & $Q_{m}$ \newline $W/m^{3}$ \\
@@ -79,26 +78,27 @@
     			Skin & 12 & 1,100 & 3,150 & 0.342 & 1,100 \\
     			\bottomrule
     		\end{tabular*}
-    		\caption[Tissue-specific parameters]{\label{tbl:tissues} Tissue-specific parameters used to calculate the temperature change (from~\citet{collins}).} 
+    		\caption[Tissue-specific parameters]{\label{tbl:tissues} Tissue-specific parameters used to calculate the temperature change (values from~\citet{collins}).} 
     \end{table*}
   In order to begin the temperature calculating procedure, a model of the head must first be created.  Using SPM8 (\url{http://www.fil.ion.ucl.ac.uk/spm/}), we segmented a T1 contrast image of the head into five different tissue types: bone, cerebral spinal fluid, gray matter, white matter and soft tissue.  It was assumed that soft tissue voxels that are in contact with air are more appropriately labeled as skin, so in total we are left with a model of the head separated in to six tissue types (\cref{fig:segmented}).  The advantage this has is that we are able to use tissue specific parameters when doing the calculations, thereby improving the accuracy of the results.  The parameters used are available in~\cref{tbl:tissues}.  The code used to create the head matrix is discussed in~\cref{apdx:headmatrix}.
 
   
   % CALC EQUIL T
+    \FloatBarrier
     \subsection{\label{sec:calcequilT} Calculating the equilibrium temperature}
-  The first step in calculating the temperature change is to first know what the resting state temperature is for each voxel within the head. Our approach was to have the initial temperature for all tissue voxels to be equal to 37\degree C and air voxels are kept at 24\degree C.  The starting temperature of the tissue doesn't affect the final resting state temperature; however, starting off at drastically different values could greatly increase the calculating time required before the temperature stabilizes. The finite difference implementation of the Pennes bioheat equation (\cref{eq:3dbioheat}) is used to update the temperature.  The temperature is updated until the temperature for every voxel has stabilized ($\frac{dT}{dt} < 10^{-6}$ \degree C/s).  Since temperature changes due to changes in neuronal activity are typically greater than $10^{-2}$ \degree C, a change in temperature less than $10^{-6}$ \degree C/s is sufficiently small that transient temperature changes are negligible and temperature can be considered stabilized.  The code used to calculate the equilibrium temperature is detailed in~\cref{apdx:findequil}.
+  The first step in calculating the temperature change is to know the resting state temperature for each voxel within the head. Our approach was to have the initial temperature for all tissue voxels set to 37\degree C and air voxels are kept at 24\degree C.  The starting temperature of the tissue does not affect the final resting state temperature; however, starting off at drastically different values could greatly increase the calculating time required before the temperature stabilizes. The finite difference implementation of Penne's Bioheat Equation (\cref{eq:3dbioheat}) is used to update the temperature (derivation provided in~\cref{sec:calcT}).  The temperature is updated until the temperature for every voxel has stabilized ($\frac{dT}{dt} < 10^{-6}$ \degree C/s).  Since temperature changes due to changes in neuronal activity are typically greater than $10^{-2}$ \degree C, a change in temperature less than $10^{-6}$ \degree C/s is sufficiently small that transient temperature changes are negligible and temperature can be considered stabilized.  The code used to calculate the equilibrium temperature is detailed in~\cref{apdx:findequil}.
   
   % CALC M AND F
-    \subsection{\label{sec:calcmf} Calculating Metabolism and Blood Flow Changes from fMRI BOLD}
+    \subsection{\label{sec:calcmf} Calculating Metabolism and Blood Flow Changes from the BOLD response}
     %%%%  Table of values used in Sotero, 2011  %%%%%
     \begin{table*}[p]
-      \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
+      \caption[Parameters used in the single-voxel approximation]{\label{tbl:soteroparams} Parameters used to solve the single-voxel implementation of Penne's Bioheat Equation.  (modified from~\citet{sotero2011})}
         \begin{tabular*}{\linewidth}{lp{8.5cm}p{7cm}}
           \toprule
           Parameter & Meaning & Value \\
           \midrule
           T$_{a}$ & Arterial blood temperature & 37\degree C \\
-          $C_{tissue}$ & Tissue Heat Capacity & 3.664 J/(gK) \\
+          C$_{tissue}$ & Tissue Heat Capacity & 3.664 J/(gK) \\
           $\Delta H^{\circ}$ & Enthalpy released by oxidation of glucose & $4.7 10^{5}$ J \\
           $\Delta H_{b}$ & Enthalpy used to release O$_{2}$ from hemoglobin & $2.8 10^{4}$ J \\
           CMRO$_{2}\mid_{0}$ & Cerebral metabolic rate of O$_{2}$ consumption at rest & $0.0263 10^{-6}$ mol/(gs) \\
@@ -137,7 +137,7 @@
     \begin{equation} \label{eq:gammafct}
       \frac{E(f)}{E_0}=af^{c}(t)e^{-bf(t)}
     \end{equation}
-  where values for a, b and c are provided in~\cref{tbl:soteroparams}.  From this approximation we have the final form of metabolism:
+  where a, b and c are fitting parameters (values provided in~\cref{tbl:soteroparams}).  From this approximation we have the final form of metabolism:
     \begin{equation} \label{eq:m} 
       m(t)=af^{c+1}(t)e^{-bf(t)}.
     \end{equation}
@@ -157,7 +157,7 @@
     \begin{equation} \label{eq:lambertW}
       z=W(x)
     \end{equation}
-  where z is given by
+  where $W(x)$ is a solution for z in the equation
     \begin{equation} \label{eq:lambertWsetup}
       z e^z = x
     \end{equation}
@@ -171,15 +171,15 @@
     \end{equation}
   is a function of the BOLD signal.  Using \cref{eq:m,eq:f,eq:y} allows for the metabolism and blood flow to be calculated from the BOLD signal (values used are provided in~\cref{tbl:soteroparams}).
   
-    In order to process the files, the BOLD dataset is stored in folder as a separate NIFTI (*.nii) file for each time step.  The first step in processing the data for temperature calculations is to determine a resting state BOLD signal ($S_0$).  The resting state is calculated by taking the voxel-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($\frac{\Delta S(t)}{S_0}$).  
+    In order to process the files, the BOLD dataset is stored as a separate NIFTI (*.nii) file for each time step.  The first step in processing the data for temperature calculations is to determine a resting state BOLD signal ($S_0$).  The resting state is calculated by taking the voxel-wise mean of the data when the subject is at rest (i.e. the first and last 20 seconds).  This results in one data set where each voxel is a mean of all of the voxels at the location over time ($S_0$).  In order to calculate the metabolism and blood flow, the BOLD dataset needs to be normalized to this resting state ($\frac{\Delta S(t)}{S_0}$).  
     
     Once $\frac{\Delta S(t)}{S_0}$ is known for each time step, \cref{eq:m,eq:f,eq:y} can be used to calculate the metabolism and blood flow. The implementation of this procedure is discussed in~\cref{apdx:fmriprocessing}. 
 
   % CALC CHANGE IN T
     \subsection{\label{sec:calcT} Calculating the change in temperature in the active brain}
-    As discussed in~\cref{sec:multivox}, the foundation of the model is the Penne's bioheat equation,~\cref{eq:3dbioheat}.  The metabolism and blood flow time-courses calculated in~\cref{sec:calcmf} are used to scale the baseline heat production and blood profusion.  This, in turn, induces a change in the temperature.
+    As discussed in~\cref{sec:multivox}, the foundation of the model is Penne's Bioheat Equation,~\cref{eq:3dbioheat}.  The metabolism and blood flow time-courses calculated in~\cref{sec:calcmf} are used to scale the baseline heat production and blood profusion.  This, in turn, induces a change in the temperature.
     
-    The Penne's bioheat equation (\cref{eq:3dbioheat}) is implemented using the first-order forward finite difference method:
+    Penne's Bioheat Equation (\cref{eq:3dbioheat}) is implemented using the first-order forward finite difference method:
     \begin{equation}
       \label{eq:finitedifference}
       \dot{T}(t) \approx \frac{T(t+l)-T(t)}{l}
@@ -198,7 +198,8 @@ where
     \frac{\partial^2T(t;x,y,z)}{\partial y^2} + 
     \frac{\partial^2T(t;x,y,z)}{\partial z^2}
   \end{equation}
-\Cref{eq:leplaceT} can be subtitued into the Penne's bioheat equation~(\cref{eq:3dbioheat})
+and the step size in each coordinate direction is given by $h$.  In the case of processing BOLD data, $h$ is the voxel size.
+\Cref{eq:leplaceT} can be subtitued into Penne's Bioheat Equation~(\cref{eq:3dbioheat})
   \begin{equation}
     \rho c \dot{T} = k_x \frac{\partial^2 T}{\partial x^2} + k_y \frac{\partial^2 T}{\partial y^2} + k_z \frac{\partial^2 T}{\partial z^2} -\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} \label{eq:simplifiedbioheat}
   \end{equation}
@@ -220,7 +221,7 @@ where
     & + k_z (T(t;x,y,z+h)-2 T(t;x,y,z)+T(t;x,y,z-h))]\notag\\
     & -\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m}
   \end{align}
-  The time step size (l) can be picked arbitrarily, however the spatial step size (h) is limited to the voxel spacing.
+  The time step size ($l$) can be picked arbitrarily, however the spatial step size ($h$) is limited to the voxel spacing.
   
   The final equation~(\cref{eq:fdfinal}) gives a method for calculating the next time step ($T(t+l)$) from the current time step ($T(t)$) for each voxel.  By using the central difference to solve $\nabla^2 T$, the voxels on all six sides of the current voxel are considered in the heat conduction.  The implementation of this equation is discussed in~\cref{apdx:tempCalcDynMF}.
   
