@@ -29,7 +29,7 @@ As discussed in~\cref{ch:introduction}, changes in tissue activity can be detect
 
 Blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb)~\citep{ogawa1990,kwong1992,fox1986}.  Since oxyHb and deoxyHb have different absorption spectra as shown in~\cref{fig:fnirabsorption}. These differences are possible to detect  through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  fNIRS has a high (millisecond) temporal resolution and a low ($\sim$ 1~cm$^3$) spatial resolution compared to fMRI (as low as 1 mm$^3$). Also, fNIRS is limited to only imaging the outer cortex (2--4 mm)~\citep{bunce2006}. A comparison of fMRI and fNIR is presented in~\cref{tbl:comaparemethods}.
 
-fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path and by illuminating the emitters sequentially, it is possible to have 10 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where absorption of near-infrared photons by tissue is low~(\cref{fig:fnirabsorption}).
+fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path and by illuminating the emitters sequentially, it is possible to have 10 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where the near-infrared photon absorption in the tissue is low~(\cref{fig:fnirabsorption}).
 
 \begin{figure}[tb]
   \centering
@@ -39,12 +39,16 @@ fNIRS works by utilizing an array of near-infrared detectors and emitters (typic
 \begin{figure}[tb]
   \centering
   \includegraphics{fnir-penetration}
-  \caption[Penetration by fNIR]{\label{fig:fnirpenetration}Penetration depth of a fNIR detector as a function of the distance between the NIR LED emitter and detector.  Modified after~\citep{head2010}}
+  \caption[Penetration by fNIR]{\label{fig:fnirpenetration}Penetration depth of a fNIR detector as a function of the distance between the NIR emitter and detector.  Light emitted from the left passes through the tissue before it is detected.  The path it takes through the tissue is determined by the distance between the emitter and detector.  A larger separation (L$_2$) allows the light to penetrate deeper tissues (d$_2$).  Modified after~\citep{head2010}}
 \end{figure}
 
 Three techniques are used to illuminate the tissue: (i)~time domain (or time resolved spectroscopy, TRS), (ii)~frequency domain and, (iii)~continuous wave illumination~\citep{izzetoglu2004}.  In TRS, short pulses of light are incident on the tissue and the temporal distribution of photons in measured.  In frequency domain spectroscopy, the amplitude of the indecent light is modulated at a high frequency (10--100~MHz) and the phase shift and amplitude decay of the detected light is compared to the incident light~\citep{boas2002}. In continuous wave illumination, the incident light is not modulated so the detected light can only be compared for amplitude attenuation~\citep{izzetoglu2004}.
 
-All of the techniques use a modified version of the Beer-Lambert Law~(\cref{eq:beerlambert})~\citep{cope}.  
+All of the techniques use the Beer-Lambert Law~\citep{beerlambert}
+\begin{equation}
+  I = I_0 e^{-\alpha (\lambda) x} \label{eq:beerlambert1}
+\end{equation} 
+modified to isolate the contributions from oxyHb and deoxyHb~\citep{cope}:
 \begin{equation}
   \label{eq:modifiedbeerlamber}
   I = G I_0 e^{-(\alpha_{deoxyHb}C_{deoxyHb}+\alpha_{oxyHb}C_{oxyHb})L} 
@@ -59,13 +63,13 @@ As discussed in~\citet{izzetoglu2004}, at least two wavelengths are utilized in 
   Oxygenation\ &= \Delta C_{HBO2} - \Delta C_{HB} \nonumber \\
   Blood\ Volume\ &= \Delta C_{HBO2} + \Delta C_{HB} 
 \end{align}
-Using this method to experimentally measure the blood oxygenation while measuring the fMRI BOLD response could be used to better refine the current model for calculating the metabolism and blood flow from the BOLD response.
+Using this method to experimentally measure the blood oxygenation while measuring the fMRI BOLD response could be used to refine the present model for calculating the metabolism and blood flow from the BOLD response.
 
-While fNIRS does not provide as spatially-precise a measurement as fMRI, it should be possible to modify the existing model for calculating temperature from the BOLD response to use fNIR data. This would be advantageous because fNIRS systems are cheaper and less disruptive than fMRI systems, meaning they can be used with a wider range of patients (children and the elderly).  For this reason, developing a model which uses fNIRS data should be considered in future research.
+While fNIRS does not provide spatially-precise measurements as fMRI, it should be possible to modify the existing model for calculating temperature from the BOLD response to use fNIR data. This would be advantageous because fNIRS systems are cheaper and less disruptive than fMRI systems, meaning they can be used with a wider range of patients (children and the elderly).  For this reason, developing a model which uses fNIRS data should be considered in future research.
 
 \section{Thermal Imaging}
 
-The primary challenge in brain temperature research is making experimental measurements of brain temperature.  The most accurate modality is to use a thermocouple probe, but since this is invasive and causes tissue damage, it is not possible to use this technique with human subjects.  For this reason, a non-invasive technique such as a thermal imaging camera is appealing.  Unfortunately, this technique is limited by the high absorption of mid-infrared photons by water.
+The primary challenge in brain temperature research is preforming brain temperature experimental measurements.  Since it is non-invasive, thermal imaging is appealing as a possible replacement for damaging thermocouple probes.  Unfortunately, this technique is limited by the high absorption of mid-infrared photons by water.
 
 Light absorption by a material is modeled using the Beer-Lambert law
 \begin{equation}
@@ -75,12 +79,12 @@ where $I$ is the intensity at a depth $x$ remaining from light with an incident 
 \begin{equation}
   \delta_p = \frac{1}{\alpha (\lambda)} \label{eq:penetrationdepth}
 \end{equation}
-This equation can be used along with the black body spectrum at tissue temperatures (\cref{fig:blackbody}) we can estimate the penetration depth of mid-infrared photons passing through water.
+This equation can be used along with the black-body spectrum at tissue temperatures (\cref{fig:blackbody}) we can estimate the penetration depth of mid-infrared photons passing through water.
 
 \begin{figure}[tb]
   \centering
   \includegraphics{blackbody}
-  \caption[Black-body Spectrum at 310 K]{\label{fig:blackbody}Black-body spectrum at 310 K calculated using Planck's Law.}
+  \caption[Black-body Spectrum at 250, 310 and 350 K]{\label{fig:blackbody}Black-body spectrum at 250, 310 and 350 K calculated using Planck's Law.}
 \end{figure}
 \begin{figure}[tb]
   \centering
@@ -93,12 +97,12 @@ Wien's Displacement Law is a solution to Planck's law for the peak light emissio
   \lambda_{max} &= \frac{b}{T} \label{eq:wienslaw} \\
   b &= 2.897\,7721 * 10^{-3} \mbox{ K m} \nonumber
 \end{align}
-where $b$ is Wien's displacement constant and T is the temperature in kelvin.  For $T=310$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.35~\textmu m.  
+where $b$ is Wien's displacement constant and T is the temperature in kelvin.  For $T=310$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.347$\,$652~\textmu m. A physiologically reasonable temperature change to expect from stimulation is on the order of 0.01\degree C which would correspond to a new peak wavelength of 9.347$\,$350~\textmu m (T=310.01 K) or a shift of 0.302 nm.
 
-Using~\cref{fig:waterabs} to find the absorption coefficient of approximately 700~cm$^{-1}$.  With the absorption coefficient, the penetration depth (\cref{eq:penetrationdepth}) is approximately 0.14~\textmu m.  This depth is roughly five orders of magnitude smaller than the distance from the surface of the brain to the surface of the head.  Thus, it can be assumed that a thermal imaging camera is unable to image photons coming from the brain.
+The values of the absorption coefficient and the penetration depth of photons in water is shown in~\cref{fig:waterabs}. Looking at around 9.3~\textmu m, the absorption coefficient is approximately 700 cm$^{-1}$ which corresponds to a penetration depth of approximately 0.14~\textmu m.  This depth is roughly five orders of magnitude smaller than the distance from the surface of the brain to the surface of the head.  Further, all photons emitted as blackbody radiation (ranging from 3~\textmu m to over 30~\textmu m) have a penetration depth of less than 100 microns.  Thus, a thermal imaging camera is unable to image photons coming from the brain.
 
-When a thermal imaging camera is used, the photons collected come from the skin of the head rather than from any deeper tissues, thus it is not a viable form of brain activity detection unless direct line of sight to the brain is available (such as in an open skull surgery).  In this case, the temperature sensitivity of currently available cameras is greater than 14~mK~\citep{flir,ici} so it would be limited to only the most extreme of excitations.  As a comparison, the finger-tapping task discussed in the results section (\cref{sec:experimentalresults}) only induced a peak temperature change of 25~mK after tapping for about 170~seconds.  Detection of this activity would be at the limits of a thermal imaging camera.
+When thermal imaging is used, the photons collected come from the skin of the head rather than from any deeper tissues, thus it is not a viable form of brain activity detection unless direct line of sight to the brain is available (such as in an open skull surgery).  The noise-equivalent temperature difference (NETD) of currently available cameras is greater than 14~mK~\citep{flir,ici} so it would be limited to only the most extreme of excitations even if line of site to the brain is available.  As a comparison, the finger-tapping task discussed in the results section (\cref{sec:experimentalresults}) only induced a peak temperature change of 25~mK after tapping for about 170~seconds.  Detection of this activity would be at the limits of a thermal imaging camera.
 
-While its applications to detecting brain activity are limited, thermal cameras could find use in the operating room.  It has been found that inducing mild hypothermia in patients being treated for cerebral ischemia improves the clinical outcome~\citep{maher1993}. The same treatment has been shown to improve the outcome of patients who have experienced a stroke~\citep{krieger2001} and even in patients with severe head injuries~\citep{soukup2002}. Currently, the temperature of the brain is inferred from the core body temperature (which is monitored via an invasive thermistor catheter). If it is possible to directly image the brain (i.e. during surgery) then the hypothermia treatment can be better monitored through a thermal imaging camera.  This would be especially useful since conductive and radiative heat loss to the air from an exposed brain could reduce how tightly regulated the brain temperature is by the arterial blood temperature.
+While its applications to detecting brain activity are limited, thermal cameras could be useful in the operating room.  It has been found that inducing mild hypothermia in patients being treated for cerebral ischemia improves the clinical outcome~\citep{maher1993}. The same treatment has been shown to improve the outcome of patients who have experienced a stroke~\citep{krieger2001} and even in patients with severe head injuries~\citep{soukup2002}. The temperature of the brain is currently inferred from the core body temperature (which is monitored via an invasive thermistor catheter). If it is possible to directly image the brain (i.e. during surgery) then the hypothermia treatment can be better monitored through a thermal imaging camera.  This would be especially useful since conductive and radiative heat loss to the air from an exposed brain could reduce how tightly the brain temperature is regulated by the arterial blood temperature.
 
 Optical detectors face many challenges working with biological tissue, the worst being infrared light absorption by water. fNIRS works within an optical window in the water absorption in order to measure changes in blood oxygenation, while thermal imaging is limited to measuring the temperature of tissue it has direct line of sight with because of the high absorption of water in the operating window. Despite their limitations, both of these techniques could be used in future studies to improve our understanding of brain temperature dynamics.
