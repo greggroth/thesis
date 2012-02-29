@@ -927,6 +927,7 @@
 \makeatother
 \RequirePackage{cleveref}%
 \doublespacing
-\let\oldsection\section 
-\renewcommand{\section}{\clearpage\oldsection}
+% Uncomment for a page break before sections
+% \let\oldsection\section 
+% \renewcommand{\section}{\clearpage\oldsection}
 \endinput
