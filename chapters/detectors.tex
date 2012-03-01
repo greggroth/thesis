@@ -27,9 +27,9 @@ The best method for measuring brain temperature is to use a thermocouple probe p
 
 As discussed in~\cref{ch:introduction}, changes in tissue activity can be detected by measuring the change in blood oxygenation levels.  Functional Magnetic Resonance Imaging (fMRI) is one technique among several for accomplishing this (the BOLD signal).
 
-Blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb)~\citep{ogawa1990,kwong1992,fox1986}.  Since oxyHb and deoxyHb have different absorption spectra as shown in~\cref{fig:fnirabsorption}. These differences are possible to detect  through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  fNIRS has a high (millisecond) temporal resolution and a low ($\sim$ 1~cm$^3$) spatial resolution compared to fMRI (as low as 1 mm$^3$). Also, fNIRS is limited to only imaging the outer cortex (2--4 mm)~\citep{bunce2006}. A comparison of fMRI and fNIR is presented in~\cref{tbl:comaparemethods}.
+Blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb)~\citep{ogawa1990,kwong1992,fox1986}.  Since oxyHb and deoxyHb have different absorption spectra as shown in~\cref{fig:fnirabsorption}. These differences are possible to detect  through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  fNIRS has a high (millisecond) temporal resolution and a low ($\sim$1~cm$^3$) spatial resolution compared to fMRI (as low as 1 mm$^3$). Also, fNIRS is limited to only imaging the outer cortex (2--4~mm)~\citep{bunce2006}. A comparison of fMRI and fNIR is presented in~\cref{tbl:comaparemethods}.
 
-fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3 cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path and by illuminating the emitters sequentially, it is possible to have 10 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where the near-infrared photon absorption in the tissue is low~(\cref{fig:fnirabsorption}).
+fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3~cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path. By illuminating the emitters sequentially, it is possible to have 10 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where the near-infrared photon absorption in the tissue is low~(\cref{fig:fnirabsorption}).
 
 \begin{figure}[tb]
   \centering
@@ -48,12 +48,12 @@ All of the techniques use the Beer-Lambert Law~\citep{beerlambert}
 \begin{equation}
   I = I_0 e^{-\alpha (\lambda) x} \label{eq:beerlambert1}
 \end{equation} 
-modified to isolate the contributions from oxyHb and deoxyHb~\citep{cope}:
+modified to isolate the individual contributions from oxyHb and deoxyHb~\citep{cope}:
 \begin{equation}
   \label{eq:modifiedbeerlamber}
-  I = G I_0 e^{-(\alpha_{deoxyHb}C_{deoxyHb}+\alpha_{oxyHb}C_{oxyHb})L} 
+  I = G I_0 e^{-(\alpha_{deoxyHb}C_{deoxyHb}+\alpha_{oxyHb}C_{oxyHb}) l} 
 \end{equation}
-where G is a factor to adjust for the measurement geometry, $I_0$ is in the incident light intensity, $\alpha_{oxyHb}$ and $\alpha_{deoxyHb}$ are the molar extinction coefficients for oxyHb and deoxyHb, $C_{oxyHb}$ and $C_{deoxyHb}$ are the chromophore concentrations for oxy-Hb and deoxy-Hb, and L is the path length~\citep{izzetoglu2004}.  By comparing a baseline measurement~($I_b$) with a new measurement~($I$), the optical density can be determined~\citep{izzetoglu2004}
+where G is a factor to adjust for the measurement geometry, $I_0$ is in the incident light intensity, $\alpha_{oxyHb}$ and $\alpha_{deoxyHb}$ are the molar extinction coefficients for oxyHb and deoxyHb, $C_{oxyHb}$ and $C_{deoxyHb}$ are the chromophore concentrations for oxyHb and deoxyHb, and l is the path length~\citep{izzetoglu2004}.  By comparing a baseline measurement~($I_b$) with a new measurement~($I$), the optical density can be determined~\citep{izzetoglu2004}
 \begin{equation}
   \Delta OD = \log \frac{I_b}{I} = \alpha_{deoxyHb} \Delta C_{deoxyHb}+\alpha_{oxyHb} \Delta C_{oxyHb}
 \end{equation}
@@ -84,7 +84,7 @@ This equation can be used along with the black-body spectrum at tissue temperatu
 \begin{figure}[tb]
   \centering
   \includegraphics{blackbody}
-  \caption[Black-body Spectrum at 250, 310 and 350 K]{\label{fig:blackbody}Black-body spectrum at 250, 310 and 350 K calculated using Planck's Law.}
+  \caption[Black-body Spectrum at 250, 310 and 350 K]{\label{fig:blackbody}Black-body spectrum at 250, 310 and 350 K calculated using Planck's Law. The black dashed line traces the peak in the spectrum as temperature changes.  As the temperature increases, differences in temperature translate to smaller shifts in peak wavelength compared to cooler temperatures.}
 \end{figure}
 \begin{figure}[tb]
   \centering
@@ -97,7 +97,7 @@ Wien's Displacement Law is a solution to Planck's law for the peak light emissio
   \lambda_{max} &= \frac{b}{T} \label{eq:wienslaw} \\
   b &= 2.897\,7721 * 10^{-3} \mbox{ K m} \nonumber
 \end{align}
-where $b$ is Wien's displacement constant and T is the temperature in kelvin.  For $T=310$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.347$\,$652~\textmu m. A physiologically reasonable temperature change to expect from stimulation is on the order of 0.01\degree C which would correspond to a new peak wavelength of 9.347$\,$350~\textmu m (T=310.01 K) or a shift of 0.302 nm.
+where $b$ is Wien's displacement constant and T is the temperature in kelvin.  For $T=310$~K ($T=37\degree$~C), Wien's law yields a peak black-body emission wavelength of 9.347$\,$652~\textmu m. A physiologically reasonable temperature change to expect from stimulation is on the order of 0.01\degree C which corresponds to a new peak wavelength of 9.347$\,$350~\textmu m (T=310.01 K) or a shift of 0.302 nm.
 
 The values of the absorption coefficient and the penetration depth of photons in water is shown in~\cref{fig:waterabs}. Looking at around 9.3~\textmu m, the absorption coefficient is approximately 700 cm$^{-1}$ which corresponds to a penetration depth of approximately 0.14~\textmu m.  This depth is roughly five orders of magnitude smaller than the distance from the surface of the brain to the surface of the head.  Further, all photons emitted as blackbody radiation (ranging from 3~\textmu m to over 30~\textmu m) have a penetration depth of less than 100 microns.  Thus, a thermal imaging camera is unable to image photons coming from the brain.
 
