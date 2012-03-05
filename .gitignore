@@ -9,3 +9,6 @@ thesis.pdf
 *.lof
 *.out
 ftp.txt
+*.nav
+*.snm
+presentation.pdf
