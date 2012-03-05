@@ -12,3 +12,5 @@ ftp.txt
 *.nav
 *.snm
 presentation.pdf
+*-blx.bib
+*.xml

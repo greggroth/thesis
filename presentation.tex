@@ -1,4 +1,9 @@
 \documentclass{beamer}
+% \usepackage{natbib}
+\usepackage{biblatex}
+\renewcommand{\footnotesize}{\scriptsize}
+\newrobustcmd*{\footlessfullcite}{\AtNextCite{\renewbibmacro{title}{}\renewbibmacro{note+pages}{}\renewbibmacro{in:}{}}\footfullcite}
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{purple}{rgb}{0.73,0.33,0.83}
@@ -37,12 +42,15 @@
 \setbeamercolor{separation line}{}
 \setbeamercolor{sidebar}{bg=red}
 \setbeamercolor{sidebar}{parent=palette primary}
-\setbeamercolor{structure}{bg=black, fg=green}
+\setbeamercolor{structure}{bg=black, fg=black}
 \setbeamercolor{subsection in sidebar}{fg=brown}
 \setbeamercolor{subsection in sidebar shaded}{fg= grey}
 \setbeamercolor{title}{fg=white,bg=purpderp}
 \setbeamercolor{titlelike}{fg=black}
+\setbeamercolor{footnote}{fg=black}
 % \beamertemplatenavigationsymbolsempty
+
+\bibliography{thesis}
 
 \title{Brain tissue temperature dynamics during functional activity and possibilities for optical measurement techniques}
 \author{Greggory Rothmeier}
@@ -57,6 +65,7 @@
   
 {
 \setbeamercolor{background canvas}{bg=dred}
+\setbeamercolor{text}{fg=white}
 \begin{frame}[plain]
 \titlepage
 \end{frame} 
@@ -93,6 +102,22 @@ to split the slide into two columns.
 The line you are reading goes all the way across the slide.
 From the left margin to the right margin.
 
+\end{frame}
+
+\begin{frame}{Penne's Bioheat Equation}
+  Welcome to Penne's bioheat equation~\footlessfullcite{sotero2011}
+  \begin{align}
+    C_{tissue} \frac{dT(t)}{dt} &= (\Delta H^{\circ}-\Delta H_{b}) CMRO_{2}\mid_{0} m(t) \nonumber \\
+    &\quad {} - \rho_{b} C_{b} CBF\mid_{0} f(t) (T(t) - T_{a}) \nonumber \\
+    &\qquad {} - \frac{C_{t}}{\tau} (T(t)-T_{0}) \nonumber
+  \end{align}
+  \bigskip
+  \begin{align}    
+    change\ in\ temperature\ &=\ heat\ generated\ by\ metabolism\ \nonumber \\
+    &\quad {} -\ heat\ lost\ due\ to\ convection\ \nonumber \\
+    &\qquad {} -\ heat\ lost\ due\ to\ conduction \nonumber
+  \end{align}
+  
 \end{frame}
 
 \end{document}
