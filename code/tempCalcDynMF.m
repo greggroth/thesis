@@ -1,14 +1,15 @@
 function temperatureOut = tempCalcDynMF(tissue,bloodT,airT,nt,tmax,pastCalc,metab,flow,savesteps,region)
-% tempCalcChaning Metabolism  How does changin metabolism 
+% tempCalcDynMF  How does changing metabolism and blood flow
 % affect things?
 % 
-%   tissue: holds all of the strucual information
+%   tissue: holds all of the structual information
 %   bloodT: Temperature of the blood
-%   airT:   Temperature of the surrounding ait
+%   airT:   Temperature of the surrounding air
 %   nt:     Number of time steps
-%   tmax:   Total amount of time the simulation should run over
+%   tmax:   Amount of model time the simulation should span
 %
-%   region: logical matrix same size as head
+%   region: logical matrix same size as head that is used
+%            as a mask
 %
 %   Writen by Greggory Rothmeier (greggroth@gmail.com)
 %   Georgia State University Dept. Physics and Astronomy
@@ -31,16 +32,11 @@ if nt<(2*tmax),
    warning('Time step size is not large enough.  Results will be unreliable.  Consider increasing the number of steps or reducing tmax.')
 end
 
-
-% Constants used that aren't already stored in tissue
 [xmax ymax zmax t] = size(tissue); 
 clear t;
 dt = ones([xmax ymax zmax])*(tmax/(nt-1));
-% rhoBlood = 1057;
-% wBlood = 1000;
-% cBlood = 3600;
 
-%%  Determine Metab/Flow Data Storage System
+%%  Determine Metabolism/Blood Flow Data Storage System
 if ischar(metab)&&ischar(flow)  
   % if file locations are given rather than data
     option = 1;
@@ -98,7 +94,7 @@ for t2 = 1:nt-1
        eval(strcat('flowMulti = f',sprintf('%04d',t3),';'));
        eval(strcat('clear f', sprintf('%04d',t3),' m',sprintf('%04d',t3)))
    else
-       metabMulti(region) = metab(t2);   %  region is hardcoded here
+       metabMulti(region) = metab(t2);
        flowMulti(region) = flow(t2); 
    end
 
@@ -113,7 +109,7 @@ for t2 = 1:nt-1
     % but it needs to be kept constant throughout the calculations
     temperature(2,squeeze(tissue(:,:,:,1))==1) = airT; 
     temperatureOut(ceil(t2/savesteps),:,:,:) = temperature(2,:,:,:);
-    temperature(1,:,:,:) = temperature(2,:,:,:);  % moves 2 back to 1
+    temperature(1,:,:,:) = temperature(2,:,:,:);
     clear metabMulti flowMulti
 end
 close(statusbar);

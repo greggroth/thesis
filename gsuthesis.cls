@@ -346,8 +346,8 @@
     \vspace{1in}
   \end{center}
   \begin{flushright}
-    \begin{tabular}{p{4cm}p{5cm}}
-      Committee Co-Chairs: & 
+    \begin{tabular}{p{5cm}p{5cm}}
+      Committee Chairs: & 
         \@for\i:=\@chair\do{%
           \i \newline
           } \\

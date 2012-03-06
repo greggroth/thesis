@@ -95,6 +95,11 @@ Usage:
 \begin{lstlisting}[style=snippet,label=invoke-tsliceplot]
   tsliceplot(temperature_data, equilibrium_temperature_data)
 \end{lstlisting}
+or
+\begin{lstlisting}[style=snippet]
+  tsliceplot(change_in_temperature_data)
+\end{lstlisting}
+The inputs {\tt temperature\_data} and {\tt change\_in\_temperature\_data} should be four dimensional matrices (time, x,y,z) and {\tt equilibrium\_temperature\_data} is also a four dimensional matrix (1,x,y,z).
 
 The script is available as part of temptools (\url{https://github.com/greggroth/temptools/tree/master/lib/tsliceplot}).
 
@@ -102,12 +107,10 @@ The script is available as part of temptools (\url{https://github.com/greggroth/
   \centering
     \includegraphics{tsliceplot/default-view}
     \caption[Visualization using tsliceplot]{Experimental data for activity in the motor cortex visualized with tsliceplot. \label{fig:tsliceplot}}
-  \centering
 \end{figure}
 
 \begin{figure}[hbt]
   \centering
     \includegraphics{tsliceplot/z-plane-view}
     \caption[Visualization using tsliceplot (z v. t plane)]{The same data as is presented in~\cref{fig:tsliceplot}, but viewed flat-on along the z vs. time plane.\label{fig:tsliceplotz}}
-  \centering
 \end{figure}

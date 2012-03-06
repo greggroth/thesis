@@ -21,28 +21,28 @@ end
 
 if nargin > 1
     if ndims(tempdata) == 3  % should only happen when comparing two equilibrium datasets
-    temp = tempdata;
-    tempdata = zeros([1 size(temp)]);
-    tempdata(1,:,:,:) = temp;
+      temp = tempdata;
+      tempdata = zeros([1 size(temp)]);
+      tempdata(1,:,:,:) = temp;
     elseif ndims(tempdata) ~= 4
-    error('Input ''tempdata'' must have either 3 or 4 dimensions');
+      error('Input ''tempdata'' must have either 3 or 4 dimensions');
     end
     tempdataShort = squeeze(tempdata(end,:,:,:));
 end
 
 if nargin > 2
     if ndims(highlightRegion) ~= 3
-    error('Input ''highlightRegion'' must have 3 dimensions');
+      error('Input ''highlightRegion'' must have 3 dimensions');
     end
     if size(highlightRegion) ~= size(head)
-    error('Input ''highlightRegion'' must be of the same size as ''head''');
+      error('Input ''highlightRegion'' must be of the same size as ''head''');
     end
     tempdataShort = squeeze(tempdata(end,:,:,:));
 end
 
 if nargin > 3
     if slice > size(tempdata,1)
-    error('Input ''slice'' must be less or equal to the length of the first dimension of ''tempdata''');
+      error('Input ''slice'' must be less or equal to the length of the first dimension of ''tempdata''');
     end
     tempdataShort = squeeze(tempdata(slice,:,:,:));
 end
@@ -64,7 +64,6 @@ switch nargin
     SliceBrowser(head,1,head);
     colormap(gray);
     case 2
-    %SliceBrowser(squeeze(tempdata(size(tempdata,1),:,:,:)),tempdata,head);
     SliceBrowser(tempdataShort,tempdata,head);
     case 3
     SliceBrowser(tempdataShort,tempdata,head,highlightRegion);
