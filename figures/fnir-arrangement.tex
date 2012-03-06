@@ -4,35 +4,42 @@
 \tikzstyle{l} = [draw, very thick, color=black, dashed]
 \tikzstyle{legend-box} = [rectangle, draw, thick, fill=none, minimum height=2cm, minimum width=3.5cm]
 \begin{tikzpicture}
-  \matrix[row sep=1.5cm,column sep=1.5cm] {
+  \matrix[row sep=1cm,column sep=1cm] {
   \node[detector] (d11) {}; & &
   \node[detector] (d12) {}; & &
   \node[detector] (d13) {}; & &
-  \node[detector] (d14) {}; \\
+  \node[detector] (d14) {}; & &
+  \node[detector] (d15) {}; \\
   & \node[led] (e1) {}; &
   & \node[led] (e2) {}; &
-  & \node[led] (e3) {}; \\
+  & \node[led] (e3) {}; &
+  & \node[led] (e4) {}; \\
   \node[detector] (d21) {}; & &
   \node[detector] (d22) {}; & &
   \node[detector] (d23) {}; & &
-  \node[detector] (d24) {};\\
+  \node[detector] (d24) {}; & &
+  \node[detector] (d25) {};\\
   };
-  \node[ann, right=of d11, yshift=-1cm] {$l$};
-  \node[detector, right=of d14, yshift=-1.2cm] (dRef) {};
+  \node[ann, right=of d11, yshift=-0.6cm, xshift=-0.3cm] {L};
+  \node[detector, right=of d15, yshift=-1.2cm] (dRef) {};
   \node[led, below=of dRef, yshift=0.7cm]      (eRef) {};
   \node[ann, right=of dRef, xshift=-0.9cm] {Detector};
   \node[ann, right=of eRef, xshift=-0.9cm] {Emitter};
-  \node[legend-box, right=of d14, yshift=-1.6cm, xshift=-0.5cm]{};
+  \node[legend-box, below=of dRef, yshift=1.8cm, xshift=1cm]{};
   \path[l](d11.south east) -- (e1.north west);
   \path[l](d12.south west) -- (e1.north east);
   \path[l](d12.south east) -- (e2.north west);
   \path[l](d13.south west) -- (e2.north east);
   \path[l](d13.south east) -- (e3.north west);
   \path[l](d14.south west) -- (e3.north east);
+  \path[l](d14.south east) -- (e4.north west);
+  \path[l](d15.south west) -- (e4.north east);
   \path[l](d21.north east) -- (e1.south west);
   \path[l](d22.north west) -- (e1.south east);
   \path[l](d22.north east) -- (e2.south west);
   \path[l](d23.north west) -- (e2.south east);
   \path[l](d23.north east) -- (e3.south west);
   \path[l](d24.north west) -- (e3.south east);
+  \path[l](d24.north east) -- (e4.south west);
+  \path[l](d25.north west) -- (e4.south east);
 \end{tikzpicture}
