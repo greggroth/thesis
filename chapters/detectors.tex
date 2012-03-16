@@ -29,17 +29,17 @@ As discussed in~\cref{ch:introduction}, changes in tissue activity can be detect
 
 Blood oxygenation can be determined by measuring the relative concentrations of oxyhemoglobin (oxyHb) and deoxyhemoglobin (deoxyHb)~\citep{ogawa1990,kwong1992,fox1986}.  Since oxyHb and deoxyHb have different absorption spectra as shown in~\cref{fig:fnirabsorption}. These differences are possible to detect  through optical techniques.  Functional Near-Infrared Spectroscopy is a technique which utilizes two or more spectral bands in order to determine blood oxygenation.  fNIRS has a high (millisecond) temporal resolution and a low ($\sim$1~cm$^3$) spatial resolution compared to fMRI (as low as 1 mm$^3$). Also, fNIRS is limited to only imaging the outer cortex (2--4~mm)~\citep{bunce2006}. A comparison of fMRI and fNIR is presented in~\cref{tbl:comaparemethods}.
 
-fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3~cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path. By illuminating the emitters sequentially, it is possible to have 16 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where the near-infrared photon absorption in the tissue is low~(\cref{fig:fnirabsorption}).
+fNIRS works by utilizing an array of near-infrared detectors and emitters (typically spaced 2--3~cm apart) placed in contact with the skin~\citep{villringer1997,izzetoglu2004}.  A schematic of a typical fNIRS array setup is shown in~\cref{fig:fnir-arragement}. Each dashed line is a detection path. By illuminating the emitters sequentially, it is possible to have 16 detection channels using the setup shown.  The exact spacing between the emitters and detectors determines the depth the light is detected from.  As shown in~\cref{fig:fnirpenetration}, the closer the spacing, the higher the resolution but at the expense of lower penetration.  Conversely, in order to detect light passing through deeper tissue, a wider spacing is used which reduces the resolution.  Systems use either two~\citep{villringer1997,izzetoglu2004p,sato2004} or three~\citep{hoshi2003} wavelengths selected based on differences in the absorption of oxyHb and deoxyHb.  The exact wavelengths used vary, but all lie within an optical window between 700--1000~nm~\citep{villringer1997} where the near-infrared photon absorption in the tissue is low~(\cref{fig:fnirabsorption}).
 
 \begin{figure}[tb]
   \centering
   \input{figures/fnir-arrangement}
-  \caption[Sample arrangement of detectors and emitters in a typical fNIRS setup]{\label{fig:fnir-arragement}A Sample arrangement of detectors and emitters in a typical 16-channel fNIRS setup. Light coming from emitters (stars) is detected by the detectors (circles) set at a distance L away.}
+  \caption[Sample arrangement of detectors and emitters in a typical fNIRS setup]{\label{fig:fnir-arragement}A Sample arrangement of detectors and emitters in a typical 16-channel fNIRS setup (based on~\citet{izzetoglu2004}). Light coming from emitters (stars) is detected by the detectors (circles) set at a distance L away.}
 \end{figure}
 \begin{figure}[tb]
   \centering
   \includegraphics{fnir-penetration}
-  \caption[Penetration by fNIR]{\label{fig:fnirpenetration}Penetration depth of a fNIR detector as a function of the distance between the NIR emitter and detector.  Light emitted from the left passes through the tissue before it is detected.  The path it takes through the tissue is determined by the distance between the emitter and detector.  A larger separation between emitter and detector (L$_2$) allows the light to penetrate deeper in to the tissue (d$_2$).  Modified after~\citep{head2010}}
+  \caption[Penetration by fNIR]{\label{fig:fnirpenetration}Penetration depth of a fNIR detector as a function of the distance between the NIR emitter and detector.  Light emitted by either and LED or fiber optic (red star) from the left passes through the tissue before it is scattered back to be detected (blue circle).  The path it takes through the tissue is determined by the distance between the emitter and detector.  A larger separation between emitter and detector (L$_2$) allows the light to penetrate deeper in to the tissue (d$_2$).  Modified after~\citep{head2010}}
 \end{figure}
 
 Three techniques are used to illuminate the tissue: (i)~time domain (or time resolved spectroscopy, TRS), (ii)~frequency domain and, (iii)~continuous wave illumination~\citep{izzetoglu2004}.  In TRS, short pulses of light are incident on the tissue and the temporal distribution of photons in measured.  In frequency domain spectroscopy, the amplitude of the incident light is modulated at a high frequency (10--100~MHz) and the phase shift and amplitude decay of the detected light is compared to the incident light~\citep{boas2002}. In continuous wave illumination, the incident light is not modulated so the detected light can only be compared for amplitude attenuation~\citep{izzetoglu2004}.
@@ -111,3 +111,20 @@ When thermal imaging is used, the photons collected come from the skin of the he
 While its applications to detecting brain activity are limited, thermal cameras could be useful in the operating room.  It has been found that inducing mild hypothermia in patients being treated for cerebral ischemia improves the clinical outcome~\citep{maher1993}. The same treatment has been shown to improve the outcome of patients who have experienced a stroke~\citep{krieger2001} and even in patients with severe head injuries~\citep{soukup2002}. The temperature of the brain is currently inferred from the core body temperature (which is monitored via an invasive thermistor catheter). If it is possible to directly image the brain (i.e. during surgery) then the hypothermia treatment can be better monitored through a thermal imaging camera.  This would be especially useful since conductive and radiative heat loss to the air from an exposed brain could reduce how tightly the brain temperature is regulated by the arterial blood temperature.
 
 Optical detectors face many challenges working with biological tissue, the worst being infrared light absorption by water. fNIRS works within an optical window in the water absorption in order to measure changes in blood oxygenation, while thermal imaging is limited to measuring the temperature of tissue it has direct line of sight with because of the high absorption of water in the operating window. Despite their limitations, both of these techniques could be used in future studies to improve our understanding of brain temperature dynamics.
+
+\clearpage
+\begin{equation}
+  C_{tissue} \frac{dT(t)}{dt} = ... +\frac{A \sigma T^4}{\rho_{gm} V}
+\end{equation}
+\begin{align}
+  \frac{dT}{dt} &= \frac{A \sigma T^{4}}{\rho_{gm} V C_{tissue}}\nonumber\\
+  & {} = \frac{1}{6}%
+  \frac{%
+    \left(6*4\ 10^{-6}\ \text{m}^{2}\right)%
+    \left(5.6704\ 10^{-8}\ \frac{J}{\text{s m}^{2}\ \text{K}^{4}}\right)%
+    \left(310\ \text{K}\right)^{4}}%
+  { \left(1035\ 10^3\ \frac{\text{g}}{\text{m}^{3}}\right)%
+    \left(8\ 10^{-9}\ \text{m}^3\right)%
+    \left(3.664\ \frac{\text{J}}{\text{g K}}\right)}\nonumber\\
+  & {} \approx 0.0690454\ \frac{\text{K}}{\text{s}}
+\end{align}

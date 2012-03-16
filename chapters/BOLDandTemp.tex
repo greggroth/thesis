@@ -26,8 +26,9 @@
     While~\cref{eq:bioheat} is appears complicated, conceptually Penne's Bioheat Equation can be easily understood:
     \begin{align}    
       \label{eq:soteroexplaiend}
-      change\ in\ temperature\ &=\ heat\ generated\ by\ metabolism\ -\ heat\ lost\ due\ to\ convection\ \nonumber\\
-      &\quad {} -\ heat\ lost\ due\ to\ conduction\ -\ heat\ lost\ due\ to\ radiation\
+      heat\ capacity\ &*\ change\ in\ temperature\ =\ heat\ generated\ by\ metabolism\nonumber \\ 
+      &\quad {} -\ heat\ lost\ due\ to\ convection\ -\ heat\ lost\ due\ to\ conduction\nonumber\\ 
+      &\quad {}  -\ heat\ lost\ due\ to\ radiation\
     \end{align}
     The system is a balance between heat generation (metabolism) and heat transfer (conduction, convection and radiation).  The direction of heat transfer by convection is determined by the difference between the voxel temperature and the arterial blood temperature (T$(t) - $T$_a$).  Similarly, the direction of heat transfer by conduction is determined by the difference between the voxel temperature and the temperature of the surrounding tissue (T$(t) - $T$_0$).  Since T$_a$ is less than T$_0$, an increase in blood flow ($f(t)$) will remove heat from the voxel thereby decreasing the temperature.  Conversely, an increase in metabolism ($m(t)$) without a corresponding change in blood flow, will result in tissue warming.  \Cref{eq:bioheat} omits the effect of radiation because the contribution is small compared to the other terms.  As we will see in~\cref{sec:ThermalImaging}, mid-infrared photons are reabsorbed by tissue within \Gtilde 10--100 \textmu m~(\cref{fig:waterabs}) so any energy lost due to radiation does not travel very far compared to the ROI size.
     
@@ -62,7 +63,7 @@
   % SETUP AND FILE PROCESSING
     \subsection{\label{sec:prephead} Preparing the model of the head}
     \begin{figure}[tb] 
-      \centering\hspace*{20px} 
+      \centering
     	\includegraphics{segmented-head} 
     	\caption[Slice of the segmented head]{\label{fig:segmented} Slice of the segmented head. Each color represents a different tissue type.} 
     \end{figure}
@@ -85,7 +86,7 @@
 
   
   % CALC EQUIL T
-    \FloatBarrier
+    % \FloatBarrier
     \subsection{\label{sec:calcequilT} Calculating the equilibrium temperature}
   The first step in calculating the temperature change is to know the resting state temperature for each voxel within the head. Our approach was to have the initial temperature for all tissue voxels set to 37\degree C and air voxels are kept at 24\degree C.  The starting temperature of the tissue does not affect the final resting state temperature; however, starting off at drastically different values could greatly increase the calculating time required before the temperature stabilizes. The finite difference implementation of Penne's Bioheat Equation (\cref{eq:3dbioheat}) is used to update the temperature (derivation provided in~\cref{sec:calcT}).  The temperature is updated until the temperature for every voxel has stabilized ($\frac{dT}{dt} < 10^{-6}$ \degree C/s).  Since temperature changes due to changes in neuronal activity are typically greater than $10^{-2}$ \degree C, a change in temperature less than $10^{-6}$ \degree C/s is sufficiently small that transient temperature changes are negligible and temperature can be considered stabilized.  The code used to calculate the equilibrium temperature is detailed in~\cref{apdx:findequil}.
   

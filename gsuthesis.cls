@@ -347,7 +347,7 @@
   \end{center}
   \begin{flushright}
     \begin{tabular}{p{5cm}p{5cm}}
-      Committee Chairs: & 
+      Committee Chair: & 
         \@for\i:=\@chair\do{%
           \i \newline
           } \\
@@ -898,7 +898,7 @@
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{booktabs}
 \setkeys{Gin}{width=\textwidth}
-\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, tikz, amsmath, etoolbox,array}
+\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, amsmath, etoolbox,array}
 \RequirePackage[compact]{titlesec}
 \RequirePackage[section]{placeins}
 \RequirePackage[font=normalsize,labelsep=quad]{caption}

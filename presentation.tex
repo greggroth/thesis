@@ -1,5 +1,8 @@
 \documentclass{beamer}
-% \usepackage{natbib}
+\usepackage{tikz,tabularx,booktabs}
+\graphicspath{{./figures/}}
+\usetikzlibrary{decorations,arrows,shapes,positioning}
+\tikzset{variable/.default=}
 \usepackage{biblatex}
 \renewcommand{\footnotesize}{\scriptsize}
 \newrobustcmd*{\footlessfullcite}{\AtNextCite{\renewbibmacro{title}{}\renewbibmacro{note+pages}{}\renewbibmacro{in:}{}}\footfullcite}
@@ -17,11 +20,17 @@
 \definecolor{borange}{RGB}{192,54,0}
 \definecolor{bage}{RGB}{255,255,183}
 \definecolor{peas}{RGB}{129,153,6}
+% My Own
+\definecolor{lblue}{RGB}{153,229,255}
+\definecolor{llblue}{RGB}{192,246,255}
 
-\useoutertheme{default}
 \useinnertheme{rectangles}
+% \useoutertheme{default}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{background canvas}[vertical shading][bottom=lblue!30!white,top=llblue!20!white]
 \setbeamercolor{alerted text}{fg=goldfish}
-\setbeamercolor{background canvas}{bg=bage!70!white}
+% \setbeamercolor{background canvas}{bg=bage!70!white}
 \setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
 \setbeamercolor{block body}{bg=normal text.bg!90!black}
 \setbeamercolor{block body example}{bg=normal text.bg!90!black}
@@ -29,7 +38,7 @@
 \setbeamercolor{block title}{bg=peas}
 \setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
 \setbeamercolor{fine separation line}{}
-\setbeamercolor{frametitle}{fg=white, bg=dred}
+\setbeamercolor{frametitle}{fg=white, bg=borange}
 \setbeamercolor{item projected}{fg=black}
 \setbeamercolor{itemize item}{fg=peas}
 \setbeamercolor{normal text}{fg=black}
@@ -45,7 +54,7 @@
 \setbeamercolor{structure}{bg=black, fg=black}
 \setbeamercolor{subsection in sidebar}{fg=brown}
 \setbeamercolor{subsection in sidebar shaded}{fg= grey}
-\setbeamercolor{title}{fg=white,bg=purpderp}
+\setbeamercolor{title}{fg=dred,bg=}
 \setbeamercolor{titlelike}{fg=black}
 \setbeamercolor{footnote}{fg=black}
 % \beamertemplatenavigationsymbolsempty
@@ -61,7 +70,20 @@
 }
 \date{April 3, 2012}
 
+\newcommand{\degree}{\ensuremath{^\circ}}
 \begin{document}
+
+%  * What is BOLD?
+%  * Temperature
+%     * Experimental Measurements
+%     * Modeling
+%        * Previous Models
+%        * Our Model
+%  * Optical Techniques
+%     * fNIRS
+%     * Thermal Imaging
+%  * Conclusion/Future Work
+  
   
 {
 \setbeamercolor{background canvas}{bg=dred}
@@ -71,53 +93,229 @@
 \end{frame} 
 }
 
-\begin{frame}{Overview}
-  Overview
-\end{frame} 
+\frame{
+\frametitle{Outline}
+  \begin{itemize}
+           \item fMRI and BOLD
+    \pause \item Previous temperature models
+    \pause \item Our approach
+    \pause \item Optical techniques
+  \end{itemize}
+}
 
-\begin{frame}{Splitting a slide into columns}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  fMRI and BOLD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The line you are reading goes all the way across the slide.
-From the left margin to the right margin.  Now we are going
-to split the slide into two columns.
-\bigskip
+\frame{
+\frametitle{fMRI and BOLD}
+  What is the BOLD.  How does fMRI measure it?
+}
 
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    Here is the first column.  We put an itemized list in it.
-    \begin{itemize}
-      \item This is an item
-      \item This is another item
-      \item Yet another item
-    \end{itemize}
-  \end{column}
+\frame{
+\frametitle{Generation of the BOLD Response}
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \input{figures/boldFlowChartPresentation}
+  }
+}
 
-  \begin{column}{0.3\textwidth}
-    Here is the second column.  We will put a picture in it.
-    % \centerline{\includegraphics[width=0.7\textwidth]{image2.png}}
-  \end{column}
-\end{columns}
-\bigskip
+\frame{
+\frametitle{The Balloon Model}
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \includegraphics[width=\linewidth]{figures/balloon-model-rastor}
+  }
+}
 
-The line you are reading goes all the way across the slide.
-From the left margin to the right margin.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Previous Works
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{frame}
-
-\begin{frame}{Penne's Bioheat Equation}
-  Welcome to Penne's bioheat equation~\footlessfullcite{sotero2011}
+\frame{
+\frametitle{1-D Penne's Bioheat Equation~\footlessfullcite{sotero2011}}
   \begin{align}
     C_{tissue} \frac{dT(t)}{dt} &= (\Delta H^{\circ}-\Delta H_{b}) CMRO_{2}\mid_{0} m(t) \nonumber \\
     &\quad {} - \rho_{b} C_{b} CBF\mid_{0} f(t) (T(t) - T_{a}) \nonumber \\
     &\qquad {} - \frac{C_{t}}{\tau} (T(t)-T_{0}) \nonumber
   \end{align}
-  \bigskip
+  \medskip
+  \small{
   \begin{align}    
-    change\ in\ temperature\ &=\ heat\ generated\ by\ metabolism\ \nonumber \\
-    &\quad {} -\ heat\ lost\ due\ to\ convection\ \nonumber \\
+    heat\ capacity\ &*\ change\ in\ temperature\ =\ heat\ generated\ by\ metabolism \nonumber \\
+    &\quad  {} -\ heat\ lost\ due\ to\ convection \nonumber \\
     &\qquad {} -\ heat\ lost\ due\ to\ conduction \nonumber
   \end{align}
-  
-\end{frame}
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Our Approach 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\frame{
+\frametitle{Calculations Procedure}
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \input{figures/calculationsFlowChartPresentation}
+  }
+}
+
+\frame{
+\frametitle{3-D Penne's Bioheat Equation~\footlessfullcite{collins}}
+  \begin{equation*}
+  	\rho c \frac{dT}{dt} = k \nabla^{2}T-\rho_{blood}f(t)wc_{blood}(T-T_{blood})+m(t)Q_{m} 
+  \end{equation*}
+}
+
+\frame{
+\frametitle{The Segmented Head}
+  \centering
+  \hspace{2cm}
+  \includegraphics[width=0.7\textwidth]{segmented-head}
+  \medskip
+  \tiny{
+  \begin{tabular*}{\linewidth}{@{} l p{1.6cm}p{1cm}p{1.6cm}p{1.6cm}l@{}}
+	  \toprule
+	  Tissue & $f_0$ \newline $100 \; ml/(g \; min)$ & $\rho$ \newline $kg/m^{3}$ & $c$ \newline $J \: kg^{-1} \: \degree C^{-1}$ & $k$ \newline $W \: m^{-1} \: \degree C^{-1}$ & $Q_{m}$ \newline $W/m^{3}$ \\
+	  \midrule
+		Bone & 3 & 1,080 & 2,110 & 0.65 & 26.1 \\
+		Cerebrospinal Fluid & 0 & 1,007 & 3,800 & 0.50 & 0 \\
+		Gray Matter & 67.1 & 1,035.5 & 3,680 & 0.565 & 15,575 \\
+		White Matter & 23.7 & 1,027.4 & 3,600 & 0.503 & 5,192 \\
+		Muscle & 3.8 & 1,041 & 3,720 & 0.4975 & 687 \\
+		Skin & 12 & 1,100 & 3,150 & 0.342 & 1,100 \\
+		\bottomrule
+	\end{tabular*}
+	}
+}
+
+\frame{
+\frametitle{Equilibrium Temperature}
+\centering
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{headref}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth] {equilibrium_temperature_0_55_52} 
+  \end{column}
+\end{columns}
+}
+
+\frame{
+\frametitle{Synthetic BOLD}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{c}
+    \includegraphics{sim_bold_(48_58_76)} \\
+    \includegraphics{sim_bold_(48_58_56)}
+  \end{tabular}
+  }
+}
+
+\frame{
+\frametitle{Experimental BOLD Data}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{slice_x_24}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{avg_data_24_52_67}
+    \end{column}
+  \end{columns}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Optical Techniques
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+\frametitle{fMRI vs. fNIR}
+  \scriptsize{
+  \renewcommand{\arraystretch}{2}
+  \begin{tabularx}{\linewidth}{lp{3cm}p{3cm}}
+    \toprule
+                         & fMRI             & fNIR            \\
+    \midrule
+    Spatial Resolution   & 8--27 mm$^3$  & $\sim$ 1--10 cm$^3$ \\
+    Temporal Resolution  & 1--2 s        & $\sim$ 10$^{-3}$ s \\
+    Measurement Parameter& blood volume, flow, and O$_2$ metabolism & oxyHb and deoxyHb concentrations \\
+    Motion               & Must Remain Stationary & Small movements OK \\
+    Penetration          & Whole-head    & outer 2--4 mm of brain tissue \\
+    \bottomrule
+  \end{tabularx}
+  }
+}
+
+\frame{
+\frametitle{Near-infrared Absorption Spectra}
+  \centering
+  \includegraphics[width=\textwidth]{AbsorptionData}
+}
+
+\frame{
+\frametitle{Typical fNIRS Setup}
+  \centering
+  \resizebox{\textwidth}{!}{
+  \input{figures/fnir-arrangement}
+  }
+}
+
+\frame{
+\frametitle{fNIRS Penetration}
+  \centering
+  \includegraphics[width=\textwidth]{fnir-penetration}
+}
+
+\frame{
+\frametitle{Black-body Emission}
+  \begin{columns}
+    \begin{column}{0.8\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{blackbody-1}
+    \end{column}
+    \begin{column}{0.2\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{blackbody-2}
+    \end{column}
+  \end{columns}
+}
+
+\frame{
+\frametitle{Black-body Emission}
+  \begin{columns}
+    \begin{column}{0.2\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{blackbody-1}
+    \end{column}
+    \begin{column}{0.8\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{blackbody-2}
+    \end{column}
+  \end{columns}
+}
+
+\frame{
+\frametitle{Broad-band Water Absorption Spectra}
+  \centering
+  \includegraphics[width=\textwidth]{water-wide-band}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Conclusions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame[plain]{
+  \begin{tabularx}{\linewidth}{X}
+    \centering\includegraphics[scale=0.5]{octocat} \\
+    \centering\includegraphics[scale=0.1]{github}
+  \end{tabularx}
+  \begin{center}
+    \vspace*{\fill}
+    \Large\texttt{https://github.com/greggroth/temptools}
+    \vspace{2cm}
+  \end{center}
+}
 
 \end{document}
