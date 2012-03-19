@@ -109,7 +109,37 @@
 
 \frame{
 \frametitle{fMRI and BOLD}
-  What is the BOLD.  How does fMRI measure it?
+  Hemoglobin responds to the fMRI's magnetic field differently depending on the oxidative state:
+  \begin{itemize}
+    \item Deoxygenated: paramagnetic
+    \item Oxygenated: diamagnetic
+  \end{itemize}
+  Deoxyhemoglobin alters the local magnetic susceptibility, thereby producing a slight change in the local MR signal.
+}
+
+\frame{
+\frametitle{fMRI and BOLD: Local oxygen extraction fraction (E)}
+
+\begin{columns}
+  \column{0.7\linewidth}
+  An increase in neuronal activity induces a much larger increase in cerebral blood flow (CBF) than the cerebral metabolic rate of oxygen (CMRO$_2$).
+  
+  \bigskip
+  
+  As a result, the local oxygen extraction fraction (E) decreases with activation~\footlessfullcite{fox1986}.
+  
+  \bigskip
+  
+  With less deoxy-hemoglobin present, the local MR signal increases and gives rise to a blood oxygenation level dependent (BOLD) signal change.
+  
+  \column{0.3\linewidth}
+  \includegraphics[width=\linewidth]{neuronal-cbf-cmro2-rastor}
+\end{columns}
+
+}
+
+\frame{
+  \includegraphics[width=\linewidth]{neuronal-cbf-cmro2-rastor}
 }
 
 \frame{
@@ -124,7 +154,7 @@
 \frametitle{The Balloon Model}
   \centering
   \resizebox{\textwidth}{!}{%
-    \includegraphics[width=\linewidth]{figures/balloon-model-rastor}
+    \includegraphics[width=\linewidth]{balloon-model-rastor}
   }
 }
 

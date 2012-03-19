@@ -112,7 +112,7 @@ While its applications to detecting brain activity are limited, thermal cameras 
 \begin{equation}
   C_{tissue} \frac{dT(t)}{dt} = ... +\frac{A \sigma T^4}{\rho_{gm} V}
 \end{equation}
-\hl{After rearranging to solve for $\frac{dT}{dt}$ an substituting values in, it is found that the change in temperature is approximately 0.07 K/s:}
+\hl{After rearranging to solve for $\frac{dT}{dt}$ and substituting values in, it is found that the change in temperature is approximately 0.07 K/s:}
 \begin{align}
   \frac{dT}{dt} &= \frac{A \sigma T^{4}}{\rho_{gm} V C_{tissue}}\nonumber\\
   & {} = \frac{1}{6}%
@@ -125,6 +125,6 @@ While its applications to detecting brain activity are limited, thermal cameras 
     \left(3.664\ \frac{\text{J}}{\text{g K}}\right)}\nonumber\\
   & {} \approx 0.0690454\ \frac{\text{K}}{\text{s}}
 \end{align}
-\hl{where A and V are the surface area and volume of the voxel, $\sigma$ is the Stefan–Boltzmann constant and $\rho_{gm}$ is the density of gray matter.  The $1/6$ factor is there because only one face of the voxel is exposed to air.  Radiation passing through the other faces will be reabsorbed by the tissue}~(\cref{fig:waterabs}).
+\hl{where A and V are the surface area and volume of the voxel, $\sigma$ is the Stefan–Boltzmann constant and $\rho_{gm}$ is the density of gray matter.  The factor $1/6$ is there because only one face of the voxel is exposed to air.  Radiation passing through the other faces will be reabsorbed by the tissue}~(\cref{fig:waterabs}).
 
 Optical detectors face many challenges working with biological tissue, the worst being infrared light absorption by water. fNIRS works within an optical window in the water absorption in order to measure changes in blood oxygenation, while thermal imaging is limited to measuring the temperature of tissue it has direct line of sight with because of the high absorption of water in the operating window. Despite their limitations, both of these techniques could be used in future studies to improve our understanding of brain temperature dynamics.
