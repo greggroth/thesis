@@ -898,7 +898,7 @@
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{booktabs}
 \setkeys{Gin}{width=\textwidth}
-\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, amsmath, etoolbox,array}
+\RequirePackage{epstopdf, listings, setspace, tocloft, appendix, tabularx, amsmath, etoolbox,array,soul}
 \RequirePackage[compact]{titlesec}
 \RequirePackage[section]{placeins}
 \RequirePackage[font=normalsize,labelsep=quad]{caption}
