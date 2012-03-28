@@ -51,6 +51,10 @@
 %%   Right bracket \]     Circumflex    \^     Underscore    \_
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
+
+% TO DO
+% Add class option for print version (left margin = 1.5 inches)
+
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{gsuthesis}
               [2012/2/20 v0.1
@@ -61,6 +65,11 @@
 \@titlepagetrue
 \newif\if@openright
 \if@compatibility\else
+\newcommand\gleftmargin { 1.0in }
+\DeclareOption{print}
+   {\renewcommand\gleftmargin { 1.5in }}
+\DeclareOption{electronic}
+   {\renewcommand\gleftmargin { 1.0in }}
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}}
@@ -124,7 +133,7 @@
       }%
    \renewcommand\newblock{\par}}%
 }
-\ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
+\ExecuteOptions{electronic,letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
 \input{size1\@ptsize.clo}
 \setlength\lineskip{1\p@}
@@ -884,7 +893,7 @@
 
 \RequirePackage{textcomp}
 \RequirePackage[allbordercolors={1 1 1}]{hyperref}
-\RequirePackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry}
+\RequirePackage[top=1.0in, bottom=1.0in, left=\gleftmargin, right=1.0in]{geometry}
 \RequirePackage{fancyhdr}
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
